@@ -83,41 +83,6 @@ if [ ! -d "$DEST" ]; then
   mkdir $DEST
 fi
 
-readIniFile () { # expects one argument: absolute path of profiles.ini
-  declare -r inifile="$1"
-  declare -r tfile=$(mktemp)
-
-  if [ $(grep '^\[Profile' "$inifile" | wc -l) == "1" ]; then ### only 1 profile found
-    grep '^\[Profile' -A 4 "$inifile" | grep -v '^\[Profile' > $tfile
-  else
-    grep -E -v '^\[General\]|^StartWithLastProfile=|^IsRelative=' "$inifile"
-    echo -e "${GREEN}"
-    read -p 'Select the profile number ( 0 for Profile0, 1 for Profile1, etc ) : ' -r
-    echo -e "\n${NC}"
-    if [[ $REPLY =~ ^(0|[1-9][0-9]*)$ ]]; then
-      grep '^\[Profile'${REPLY} -A 4 "$inifile" | grep -v '^\[Profile'${REPLY} > $tfile
-      if [[ "$?" != "0" ]]; then
-        echo -e "${RED}${ERROR}Profile${REPLY} does not exist!${NC}" && exit 1
-      fi
-    else
-      echo -e "${RED}${ERROR} Invalid selection!${NC}" && exit 1
-    fi
-  fi
-
-  declare -r profpath=$(grep '^Path=' $tfile)
-  declare -r pathisrel=$(grep '^IsRelative=' $tfile)
-
-  rm "$tfile"
-
-  # update global variable
-  if [[ ${pathisrel#*=} == "1" ]]; then
-    PROFILE_PATH="$(dirname "$inifile")/${profpath#*=}"
-    PROFILE_ID="${profpath#*=}"
-  else
-    PROFILE_PATH="${profpath#*=}"
-  fi
-}
-
 getProfilePath() {
   declare -r f1=~/Library/Application\ Support/Firefox/profiles.ini
   declare -r f2=~/.mozilla/firefox/profiles.ini
@@ -131,19 +96,23 @@ getProfilePath() {
     echo -e "${RED}${ERROR}Error: Sorry, -l is not supported for your OS${NC}"
     exit 1
   fi
-  readIniFile "$ini" # updates PROFILE_PATH or exits on error
+  PROFILE_PATH=$(dirname $ini)
+  echo $PROFILE_PATH
+#  readIniFile "$ini" # updates PROFILE_PATH or exits on error
 }
 
 backupProfile() {
-  BACKUP_FILE_NAME=${PROFILE_ID}-$(date +"%Y-%m-%d_%H%M").tar.gz
+  BACKUP_FILE_NAME=Firefox-$(date +"%Y-%m-%d_%H%M").tar.gz.gpg
 
-  tar -zcf $BACKUP_FILE_NAME $PROFILE_PATH > /dev/null 2>&1
+  tar -zc $PROFILE_PATH | gpg -c --batch --passphrase ${PROFILE_ENC_PASSWORD:-Sweet&Salt2#s94} -o $BACKUP_FILE_NAME
 
   mv $BACKUP_FILE_NAME $DEST
 
   echo -e "${GREEN}${DONE} Done! ${NC}"
   echo ""
   echo -e "${ORANGE}${ARROW} Firefox profile successfully backed up to $DEST ${NC}"
+  echo ""
+  echo -e "${ORANGE}${ARROW} To decrypt, execute ${INVERT}gpg -d $DEST/$BACKUP_FILE_NAME | tar -xz${NC}"
   echo ""
 }
 
