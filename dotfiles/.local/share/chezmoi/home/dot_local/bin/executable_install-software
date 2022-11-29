@@ -217,34 +217,51 @@ async function beforeInstall(packageManager) {
     await $`logg info 'Temporarily enabling passwordless sudo for Ansible role installations'`
     await $`sudo echo "$(whoami) ALL=(ALL:ALL) NOPASSWD: ALL # TEMPORARY FOR ANSIBLE INSTALL" > /etc/sudoers`
   } else if (packageManager === 'apk') {
+    await $`sudo apk update`
   } else if (packageManager === 'apt') {
     await $`sudo apt-get update`
   } else if (packageManager === 'basher') {
   } else if (packageManager === 'binary') {
   } else if (packageManager === 'brew' || packageManager === 'cask') {
+    await $`brew update`
   } else if (packageManager === 'cargo') {
   } else if (packageManager === 'choco') {
   } else if (packageManager === 'crew') {
+    await $`crew update`
   } else if (packageManager === 'dnf') {
+      const dnf = which.sync('dnf', { nothrow: true })
+      const yum = which.sync('yum', { nothrow: true })
+      if (dnf) {
+        await $`dnf check-update`
+      } else if (yum) {
+        await $`yum check-update`
+      }
   } else if (packageManager === 'flatpak') {
+        await $`sudo flatpak update`
   } else if (packageManager === 'gem') {
   } else if (packageManager === 'go') {
   } else if (packageManager === 'nix') {
+    await $`nix-channel --update`
   } else if (packageManager === 'npm') {
+    await $`nix-channel --update`
   } else if (packageManager === 'pacman') {
     await $`sudo pacman -Syu`
   } else if (packageManager === 'pipx') {
   } else if (packageManager === 'pkg') {
+    await $`sudo pkg upgrade`
   } else if (packageManager === 'port') {
+    await $`sudo port sync`
   } else if (packageManager === 'scoop') {
-  } else if (packageManager === 'crew') {
-  } else if (packageManager === 'dnf') {
-  } else if (packageManager === 'flatpak') {
+    await $`scoop update`
   } else if (packageManager === 'snap') {
+    await $`sudo snap refresh`
   } else if (packageManager === 'whalebrew') {
   } else if (packageManager === 'winget') {
+    await $`winget source update`
   } else if (packageManager === 'yay') {
+    await $`yay`
   } else if (packageManager === 'zypper') {
+    await $`sudo zypper update`
   }
 }
 
@@ -528,6 +545,9 @@ async function installPackageList(packageManager, packages) {
     } else if (packageManager === 'apt') {
       await $`sudo apt-get install -y ${packages}`
     } else if (packageManager === 'basher') {
+      for (const basherPkg of packages) {
+        await $`basher install ${basherPkg}`
+      }
     } else if (packageManager === 'binary') {
     } else if (packageManager === 'brew') {
       await $`brew install ${packages}`
@@ -561,6 +581,7 @@ async function installPackageList(packageManager, packages) {
         await $`go install ${goPkg}`
       }
     } else if (packageManager === 'nix') {
+        await $`nix-env -iA ${nixPkg}`
     } else if (packageManager === 'npm') {
       for (const npmPkg of packages) {
         await $`volta install ${npmPkg}`
@@ -572,6 +593,7 @@ async function installPackageList(packageManager, packages) {
         await $`pipx install ${pipxPkg}`
       }
     } else if (packageManager === 'pkg') {
+        await $`sudo pkg install ${pkgPkg}`
     } else if (packageManager === 'port') {
       for (const portPkg of packages) {
         await $`sudo port install ${portPkg}`
@@ -589,6 +611,9 @@ async function installPackageList(packageManager, packages) {
         await $`whalebrew install ${snapPkg}`
       }
     } else if (packageManager === 'winget') {
+      for (const wingetPkg of packages) {
+        await $`winget install ${wingetPkg}`
+      }
     } else if (packageManager === 'yay') {
       for (const yayPkg of packages) {
         await $`yay -Sy --noconfirm --needed ${yayPkg}`
