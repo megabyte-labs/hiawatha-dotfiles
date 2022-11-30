@@ -1,1 +1,89 @@
 #!/usr/bin/env bash
+
+######################################################################
+####        Script to restore firefox profile from backup         ####
+######################################################################
+
+readonly CURRDIR=$(pwd)
+
+sfp=$(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null || greadlink -f "${BASH_SOURCE[0]}" 2>/dev/null)
+if [ -z "$sfp" ]; then sfp=${BASH_SOURCE[0]}; fi
+readonly SCRIPT_DIR=$(dirname "${sfp}")
+
+# Icons used for printing
+ARROW='➜'
+DONE='✔'
+ERROR='✗'
+WARNING='⚠'
+# Colors used for printing
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+BBLUE='\033[1;34m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+DARKORANGE="\033[38;5;208m"
+CYAN='\033[0;36m'
+DARKGREY="\033[48;5;236m"
+NC='\033[0m' # No Color
+# Text formatting used for printing
+BOLD="\033[1m"
+DIM="\033[2m"
+UNDERLINED="\033[4m"
+INVERT="\033[7m"
+HIDDEN="\033[8m"
+
+SOURCE_ARCHIVE=$1
+
+# Check if source path is provided. If not, check if a backup exists in the current directory.
+# If a backup is found in the current directory, use it. If not, exit.
+# If a source path is provided, check if the file exists. If not, exit.
+if [ -z "$SOURCE_ARCHIVE" ]; then
+  FILE_NAME=$(find . -iname "Firefox*tar*")
+  if [ -z "$FILE_NAME" ]; then
+    echo -e "${RED}${ERROR} Backup path not provided, a valid backup file not found in current directory. Provide a valid path and retry... ${NC}"
+    exit
+  else
+    SOURCE_ARCHIVE="$FILE_NAME"
+  fi
+else
+if [ -f "$SOURCE_ARCHIVE" ]; then
+    echo -e "${GREEN}${DONE} Provide backup file path is valid. ${NC}"
+  else
+    echo -e "${RED}${ERROR} File not found at ${SOURCE_ARCHIVE}. Check the input and retry.. ${NC}"
+    exit
+  fi
+fi
+
+getProfilePath() {
+  declare -r f1=~/Library/Application\ Support
+  declare -r f2=~/.mozilla/
+
+  local ini=''
+  if [[ -d "$f1" ]]; then
+    ini="$f1"
+  elif [[ -d "$f2" ]]; then
+    ini="$f2"
+  else
+    echo -e "${RED}${ERROR}Error: Sorry, -l is not supported for your OS${NC}"
+    exit 1
+  fi
+  PROFILE_PARENT_DIR=$ini
+  echo $PROFILE_PARENT_DIR
+#  readIniFile "$ini" # updates PROFILE_PATH or exits on error
+}
+
+importProfile() {
+  if [ ! -d "$PROFILE_PARENT_DIR" ]; then
+    mkdir "$PROFILE_PARENT_DIR"
+  fi
+
+  gpg -d --batch --passphrase ${PROFILE_ENC_PASSWORD:-Sweet&Salt2#s94} "$SOURCE_ARCHIVE" | tar -C "$PROFILE_PARENT_DIR" -xz
+
+  echo -e "${GREEN}${DONE} Done! ${NC}"
+  echo ""
+  echo -e "${ORANGE}${ARROW} Firefox profile successfully restored to $PROFILE_PARENT_DIR ${NC}"
+  echo ""
+}
+
+getProfilePath
+importProfile
