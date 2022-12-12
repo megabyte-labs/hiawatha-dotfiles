@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 # TODO - make equivalent to https://gitlab.com/megabyte-labs/gas-station/-/blob/master/roles/system/common/tasks/linux/swap.yml
 
-MEMORY_IN_KB="$(grep MemTotal /proc/meminfo | sed 's/.* \(\d+\) kB/\1/')"
+ROOT_MOUNT_POINT=( $(mount | grep ' on / type ' | cut -d' ' -f2-) )
+ROOT_PART_TYPE="${ROOT_MOUNT_POINT[-2]}"
+
+MEMORY_IN_KB="$(grep MemTotal /proc/meminfo | grep -Po '\d+')"
+#grep MemTotal /proc/meminfo | grep -Po '\d+'
 MEMORY_IN_GB="$((MEMORY_IN_KB / 1024 / 1024))"
 
 if [ "$MEMORY_IN_GB" -gt 64 ]; then
@@ -14,11 +18,36 @@ else
   SWAP_SPACE="$MEMORY_IN_GB"
 fi
 
-logg info "Creating a $SWAP_SPACE GB /swapfile"
-sudo fallocate -l "$SWAP_SPACE" /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
+case $ROOT_PART_TYPE in
+  zfs | ZFS )
+    ZFS_VOLUMES=$(zfs list)
+    if [[ $ZFS_VOLUMES =~ "rpool/swapfile" ]]; then
+      logg info "Swap volume exists at rpool/swapfile"
+    else
+      logg info "Creating a $SWAP_SPACE GB Swap volume rpool/swapfile"
+      sudo zfs create -V ${SWAP_SPACE}G -b $(getconf PAGESIZE) -o compression=zle \
+              -o logbias=throughput -o sync=always\
+              -o primarycache=metadata -o secondarycache=none \
+              -o com.sun:auto-snapshot=false rpool/swapfile
+      sudo mkswap -f /dev/zvol/rpool/swapfile
+      sudo swapon /dev/zvol/rpool/swapfile
+      echo "/dev/zvol/rpool/swapfile none swap discard 0 0" | sudo tee -a /etc/fstab
+    fi
+    ;;
+  btrfs | Btrfs | BTRFS )
+    logg info "Creating a $SWAP_SPACE GB /swapfile"
+    sudo truncate -s 0 /swapfile
+    sudo chattr +C /swapfile
+    sudo btrfs property set /swapfile compression none
+    ;&
+  *)
+    logg info "Creating a $SWAP_SPACE GB /swapfile"
+    sudo fallocate -l "${SWAP_SPACE}G" /swapfile
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+esac
+
 if cat /etc/fstab | grep "/swapfile"; then
   sudo sed -i '/\/swapfile/\/swapfile none swap sw 0 0/' /etc/fstab
 else
