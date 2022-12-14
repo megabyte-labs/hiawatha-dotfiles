@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# TODO - make equivalent to https://gitlab.com/megabyte-labs/gas-station/-/blob/master/roles/system/common/tasks/linux/swap.yml
 
 ROOT_MOUNT_POINT=( $(mount | grep ' on / type ' | cut -d' ' -f2-) )
 ROOT_PART_TYPE="${ROOT_MOUNT_POINT[-2]}"
 
 MEMORY_IN_KB="$(grep MemTotal /proc/meminfo | grep -Po '\d+')"
-#grep MemTotal /proc/meminfo | grep -Po '\d+'
 MEMORY_IN_GB="$((MEMORY_IN_KB / 1024 / 1024))"
+
+FSTAB="/swapfile none swap sw 0 0"
 
 if [ "$MEMORY_IN_GB" -gt 64 ]; then
   SWAP_SPACE="$((MEMORY_IN_GB / 10))"
@@ -18,6 +18,22 @@ else
   SWAP_SPACE="$MEMORY_IN_GB"
 fi
 
+# @description Creates the swapfile and enables Swap
+#
+# @example
+#   makeSwap "/swapfile"
+#
+# @arg $1 string The full path to the swapfile
+#
+# @exitcode 0 The swapfile was created and swap turned on successfully
+# @exitcode 1+ If there was an error, check and create the swapfile manually, or if the OS is unsupported
+function makeSwap() {
+  sudo fallocate -l "${SWAP_SPACE}G" "$1"
+  sudo chmod 600 "$1"
+  sudo mkswap "$1"
+  sudo swapon "$1"
+}
+
 case $ROOT_PART_TYPE in
   zfs | ZFS )
     ZFS_VOLUMES=$(zfs list)
@@ -26,30 +42,50 @@ case $ROOT_PART_TYPE in
     else
       logg info "Creating a $SWAP_SPACE GB Swap volume rpool/swapfile"
       sudo zfs create -V ${SWAP_SPACE}G -b $(getconf PAGESIZE) -o compression=zle \
-              -o logbias=throughput -o sync=always\
-              -o primarycache=metadata -o secondarycache=none \
-              -o com.sun:auto-snapshot=false rpool/swapfile
+        -o logbias=throughput -o sync=always\
+        -o primarycache=metadata -o secondarycache=none \
+        -o com.sun:auto-snapshot=false rpool/swapfile
       sudo mkswap -f /dev/zvol/rpool/swapfile
       sudo swapon /dev/zvol/rpool/swapfile
-      echo "/dev/zvol/rpool/swapfile none swap discard 0 0" | sudo tee -a /etc/fstab
     fi
+    FSTAB="/dev/zvol/rpool/swapfile none swap discard 0 0"
     ;;
   btrfs | Btrfs | BTRFS )
-    logg info "Creating a $SWAP_SPACE GB /swapfile"
-    sudo truncate -s 0 /swapfile
-    sudo chattr +C /swapfile
-    sudo btrfs property set /swapfile compression none
-    ;&
+    if [[ ! -f "/swapfile" ]]; then
+      logg info "Creating a $SWAP_SPACE GB /swapfile"
+      sudo truncate -s 0 /swapfile
+      sudo chattr +C /swapfile
+      sudo btrfs property set /swapfile compression none
+      makeSwap /swapfile
+    else
+      logg info "Swap file exists at /swapfile"
+    fi
+    ;;
   *)
-    logg info "Creating a $SWAP_SPACE GB /swapfile"
-    sudo fallocate -l "${SWAP_SPACE}G" /swapfile
-    sudo chmod 600 /swapfile
-    sudo mkswap /swapfile
-    sudo swapon /swapfile
+    if [[ ! -f "/swapfile" ]]; then
+      makeSwap /swapfile
+    else
+      logg info "Swap file exists at /swapfile"
+    fi
 esac
 
-if cat /etc/fstab | grep "/swapfile"; then
-  sudo sed -i '/\/swapfile/\/swapfile none swap sw 0 0/' /etc/fstab
+# Configure the swapfile/volume to be mounted on boot
+if cat /etc/fstab | grep "/swapfile" > /dev/null; then
+  sudo sed -i "/\/swapfile/c$FSTAB" /etc/fstab
 else
-  echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
+  echo "$FSTAB" | sudo tee -a /etc/fstab
+fi
+
+# Configures Swappiness
+if cat /etc/sysctl.conf | grep "vm.swappiness" > /dev/null; then
+  sudo sed -i "/vm.swappiness/cvm.swappiness=10" /etc/sysctl.conf
+else
+  echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
+fi
+
+# Configures vfs_cache_pressure
+if cat /etc/sysctl.conf | grep "vm.vfs_cache_pressure" > /dev/null; then
+  sudo sed -i "/vm.vfs_cache_pressure/cvm.vfs_cache_pressure=50" /etc/sysctl.conf
+else
+  echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
 fi
