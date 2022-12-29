@@ -172,12 +172,13 @@ installerPreference:
 softwarePackages:
   act:
     _bin: act
-    _desc: Run GitHub actions locally
+    _desc: [Act](https://github.com/nektos/act) Run GitHub actions locally
     _docs: https://github.com/nektos/act#example-commands
     _github: https://github.com/nektos/act
     _home: https://github.com/nektos/act
     _name: Act
     _service: false
+    _type: cli
     brew: act
     choco: act-cli
     go: github.com/nektos/act@
@@ -187,7 +188,7 @@ softwarePackages:
     yay: act
   allure:
     _bin: allure
-    _desc: Allure Report is a flexible, lightweight multi-language test reporting tool. It provides clear graphical reports and allows everyone involved in the development process to extract the maximum of information from the everyday testing process.
+    _desc: [Allure Report](https://docs.qameta.io/allure-testops/) is a flexible, lightweight multi-language test reporting tool. It provides clear graphical reports and allows everyone involved in the development process to extract the maximum of information from the everyday testing process.
     _docs: https://docs.qameta.io/allure-report/
     _github: https://github.com/allure-framework/allure2
     _home: https://docs.qameta.io/allure-testops/
@@ -204,6 +205,7 @@ softwarePackages:
     _post:binary:windows: |
       # TODO
     _service: false
+    _type: application
     binary:
       https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.20.1/allure-commandline-2.20.1.zip
       # TODO: Find latest version from https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/maven-metadata.xml and use it in the _binary_ URL
@@ -212,12 +214,13 @@ softwarePackages:
     yay: allure
   altair:
     _bin: null
-    _desc: A beautiful feature-rich GraphQL Client for all platforms.
+    _desc: [Altair GraphQL Client](https://altairgraphql.dev/) A beautiful feature-rich GraphQL Client for all platforms.
     _docs: https://altairgraphql.dev/docs/
     _github: https://github.com/altair-graphql/altair
     _home: https://altairgraphql.dev/
     _name: Altair GraphQL Client
     _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Altair GraphQL Client.app"'
     cask: altair-graphql-client
     choco: altair-graphql
@@ -232,7 +235,8 @@ softwarePackages:
     _github: null
     _home: https://developer.android.com/studio
     _name: Android Studio
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Android Studio.app"'
     ansible: professormanhattan.androidstudio
     cask: android-studio
@@ -242,57 +246,64 @@ softwarePackages:
     yay: android-studio
   angular-cli:
     _bin: ng
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Angular](https://angular.io) The web development framework for building the future
+    _docs: https://angular.io/docs
+    _github: https://github.com/angular/angular
+    _home: https://angular.io
+    _name: Angular
+    _service: false
+    _type: cli
     brew: angular-cli
     npm: '@angular/cli'
   ansible:
     _bin: ansible
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Ansible](https://www.ansible.com/) Ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy and maintain
+    _docs: https://docs.ansible.com/
+    _github: https://github.com/ansible/ansible
+    _home: https://www.ansible.com/
+    _name: Ansible
+    _service: false
+    _type: cli
     _post:pipx: pipx inject ansible PyObjC PyObjC-core docker lxml netaddr pexpect python-vagrant pywinrm requests-credssp watchdog
     brew: ansible
     dnf: ansible
     pipx: ansible
   ansible-lint:
     _bin: ansible-lint
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Ansible Lint](https://github.com/ansible/ansible-lint/) is a command-line tool for linting playbooks, roles and collections aimed toward any Ansible users
+    _docs: https://ansible-lint.readthedocs.io/
+    _github: https://github.com/ansible/ansible-lint/
+    _home: https://github.com/ansible/ansible-lint/
+    _name: Ansible Lint
+    _service: false
+    _type: cli
     pipx: ansible-lint
   ansibleconnect:
     _bin: ansibleconnect
     _deps:
       - sshpass
       - tmux
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [ansibleconnect](https://github.com/psykulsk/ansibleconnect) allows you to connect to all hosts from the inventory with one command
+    _docs: https://github.com/psykulsk/ansibleconnect
+    _github: https://github.com/psykulsk/ansibleconnect
+    _home: https://github.com/psykulsk/ansibleconnect
+    _name: Ansibleconnect
+    _service: false
+    _type: cli
     pipx: ansibleconnect
   antivirus:
     _bin: null
     _desc: >-
       [Clam AntiVirus](https://www.clamav.net/) is a free software, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses. One of its main uses is on mail servers as a server-side email virus scanner. [rkhunter](http://rkhunter.sourceforge.net/) is a Unix-based tool that scans for rootkits, backdoors, and possible local exploits. It does this by comparing SHA-1 hashes of important files with known good ones in online databases.
       [Malwarebytes](https://www.malwarebytes.com/) is an anti-malware software for Microsoft Windows, macOS, Chrome OS, Android, and iOS that finds and removes malware. Made by Malwarebytes Corporation, it was first released in January 2006.
-    _docs: null
-    _github: null
-    _home: null
+    _docs: https://docs.clamav.net/
+    _github: https://github.com/Cisco-Talos/clamav
+    _home: >-
+      https://www.clamav.net/
+      https://www.malwarebytes.com/
     _name: AntiVirus
-    _service: null
+    _service: true
+    _type: cli
     ansible: professormanhattan.antivirus
   appium:
     _bin: appium
@@ -301,27 +312,31 @@ softwarePackages:
     _github: https://github.com/appium/appium
     _home: https://appium.io/
     _name: Appium
-    _service: null
+    _service: false
+    _type: application
     ansible: professormanhattan.appium
     brew: appium
     choco: appium-desktop
   appnest-readme:
     _bin: readme
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
+    _desc: [Readme](https://github.com/andreasbm/readme/) Automatically generate a beautiful best-practice README file based on the contents of your repository
+    _docs: https://github.com/andreasbm/readme/
+    _github: https://github.com/andreasbm/readme/
+    _home: https://github.com/andreasbm/readme/
+    _name: Readme
     _service: false
+    _type: cli
     npm: '@appnest/readme'
   apt-cacher-ng:
     _bin: null
     _desc: '[Apt-Cacher-NG](https://wiki.debian.org/AptCacherNg) is a caching proxy server (or apt proxy) for Debian based distributions like Ubuntu, Kubuntu, Xubuntu, Edubuntu, Linux Mint, etc, which is used to cache the downloaded packages locally on your server.'
-    _docs: null
-    _github: null
-    _home: null
+    _docs: https://www.unix-ag.uni-kl.de/~bloch/acng/html/index.html
+    _github: https://salsa.debian.org/blade/apt-cacher-ng
+    _home: https://wiki.debian.org/AptCacherNg
     _name: AptCacherNG
-    _service: null
+    _service: true
+    _systemd: apt-cacher-ng
+    _type: cli
     ansible: professormanhattan.aptcacherng
   aqua:
     _bin: aqua
