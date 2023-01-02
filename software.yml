@@ -340,12 +340,13 @@ softwarePackages:
     ansible: professormanhattan.aptcacherng
   aqua:
     _bin: aqua
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [aqua](https://aquaproj.github.io/) is a Declarative CLI Version manager written in Go. It supports Lazy Install, Registry, and continuous update with Renovate.
+    _docs: https://aquaproj.github.io
+    _github: https://github.com/aquaproj/aqua
+    _home: https://aquaproj.github.io
+    _name: aqua
+    _service: false
+    _type: cli
     brew: aquaproj/aqua/aqua
     binary:linux: https://github.com/aquaproj/aqua/releases/download/v2.0.0-0/aqua_linux_amd64.tar.gz
     binary:windows: https://github.com/aquaproj/aqua/releases/download/v2.0.0-0/aqua_windows_amd64.tar.gz
@@ -371,7 +372,7 @@ softwarePackages:
     _github: https://github.com/aria2/aria2
     _home: null
     _name: Aria2/AriaNg
-    _service: null
+    _service: false
     ansible: professormanhattan.aria
     apt: aria2
     brew: aria2
@@ -384,12 +385,13 @@ softwarePackages:
     cask: ariang
   asciinema:
     _bin: asciinema
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Asciinema](https://asciinema.org) allows you to record and share your terminal sessions, the simple way
+    _docs: https://asciinema.org/docs/
+    _github: https://github.com/asciinema/asciinema
+    _home: https://asciinema.org/
+    _name: asciinema
+    _service: false
+    _type: cli
     apk: asciinema
     apt: asciinema
     brew: asciinema
@@ -403,16 +405,18 @@ softwarePackages:
     _github: https://github.com/asdf-vm/asdf
     _home: https://asdf-vm.com/
     _name: asdf-vm
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.asdf
   assh:
     _bin: assh
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [assh](https://manfred.life/assh) makes your ssh client smarter
+    _docs: https://github.com/moul/assh
+    _github: https://github.com/moul/assh
+    _home: https://manfred.life/assh
+    _name: assh
+    _service: false
+    _type: cli
     brew: assh
     go: moul.io/assh/v2
     yay: assh
@@ -425,21 +429,23 @@ softwarePackages:
       - python
       - ripgrep
       - tree-sitter
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
+    _desc: [AstroNvim](https://astronvim.github.io/) is an aesthetic and feature-rich neovim config that is extensible and easy to use with a great set of plugins
+    _docs: https://astronvim.github.io/
+    _github: https://github.com/AstroNvim/AstroNvim
+    _home: https://astronvim.github.io/
+    _name: AstroNvim
     _post: nvim --headless -c 'autocmd User PackerComplete quitall'
-    _service: null
+    _service: false
+    _type: cli
   auto-install:
     _bin: auto-install
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [auto-install](https://github.com/siddharthkp/auto-install) installs dependencies as you code
+    _docs: https://github.com/siddharthkp/auto-install
+    _github: https://github.com/siddharthkp/auto-install
+    _home: https://github.com/siddharthkp/auto-install
+    _name: auto-install
+    _service: false
+    _type: cli
     npm: auto-install
   autokey:
     _bin: null
@@ -448,7 +454,8 @@ softwarePackages:
     _github: https://github.com/autokey/autokey
     _home: https://code.google.com/archive/p/autokey/
     _name: Autokey
-    _service: null
+    _service: false
+    _type: application
     ansible:linux: professormanhattan.autokey
     ansible:windows: professormanhattan.autokey
     apt: autokey
@@ -457,12 +464,13 @@ softwarePackages:
     yay: autokey-gtk
   automake:
     _bin: automake
-    _desc: null
-    _docs: null
+    _desc: [GNU Automake](https://www.gnu.org/software/automake/) is a tool for automatically generating Makefile.in files compliant with the GNU Coding Standards
+    _docs: https://www.gnu.org/software/automake/manual/automake.html
     _github: null
-    _home: null
-    _name: null
-    _service: null
+    _home: https://www.gnu.org/software/automake/
+    _name: GNU Automake
+    _service: false
+    _type: cli
     apk: automake
     apt: automake
     brew: automake
@@ -476,7 +484,8 @@ softwarePackages:
     _github: https://github.com/cupcakearmy/autorestic/
     _home: https://autorestic.vercel.app/
     _name: Autorestic
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.autorestic
     brew: autorestic
   awscli:
@@ -486,7 +495,8 @@ softwarePackages:
     _github: https://github.com/aws/aws-cli
     _home: https://aws.amazon.com/
     _name: AWS CLI
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.awscli
     brew: awscli@2
     binary:darwin: https://awscli.amazonaws.com/AWSCLIV2.pkg
@@ -501,6 +511,7 @@ softwarePackages:
     _home: https://docs.ansible.com/automation.html
     _name: AWX CLI
     _service: false
+    _type: cli
     ansible: professormanhattan.awxcli
     pipx: https://releases.ansible.com/ansible-tower/cli/ansible-tower-cli-latest.tar.gz
   azure-cli:
@@ -510,7 +521,8 @@ softwarePackages:
     _github: https://github.com/Azure/azure-cli
     _home: https://azure.microsoft.com/
     _name: Azure CLI
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.azurecli
     brew: azure-cli
     choco: azure-cli
@@ -518,12 +530,12 @@ softwarePackages:
     yay: azure-cli
   azure-functions:
     _bin: func
-    _desc: A local development experience for creating, developing, testing, running, and debugging Azure Functions
+    _desc: [azure-functions-core-tools](https://github.com/Azure/azure-functions-core-tools) A local development experience for creating, developing, testing, running, and debugging Azure Functions
     _docs: null
     _github: https://github.com/Azure/azure-functions-core-tools
     _home: null
     _name: azure-functions-core-tools
-    _service: null
+    _service: false
     _type: cli
     brew: azure/functions/azure-functions-core-tools@4
     choco: azure-functions-core-tools
@@ -537,6 +549,7 @@ softwarePackages:
     _home: https://www.balena.io/etcher/
     _name: balenaEtcher
     _service: false
+    _type: application
     _when:cask: '! test -d /Applications/balenaEtcher.app'
     ansible:linux: professormanhattan.etcher
     cask: balenaetcher
@@ -549,7 +562,7 @@ softwarePackages:
     _github: https://github.com/imsnif/bandwhich
     _home: null
     _name: Bandwhich
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.bandwhich
     brew: bandwhich
@@ -558,12 +571,12 @@ softwarePackages:
     pkg: bandwhich
   bane:
     _bin: bane
-    _desc: Custom & better AppArmor profile generator for Docker containers
+    _desc: [bane](https://github.com/genuinetools/bane) Custom & better AppArmor profile generator for Docker containers
     _docs: null
     _github: https://github.com/genuinetools/bane
     _home: null
     _name: bane
-    _service: null
+    _service: false
     _type: cli
     github: github.com/genuinetools/bane
     go: github.com/genuinetools/bane@latest
@@ -574,7 +587,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
     _when:darwin: '! (brew list bash-completion | grep bash-completion)'
     brew:darwin: bash-completion
   bat:
@@ -584,7 +597,7 @@ softwarePackages:
     _github: https://github.com/sharkdp/bat
     _home: null
     _name: bat
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.bat
     apk: bat
@@ -604,7 +617,8 @@ softwarePackages:
     _github: https://github.com/beetbox/beets
     _home: https://beets.io/
     _name: Beets
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.beets
     pipx: beets
   betwixt:
@@ -614,7 +628,7 @@ softwarePackages:
     _github: https://github.com/kdzwinel/betwixt
     _home: null
     _name: Betwixt
-    _service: null
+    _service: false
     _type: application
     github: github.com/kdzwinel/betwixt
   bin:
@@ -624,18 +638,19 @@ softwarePackages:
     _github: https://github.com/marcosnils/bin
     _home: null
     _name: bin
-    _service: null
+    _service: false
     _type: cli
     github: github.com/marcosnils/bin
     go: github.com/marcosnils/bin@latest
   bitly:
     _bin: bitly
-    _desc: null
+    _desc: Shorten links with Bitly in your terminal!
     _docs: null
-    _github: null
+    _github: https://github.com/xxczaki/bitly-cli-client
     _home: null
-    _name: null
-    _service: null
+    _name: bitly
+    _service: false
+    _type: cli
     npm: bitly-cli-client
   bitwarden:
     _bin: null
@@ -644,7 +659,7 @@ softwarePackages:
     _github: https://github.com/bitwarden/desktop
     _home: null
     _name: BitWarden
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/Bitwarden.app'
     cask: bitwarden
@@ -660,7 +675,8 @@ softwarePackages:
     _github: https://github.com/bitwarden/clients
     _home: https://bitwarden.com/
     _name: Bitwarden CLI
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.bw
     brew: bitwarden-cli
     choco: bitwarden-cli
@@ -669,12 +685,12 @@ softwarePackages:
     snap: bw
   bivac:
     _bin: null
-    _desc: Backup Interface for Volumes Attached to Containers
+    _desc: [Bivac](https://bivac.io/) - Backup Interface for Volumes Attached to Containers - allows to backup Container volumes using Restic
     _docs: null
     _github: https://github.com/camptocamp/bivac
-    _home: null
+    _home: https://bivac.io/
     _name: bivac
-    _service: null
+    _service: false
     _type: cli
     github: github.com/camptocamp/bivac
   boilr:
@@ -684,19 +700,20 @@ softwarePackages:
     _github: https://github.com/tmrts/boilr
     _home: null
     _name: boilr
-    _service: null
+    _service: false
     _type: cli
     github: github.com/tmrts/boilr
     go: github.com/tmrts/boilr@latest
   bottom:
     _bin: bottom
     _bin:brew: btm
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [bottom](https://clementtsang.github.io/bottom/) is yet another cross-platform graphical process/system monitor. It is a customizable cross-platform graphical process/system monitor for the terminal that supports Linux, macOS, and Windows
+    _docs: https://clementtsang.github.io/bottom/nightly/
+    _github: https://github.com/ClementTsang/bottom
+    _home: https://clementtsang.github.io/
+    _name: bottom
+    _service: false
+    _type: cli
     brew: bottom
     pacman: bottom
     scoop: bottom
@@ -708,7 +725,8 @@ softwarePackages:
     _github: https://github.com/brave/brave-browser
     _home: https://brave.com/
     _name: Brave Browser
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Brave Browser.app"'
     ansible: professormanhattan.bravebrowser
     cask: brave-browser
@@ -723,6 +741,7 @@ softwarePackages:
     _home: https://dystroy.org/broot/
     _name: Broot
     _service: false
+    _type: cli
     ansible: professormanhattan.broot
     apk: broot
     brew: broot
@@ -732,69 +751,74 @@ softwarePackages:
     port: broot
   browser-sync:
     _bin: browser-sync
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Browsersync](https://browsersync.io/) allows you to keep multiple browsers & devices in sync when building websites
+    _docs: https://browsersync.io/docs
+    _github: https://github.com/BrowserSync/browser-sync
+    _home: https://browsersync.io/
+    _name: Browsersync
+    _service: false
+    _type: cli
     npm: browser-sync
   budibase-cli:
     _bin: budi
-    _desc: The Budibase CLI is how you initialise, manage and update your Budibase installation
-    _docs: null
+    _desc: [Budibase](https://budibase.com) The Budibase CLI is how you initialise, manage and update your Budibase installation
+    _docs: https://docs.budibase.com/docs/budibase-cli-reference
     _github: https://github.com/Budibase/budibase
-    _home: null
+    _home: https://budibase.com
     _name: budibase-cli
-    _service: null
+    _service: false
     _type: cli
     github: github.com/Budibase/budibase
     npm: '@budibase/cli'
   bundler:
     _bin: bundler
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Bundler](https://bundler.io/) provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed
+    _docs: https://bundler.io/docs.html
+    _github: https://github.com/rubygems/rubygems/tree/master/bundler
+    _home: https://bundler.io/
+    _name: Bundler
+    _service: false
+    _type: cli
     gem: bundler
   caniuse:
     _bin: caniuse
-    _desc: null
+    _desc: caniuse-cmd is a caniuse command line tool, providing all the power of caniuse.com with none of the nice UI or interactivity
     _docs: null
-    _github: null
+    _github: https://github.com/sgentle/caniuse-cmd
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     npm: caniuse-cmd
   captain:
-    _bin: null
+    _bin: captain
     _desc: Helps manage docker-compose.yml files from anywhere in the file system
     _docs: null
     _github: https://github.com/jenssegers/captain
     _home: null
     _name: captain
-    _service: null
+    _service: false
     _type: cli
     github: github.com/jenssegers/captain
   carbon-now:
-    _bin: carbon-now
-    _desc: null
+    _bin: carbon
+    _desc: [Carbon](https://carbon.now.sh/) lets you create and share beautiful images of your source code
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/carbon-app/carbon
+    _home: https://carbon.now.sh/
+    _name: Carbon
+    _service: false
+    _type: cli
     npm: carbon-now-cli
   carthage:
     _bin: carthage
-    _desc: null
+    _desc: A simple, decentralized dependency manager for Cocoa
     _docs: null
-    _github: null
+    _github: https://github.com/Carthage/Carthage
     _home: null
-    _name: null
-    _service: null
+    _name: Carthage
+    _service: false
+    _type: cli
     brew:darwin: carthage
   cerebro:
     _bin: null
@@ -820,6 +844,7 @@ softwarePackages:
     _home: https://certbot.eff.org/
     _name: CertBot
     _service: true
+    _type: cli
     _snapClassic: true
     ansible: professormanhattan.certbot
     brew: certbot
@@ -827,12 +852,13 @@ softwarePackages:
     snap: certbot
   cfssl:
     _bin: cfssl
-    _desc: null
+    _desc: [CFSSL](https://cfssl.org/) is CloudFlare's PKI/TLS swiss army knife. It is both a command line tool and an HTTP API server for signing, verifying, and bundling TLS certificates
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/cloudflare/cfssl
+    _home: https://cfssl.org/
+    _name: CFSSL
+    _service: false
+    _type: cli
     brew: cfssl
     pacman: cfssl
   cheat:
@@ -869,22 +895,6 @@ softwarePackages:
     snap: chezmoi
     xbps: chezmoi
     zypper: chezmoi
-  google-chrome:
-    _bin: null
-    _deps:
-      - chrome-gnome-shell
-    _desc: '[Google Chrome](https://www.google.com/chrome/) is a cross-platform web browser developed by Google. It was first released in 2008 for Microsoft Windows, and was later ported to Linux, macOS, iOS, and Android where it is the default browser built into the OS.'
-    _docs: https://developer.chrome.com/docs/extensions/reference/
-    _github: Not open-source
-    _home: https://www.google.com/chrome/
-    _name: Google Chrome
-    _service: null
-    _when:cask: '! test -d "/Applications/Google Chrome.app"'
-    ansible: professormanhattan.chrome
-    cask: google-chrome
-    choco: googlechrome
-    flatpak: com.google.Chrome
-    yay: google-chrome
   chromium:
     apt: chromium
     dnf: chromium
@@ -892,34 +902,36 @@ softwarePackages:
     snap: chromium
   chrome-cli:
     _bin: chrome-cli
-    _desc: null
+    _desc: chrome-cli is a command line utility for controlling Google Chrome compatible browsers on OS X. It is a native binary that uses the Scripting Bridge to communicate with Chrome
     _docs: null
-    _github: null
+    _github: https://github.com/prasmussen/chrome-cli
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew:darwin: chrome-cli
   chrome-gnome-shell:
     _bin: null
-    _desc: null
+    _desc: Browser extension for Google Chrome/Chromium, Firefox, Vivaldi (and other Browser Extension, Chrome Extension or WebExtensions capable browsers) and native host messaging connector that provides integration with GNOME Shell and the corresponding extensions repository
     _docs: null
-    _github: null
-    _home: null
+    _github: https://gitlab.gnome.org/GNOME/gnome-browser-extension
+    _home: ttps://wiki.gnome.org/Projects/GnomeShellIntegration
     _name: null
-    _service: null
+    _service: false
+    _ type: menubar
     _when: |
       test -f /usr/bin/gnome-session
     apt: chrome-gnome-shell
     dnf: chrome-gnome-shell
     pacman: chrome-gnome-shell
   clair:
-    _bin: clair
+    _bin: clairctl
     _desc: Vulnerability Static Analysis for Containers
-    _docs: null
+    _docs: https://quay.github.io/clair/
     _github: https://github.com/quay/clair
     _home: null
     _name: clair
-    _service: null
+    _service: false
     _type: cli
     brew: clair
     github: github.com/quay/clair
@@ -2829,6 +2841,23 @@ softwarePackages:
     brew: gomplate
     choco: gomplate
     port: gomplate
+  google-chrome:
+    _bin: null
+    _deps:
+      - chrome-gnome-shell
+    _desc: '[Google Chrome](https://www.google.com/chrome/) is a cross-platform web browser developed by Google. It was first released in 2008 for Microsoft Windows, and was later ported to Linux, macOS, iOS, and Android where it is the default browser built into the OS.'
+    _docs: https://developer.chrome.com/docs/extensions/reference/
+    _github: Not open-source
+    _home: https://www.google.com/chrome/
+    _name: Google Chrome
+    _service: false
+    _type: application
+    _when:cask: '! test -d "/Applications/Google Chrome.app"'
+    ansible: professormanhattan.chrome
+    cask: google-chrome
+    choco: googlechrome
+    flatpak: com.google.Chrome
+    yay: google-chrome
   googler:
     _bin: googler
     _desc: '[googler](https://github.com/jarun/googler) is a power tool to Google (web, news, videos and site search) from the command-line. It shows the title, URL and abstract for each result, which can be directly opened in a browser from the terminal. Results are fetched in pages (with page navigation). It supports sequential searches in a single googler instance.'
