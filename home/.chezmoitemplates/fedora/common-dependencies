@@ -1,0 +1,7 @@
+{{- $packages := list
+  "gcc"
+  "gcc-c++"
+  "kernel-devel"
+  "ruby-devel"
+-}}
+{{- $packages | join " " -}}

@@ -81,7 +81,7 @@ fi
 
 ### ripgrep
 if command -v rg &> /dev/null; then
-  alias grep='rg --color=auto'
+  alias rgrep='rg --color=auto'
 fi
 
 ### supdock
@@ -153,6 +153,9 @@ fi
 
 # Convert macOS plist to XML (for source control)
 alias plist-xml='plutil -convert xml1'
+
+# Recoverpy
+alias recoverpy='python3 -m recoverpy'
 
 # Show open ports
 alias ports='sudo netstat -tulanp'

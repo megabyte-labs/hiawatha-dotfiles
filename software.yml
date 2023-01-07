@@ -93,8 +93,9 @@ installerPreference:
     - npm
     - pipx
     - gem
-    - ansible
     - appimage
+    - script
+    - ansible
     - binary
   darwin:
     - whalebrew
@@ -106,6 +107,7 @@ installerPreference:
     - npm
     - pipx
     - gem
+    - script
     - ansible
     - binary
   dnf:
@@ -119,8 +121,9 @@ installerPreference:
     - npm
     - pipx
     - gem
-    - ansible
     - appimage
+    - script
+    - ansible
     - binary
   freebsd:
     - pkg
@@ -128,6 +131,7 @@ installerPreference:
     - cargo
     - npm
     - gem
+    - script
   pacman:
     - flatpak
     - snap
@@ -140,8 +144,9 @@ installerPreference:
     - npm
     - pipx
     - gem
-    - ansible
     - appimage
+    - script
+    - ansible
     - binary
   windows:
     - choco
@@ -152,6 +157,7 @@ installerPreference:
     - npm
     - pipx
     - gem
+    - script
     - ansible
     - binary
   zypper:
@@ -165,11 +171,36 @@ installerPreference:
     - npm
     - pipx
     - gem
-    - ansible
     - appimage
+    - script
+    - ansible
     - binary
 
 softwarePackages:
+  _misc-flatpaks:
+    _deps:
+      - bottles
+      - cockpit-client
+      - connections
+      - dconf-editor
+      - deja-dup
+      - dialect
+      - flatseal
+      - forklift
+      - gnome-extension-manager
+      - gnome-eyedropper
+      - gnome-passwords-keys
+      - kooha
+      - monitorets
+      - newsflash
+      - vup
+      - warp-transfer
+      - web-font-generator
+      - what-ip
+  newsflash:
+    flatpak: com.gitlab.newsflash
+  web-font-generator:
+    flatpak: com.rafaelmardojai.WebfontKitGenerator
   act:
     _bin: act
     _desc: [Act](https://github.com/nektos/act) Run GitHub actions locally
@@ -213,7 +244,7 @@ softwarePackages:
     scoop: allure
     yay: allure
   altair:
-    _bin: null
+    _bin:snap: altair
     _desc: [Altair GraphQL Client](https://altairgraphql.dev/) A beautiful feature-rich GraphQL Client for all platforms.
     _docs: https://altairgraphql.dev/docs/
     _github: https://github.com/altair-graphql/altair
@@ -552,6 +583,7 @@ softwarePackages:
     _type: application
     _when:cask: '! test -d /Applications/balenaEtcher.app'
     ansible:linux: professormanhattan.etcher
+    appimage: etcher
     cask: balenaetcher
     choco: etcher
     yay: balena-etcher
@@ -1025,7 +1057,6 @@ softwarePackages:
       - 389-ds-base
       - cockpit
       - cockpit-389-ds
-      - cockpit-docker
       - cockpit-machines
       - cockpit-networkmanager
       - cockpit-packagekit
@@ -1036,7 +1067,6 @@ softwarePackages:
       - 389-ds-base
       - cockpit
       - cockpit-389-ds
-      - cockpit-docker
       - cockpit-machines
       - cockpit-networkmanager
       - cockpit-packagekit
@@ -1047,7 +1077,6 @@ softwarePackages:
       - 389-ds-base
       - cockpit
       - cockpit-389-ds
-      - cockpit-docker
       - cockpit-machines
       - cockpit-networkmanager
       - cockpit-packagekit
@@ -1065,7 +1094,7 @@ softwarePackages:
     _name: cocoapods
     _service: null
     _when:brew: '! test -d /usr/local/Cellar/cocoapods'
-    ansible: professormanhattan.cocoapods
+    ansible:darwin: professormanhattan.cocoapods
     brew:darwin: cocoapods
     gem:darwin: cocoapods
   cointop:
@@ -1333,6 +1362,8 @@ softwarePackages:
     _type: application
     cask: dat
     github: github.com/datproject/dat-desktop
+  dconf-editor:
+    flatpak: ca.desrt.dconf-editor
   debloat:
     _bin: null
     _desc: This repository is the home of an Ansible role that Debloats Windows
@@ -1387,6 +1418,11 @@ softwarePackages:
     _name: Deno
     _service: false
     ansible: professormanhattan.deno
+    brew: deno
+    cargo: deno
+    choco: deno
+    nix: deno
+    scoop: deno
   desed:
     _bin: desed
     _desc: Debugger for sed used to demystify and debug the sed scripts, from comfort of terminal
@@ -1909,6 +1945,7 @@ softwarePackages:
     nix: unstable.fcp
   fd:
     _bin: fd
+    _bin:apt: fdfind
     _desc: "[fd](https://github.com/sharkdp/fd) is a program that can search for files on your filesystem. It is a simple, fast, and user-friendly alternative to find. While it does not aim to support all of find's powerful functionality, it provides sensible (opinionated) defaults for a majority of use cases."
     _docs: null
     _github: https://github.com/sharkdp/fd
@@ -1976,7 +2013,7 @@ softwarePackages:
     _name: Fig
     _service: false
     _when:cask: '! test -d "/Applications/Fig.app"'
-    ansible: professormanhattan.fig
+    ansible:darwin: professormanhattan.fig
     cask: fig
   filebrowser:
     _bin: filebrowser
@@ -1991,6 +2028,7 @@ softwarePackages:
     brew: filebrowser/tap/filebrowser
     github: github.com/filebrowser/filebrowser
   arduino-ide:
+    _when:cask: '! test -d "/Applications/Arduino.app"'
     cask: arduino
     choco: arduino
     flatpak: cc.arduino.IDE2
@@ -2073,7 +2111,29 @@ softwarePackages:
     _service: null
     npm: fkill-cli
   flameshot:
+    _bin: null
+    _desc: Powerful yet simple to use screenshot software
+    _docs: https://flameshot.org/docs/overview/overview/
+    _github: https://github.com/flameshot-org/flameshot
+    _home: https://flameshot.org/
+    _name: Flameshot
+    _scoopExtras: true
+    _service: true
+    _when:cask: '! test -d "/Applications/flameshot.app"'
+    apt: flameshot
+    cask: flameshot
+    choco: flameshot
+    dnf: flameshot
+    eopkg: flameshot
     flatpak: org.flameshot.Flameshot
+    nix: nixos.flameshot
+    pacman: flameshot
+    port: flameshot
+    scoop: flameshot
+    snap: flameshot
+    winget: flameshot
+    xbps: flameshot
+    zypper: flameshot
   flutter:
     _bin: flutter
     _desc: null
@@ -2082,11 +2142,21 @@ softwarePackages:
     _home: null
     _name: null
     _service: null
+    _snapClassic: true
     brew: flutter
     choco: flutter
     snap: flutter
     yay: flutter
   fritzing:
+    _todo: Add installation source for macOS
+    _bin: null
+    _desc: Fritzing is an open-source hardware initiative that makes electronics accessible as a creative material for anyone. We offer a software tool, a community website and services in the spirit of Processing and Arduino, fostering a creative ecosystem that allows users to document their prototypes, share them with others, teach electronics in a classroom, and layout and manufacture professional PCBs.
+    _docs: https://fritzing.org/learning/get-started
+    _github: https://github.com/fritzing/fritzing-app
+    _home: https://fritzing.org/
+    _name: Fritzing
+    _service: false
+    choco: fritzing
     flatpak: org.fritzing.Fritzing
   fly:
     _bin: fly
@@ -2192,7 +2262,7 @@ softwarePackages:
     github: github.com/jhspetersson/fselect
     yay: fselect
   fuego:
-    _bin: null
+    _bin: fuego
     _desc: Fuego is a command line client for the Firestore database
     _docs: null
     _github: https://github.com/sgarciac/fuego
@@ -2202,7 +2272,7 @@ softwarePackages:
     _type: cli
     github: github.com/sgarciac/fuego
     snap: fuego
-  macfuse:
+  fuse:
     _bin: null
     _desc: '[macFUSE](https://osxfuse.github.io/) allows you to extend macOS via third party file systems.'
     _docs: null
@@ -2212,6 +2282,7 @@ softwarePackages:
     _service: null
     _when:cask: '! test -d /usr/local/Caskroom/macfuse'
     ansible:darwin: professormanhattan.fuse
+    apt: libfuse-dev
     cask: macfuse
   fx:
     _bin: fx
@@ -2264,13 +2335,30 @@ softwarePackages:
     pacman: gawk
     port: gawk
     scoop: gawk
-  standardnotes:
+  standard-notes:
+    _bin: null
+    _desc: End-to-end encrypted notes app
+    _docs: https://standardnotes.com/help
+    _github: https://github.com/standardnotes/app
+    _home: https://standardnotes.com/
+    _name: Standard Notes
+    _service: false
+    _when:cask: '! test -d "/Applications/Standard Notes.app"'
+    cask: standard-notes
     flatpak: org.standardnotes.standardnotes
   deja-dup:
     flatpak: org.gnome.DejaDup
   discord:
+    _name: Discord
+    _when:cask: '! test -d "/Applications/Discord.app"'
+    cask: discord
+    choco: discord
     flatpak: com.discordapp.Discord
   telegram:
+    _name: Telegram
+    _when:cask: '! test -d "/Applications/Telegram.app"'
+    cask: telegram
+    choco: telegram
     flatpak: org.telegram.desktop
   google-assistant:
     _bin: null
@@ -2293,6 +2381,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: Google Cloud SDK
+    _snapClassic: true
     _service: false
     _when:cask: '! test -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
     ansible: professormanhattan.googlecloudsdk
@@ -2369,7 +2458,6 @@ softwarePackages:
     _name: Github CLI
     _service: false
     ansible: professormanhattan.gh
-    apt: gh
     brew: gh
     choco: gh
     port: gh
@@ -2477,8 +2565,15 @@ softwarePackages:
     brew: git-secret
     dnf: git-secret
   gitter:
+    _name: Gitter
+    _when:cask: '! test -d "/Applications/Gitter.app"'
+    cask: gitter
+    choco: gitter
     flatpak: im.gitter.Gitter
   github-desktop:
+    _when:cask: '! test -d "/Applications/GitHub Desktop.app"'
+    cask: github
+    choco: github-desktop
     flatpak: io.github.shiftey.Desktop
   warp-transfer:
     flatpak: app.drey.Warp
@@ -2664,7 +2759,8 @@ softwarePackages:
     brew: glab
     github: github.com/profclems/glab
     scoop: glab
-    snap: glab
+    # Only available on edge release (i.e. sudo snap install --edge glab)
+    # snap: glab
     yay: gitlab-glab-bin
   glances:
     _bin: glances
@@ -2676,7 +2772,7 @@ softwarePackages:
     _service: null
     _post:pipx: pipx inject glances glances[all]
     ansible: professormanhattan.glances
-    apt:
+    apt:ubuntu:
       - python3-dev
       - python3-jinja2
       - python3-pip
@@ -2997,7 +3093,10 @@ softwarePackages:
     _name: Guacamole
     _service: null
     ansible: professormanhattan.guacamole
-  seafile:
+  seafile-client:
+    _when:cask: '! test -d "/Applications/Seafile Client.app"'
+    cask: seafile-client
+    choco: seafile-client
     flatpak: com.seafile.Client
   gulp:
     _bin: gulp
@@ -3337,7 +3436,7 @@ softwarePackages:
     choco: infracost
     yay: infracost
   inkscape:
-    _bin: null
+    _bin: inkscape
     _desc: '[Inkscape](https://inkscape.org/) is a free and open-source vector graphics editor used to create vector images, primarily in Scalable Vector Graphics format. Other formats can be imported and exported. Inkscape can render primitive vector shapes and text. This role installs Inkscape on nearly any platform.'
     _docs: https://inkscape.org/*docs/
     _github: https://github.com/inkscape/inkscape
@@ -3369,6 +3468,7 @@ softwarePackages:
     _home: https://www.jetbrains.com/idea/
     _name: IntelliJ IDEA (CE)
     _service: null
+    _snapClassic: true
     _when:cask: '! test -d "/Applications/IntelliJ IDEA CE.app"'
     ansible: professormanhattan.intellij
     cask: intellij-idea-ce
@@ -3611,6 +3711,9 @@ softwarePackages:
     github: github.com/knative/client
     yay: knative-client-bin
   beekeeper-studio:
+    _when:cask: '! test -d "/Applications/Beekeeper Studio.app"'
+    cask: beekeeper-studio
+    choco:  beekeeper-studio
     flatpak: io.beekeeperstudio.Studio
   kodi:
     _bin: null
@@ -3636,6 +3739,7 @@ softwarePackages:
     _home: null
     _name: null
     _service: null
+    _snapClassic: true
     brew: kubectx
     choco:
       - kubens
@@ -3709,9 +3813,12 @@ softwarePackages:
     _service: null
     binary:darwin: https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-darwin-amd64.tar.gz
     binary:linux: https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
-    brew: instrumenta/instrumenta/kubeval
+    brew: kubeval
     scoop: kubeval
   kvm:
+    _bin:
+      - kvm
+      - qemu-img
     _bin:brew:
       - libvirtd
       - qemu-img
@@ -3778,7 +3885,7 @@ softwarePackages:
     cask: ledger-live
     choco: ledger-live
   lens:
-    _bin: null
+    _bin:snap: kontena-lens
     _desc: '[Lens IDE](https://k8slens.dev/) provides the full situational awareness for everything that runs in Kubernetes. It is an IDE designed for those who work with Kubernetes on a daily basis'
     _docs: https://docs.k8slens.dev/main/
     _github: https://github.com/lensapp/lens
@@ -3793,7 +3900,7 @@ softwarePackages:
     snap: kontena-lens
     yay: lens
   lepton:
-    _bin: null
+    _bin:snap: lepton
     _desc: Cross-platform snippet manager
     _docs: null
     _github: null
@@ -3824,6 +3931,9 @@ softwarePackages:
     _when: '! test -d /usr/local/Cellar/libimobiledevice'
     brew:darwin: libimobiledevice
   krita:
+    _when:cask: '! test -d "/Applications/krita.app"'
+    cask: krita
+    choco: krita
     flatpak: org.kde.krita
   libreoffice:
     _bin: null
@@ -3863,17 +3973,6 @@ softwarePackages:
     brew: linkerd
     github: github.com/linkerd/linkerd2
     yay: linkerd
-  linuxkit:
-    _bin: linuxkit
-    _desc: A toolkit for building secure, portable and lean operating systems for containers
-    _docs: null
-    _github: https://github.com/linuxkit/linuxkit
-    _home: null
-    _name: linuxkit
-    _service: null
-    _type: cli
-    brew: linuxkit/linuxkit/linuxkit
-    github: github.com/linuxkit/linuxkit
   litecli:
     _bin: litecli
     _desc: CLI for SQLite Databases with auto-completion and syntax highlighting
@@ -4022,16 +4121,29 @@ softwarePackages:
   dialect:
     flatpak: app.drey.Dialect
   meld:
+    _when:cask: '! test -d "/Applications/Meld.app"'
+    cask: meld
+    choco: meld
     flatpak: org.gnome.meld
   cryptomator:
+    _when:cask: '! test -d "/Applications/Cryptomator.app"'
+    cask: cryptomator
+    choco: cryptomator
     flatpak: org.cryptomator.Cryptomator
   connections:
     flatpak: org.gnome.Connections
   ferdium:
+    _when:cask: '! test -d "/Applications/Ferdium.app"'
+    cask: ferdium
+    choco: ferdium
     flatpak: org.ferdium.Ferdium
   thunderbird:
+    _when:cask: '! test -d "/Applications/Thunderbird.app"'
+    cask: thunderbird
+    choco: thunderbird
     flatpak: org.mozilla.Thunderbird
   live-captions:
+    _desc: Linux Desktop application that provides live captioning
     flatpak: net.sapples.LiveCaptions
   mailspring:
     _bin: null
@@ -4119,22 +4231,16 @@ softwarePackages:
     _bin: mcfly
     _desc: "[McFly](https://github.com/cantino/mcfly) replaces your default CTRL-r shell history search with an intelligent search engine that takes into account your working directory and the context of recently executed commands. McFly's suggestions are prioritized in real time with a small neural network."
     _docs: null
-    _github: null
+    _github: https://github.com/cantino/mcfly
     _home: null
     _name: McFly
     _service: null
-    ansible: professormanhattan.mcfly
-  mergestat:
-    _bin: mergestat
-    _desc: Query git repositories with SQL. Generate reports, perform status checks, analyze codebases
-    _docs: null
-    _github: https://github.com/mergestat/mergestat
-    _home: null
-    _name: mergestat
-    _service: null
-    _type: cli
-    brew: mergestat/mergestat/mergestat
-    github: github.com/mergestat/mergestat
+    ansible:darwin: professormanhattan.mcfly
+    ansible:linux: professormanhattan.mcfly
+    brew: mcfly
+    port: mcfly
+    script:darwin: curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly
+    script:linux: curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly
   microsoft-edge:
     _bin: null
     _desc: '[Microsoft Edge](https://www.microsoft.com/en-us/edge) is a cross-platform web browser developed by Microsoft. It was first released for Windows 10 and Xbox One in 2015, then for Android and iOS in 2017, for macOS in 2019, and as a preview for Linux in October 2020.'
@@ -4173,7 +4279,7 @@ softwarePackages:
     cask: microsoft-office
     choco: office365business
   microsoft-todo:
-    _bin: null
+    _bin:snap: microsoft-todo-unofficial
     _desc: '[Microsoft To Do](https://todo.microsoft.com/tasks/) is a productivity application developed by Microsoft. It lets you create to do lists, reminders, and notes for any purpose. Sync lists across devices and Microsoft 365 accounts to access daily planner and task manager features anywhere.'
     _docs: https://support.microsoft.com/en-us/todo
     _github: false
@@ -4212,7 +4318,7 @@ softwarePackages:
     choco: mitmproxy
     pacman: mitmproxy
   mjml:
-    _bin: null
+    _bin:npm: mjml
     _desc: The desktop app for MJML
     _docs: https://documentation.mjml.io/
     _github: https://github.com/mjmlio/mjml-app
@@ -4239,7 +4345,7 @@ softwarePackages:
     pacman: mkcert
     scoop: mkcert
   mockoon:
-    _bin: null
+    _bin:snap: mockoon
     _desc: Mockoon is the easiest and quickest way to run mock APIs locally. No remote deployment, no account required, open source
     _docs: null
     _github: https://github.com/mockoon/mockoon
@@ -4375,7 +4481,7 @@ softwarePackages:
     github: github.com/mullvad/mullvadvpn-app
     yay: mullvad-vpn
   multipass:
-    _bin: null
+    _bin: multipass
     _desc: '[Multipass](https://multipass.run/) makes it so that you can get an instant Ubuntu VM with a single command. Multipass can launch and run virtual machines and configure them with cloud-init like a public cloud. It is a product of [Canonical](https://canonical.com/), the same company that publishes Ubuntu.'
     _docs: null
     _github: null
@@ -4753,7 +4859,7 @@ softwarePackages:
     flatpak: org.onionshare.OnionShare
     snap: onionshare
   onlykey:
-    _bin: null
+    _bin:snap: onlykey-app
     _desc: null
     _docs: null
     _github: null
@@ -5008,7 +5114,6 @@ softwarePackages:
     _note: Needs testing
     apt:
       - libpcre3-dev
-      - php-apache
       - php-apcu
       - php-cgi
       - php-cli
@@ -5017,7 +5122,6 @@ softwarePackages:
       - php-dev
       - php-fpm
       - php-gd
-      - php-embed
       - php-intl
       - php-imap
       - php-json
@@ -5029,7 +5133,6 @@ softwarePackages:
       - php-xml
     dnf:
       - libpcre3-dev
-      - php-apache
       - php-apcu
       - php-cgi
       - php-cli
@@ -5038,7 +5141,6 @@ softwarePackages:
       - php-dev
       - php-fpm
       - php-gd
-      - php-embed
       - php-intl
       - php-imap
       - php-json
@@ -5050,7 +5152,6 @@ softwarePackages:
       - php-xml
     pacman:
       - libpcre3-dev
-      - php-apache
       - php-apcu
       - php-cgi
       - php-cli
@@ -5059,7 +5160,6 @@ softwarePackages:
       - php-dev
       - php-fpm
       - php-gd
-      - php-embed
       - php-intl
       - php-imap
       - php-json
@@ -5192,12 +5292,12 @@ softwarePackages:
     go: github.com/jessfraz/pony@latest
   portmaster:
     _bin: null
-    _desc: "[portmaster](https://safing.io/portmaster/) is a free and open-source application that puts you back in charge over all your computer's network connections."
+    _desc: "[Portmaster](https://safing.io/portmaster/) is a free and open-source application that puts you back in charge over all your computer's network connections."
     _docs: https://docs.safing.io/portmaster/architecture/overview
     _github: https://github.com/safing/portmaster
     _home: https://safing.io/
-    _name: portmaster
-    _service: null
+    _name: Portmaster
+    _service: true
     ansible:linux: professormanhattan.portmaster
     ansible:windows: professormanhattan.portmaster
   postman:
@@ -5304,7 +5404,9 @@ softwarePackages:
     choco: protonmailbridge
     flatpak: ch.protonmail.protonmail-bridge
     yay: protonmail-bridge
-  protonmail-import-export-app:
+  protonmail-import-export:
+    _when:cask: '! test -d "/Applications/ProtonMail Import-Export app.app"'
+    cask: protonmail-import-export
     flatpak: ch.protonmail.protonmail-import-export-app
   bottles:
     flatpak: com.usebottles.bottles
@@ -5481,7 +5583,10 @@ softwarePackages:
     snap: redis-desktop-manager
   recoverpy:
     _deps:
-      - recoverpy-deps
+      - coreutils
+      - grep
+      - progress
+      - util-linux
     _bin: recoverpy
     _desc: '[RecoverPy](https://github.com/PabloLec/RecoverPy) is a highly configurable terminal emulator, SSH and serial client for Windows, macOS and Linux.'
     _docs: https://github.com/PabloLec/RecoverPy#usage
@@ -5490,23 +5595,33 @@ softwarePackages:
     _name: RecoverPy
     _service: false
     ansible:linux: professormanhattan.recoverpy
-    pipx:linux: recoverpy
-  recoverpy-deps:
-    apt:
-      - coreutils
-      - grep
-      - progress
-      - util-linux
-    dnf:
-      - coreutils
-      - grep
-      - progress
-      - util-linux
-    pacman:
-      - coreutils
-      - grep
-      - progress
-      - util-linux
+    script:linux: python3 -m pip install recoverpy
+  coreutils:
+    _bin:
+      - cat
+      - ls
+      - rm
+    apt: coreutils
+    dnf: coreutils
+    pacman: coreutils
+  grep:
+    _bin: grep
+    apt: grep
+    dnf: grep
+    pacman: grep
+  progress:
+    _bin: progress
+    apt: progress
+    dnf: progress
+    pacman: progress
+  util-linux:
+    _bin:
+      - cal
+      - chmem
+      - hexdump
+    apt: util-linux
+    dnf: util-linux
+    pacman: util-linux
   remote-desktop:
     _deps:
       - gnome-boxes
@@ -5691,10 +5806,10 @@ softwarePackages:
     _name: Ruby
     _service: false
     ansible: professormanhattan.ruby
-    apt: ruby-full
+    apt: ruby-dev
     brew: ruby
     choco: ruby
-    dnf: ruby
+    dnf: ruby-devel
     pacman: ruby
     port: ruby
     scoop: ruby
@@ -5723,9 +5838,6 @@ softwarePackages:
     _service: false
     _snapClassic: true
     ansible: professormanhattan.rust
-    apt:
-      - cargo
-      - rustc
     brew: rust
     choco: rust
     dnf:
@@ -5736,11 +5848,12 @@ softwarePackages:
       - cargo
       - rust
     scoop: rust
-    snap: rustup
+    script:darwin: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    script:linux: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   goofys:
     _bin: goofys
     _deps:
-      - macfuse
+      - fuse
     _desc: A high-performance, POSIX-ish Amazon S3 file system written in Go
     _docs: https://github.com/kahing/goofys#usage
     _github: https://github.com/kahing/goofys
@@ -5751,6 +5864,8 @@ softwarePackages:
     brew:linux: goofys
     go:linux: github.com/kahing/goofys@latest
   catfs:
+    _deps:
+      - fuse
     _bin: catfs
     _desc: Cache anything filesystem written in Rust
     _docs: https://github.com/kahing/catfs#usage
@@ -5944,7 +6059,7 @@ softwarePackages:
     _name: sentry-cli
     _service: null
     _type: cli
-    brew: getsentry/tools/sentry-cli
+    brew:darwin: getsentry/tools/sentry-cli
     github: github.com/getsentry/sentry-cli
     npm: '@sentry/cli'
     scoop: sentry-cli
@@ -6018,7 +6133,10 @@ softwarePackages:
     _home: https://neurobin.org/projects/softwares/unix/shc/
     _name: shc
     _service: false
-    ansible: professormanhattan.shc
+    ansible:darwin: professormanhattan.shc
+    ansible:linux: professormanhattan.shc
+    brew: shc
+    port: shc
   shdoc:
     _deps:script:
       - gawk
@@ -6029,8 +6147,10 @@ softwarePackages:
     _home: null
     _name: shdoc
     _service: null
-    ansible: professormanhattan.shdoc
-    script: cd /tmp && git clone --recursive https://github.com/reconquest/shdoc && cd shdoc && sudo make install
+    ansible:darwin: professormanhattan.shdoc
+    ansible:linux: professormanhattan.shdoc
+    script:darwin: cd /tmp && git clone --recursive https://github.com/reconquest/shdoc && cd shdoc && sudo make install
+    script:linux: cd /tmp && git clone --recursive https://github.com/reconquest/shdoc && cd shdoc && sudo make install
     yay: shdoc-git
   shellcheck:
     _bin: shellcheck
@@ -6269,6 +6389,9 @@ softwarePackages:
     github: github.com/sqlectron/sqlectron-gui
     yay: sqlectron-gui
   handbrake:
+    _when:cask: '! test -d "/Applications/HandBrake.app"'
+    cask: handbrake
+    choco: handbrake
     flatpak: fr.handbrake.ghb
   sqlite:
     _bin: sqlite3
@@ -6338,15 +6461,10 @@ softwarePackages:
     _service: null
     _type: cli
     github: github.com/suyashkumar/ssl-proxy
-  starred:
-    _bin: starred
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
-    pipx: starred
+  # Error installing aiohttp dependency
+  # starred:
+  #   _bin: starred
+  #   pipx: starred
   starship:
     _bin: null
     _desc: '[Starship](https://starship.rs/) is the minimal, blazing fast, and extremely customizable prompt for any shell! It shows the information you need, while staying sleek and minimal. Unlike most other prompts, it is compatible with nearly every type of terminal. If you want to retain the same look and feel across different terminals, then look no further.'
@@ -6603,6 +6721,17 @@ softwarePackages:
     github: github.com/go-task/task
     go: github.com/go-task/task/v3/cmd/task@latest
     scoop: task
+  dua:
+    _bin: dua
+    _github: https://github.com/Byron/dua-cli
+    brew: dua-cli
+    cargo: dua-cli
+    dnf:fedora: dua-cli
+    pacman: dua-cli
+    pkgin: dua-cli
+    port: dua-cli
+    scoop: dua
+    xbps: dua-cli
   microsoft-teams:
     _bin: null
     _desc: '[Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software) is a proprietary business communication platform developed by Microsoft, as part of the Microsoft 365 family of products. Teams primarily competes with the similar service Slack, offering workspace chat and videoconferencing, file storage, and application integration.'
@@ -6816,6 +6945,19 @@ softwarePackages:
     pacman: tokei
     pkg: tokei
     scoop: tokei
+  privoxy:
+    _bin: privoxy
+    _desc: null
+    _docs: null
+    _github: null
+    _home: null
+    _name: Privoxy
+    _service: true
+    apt: privoxy
+    brew: privoxy
+    dnf: privoxy
+    pacman: privoxy
+    port: privoxy
   tor:
     _bin: toron
     _desc: "[Tor](https://www.torproject.org/) is free and open-source software for enabling anonymous communication by directing Internet traffic through a free, worldwide, volunteer overlay network consisting of more than seven thousand relays in order to conceal a user's location and usage from anyone conducting network surveillance or traffic analysis. On Linux you can combine Tor with [Privoxy](https://www.privoxy.org/) which allows you to tunnel all of your traffic through the Tor network."
@@ -6825,6 +6967,11 @@ softwarePackages:
     _name: TOR
     _service: null
     ansible:linux: professormanhattan.tor
+    apt: tor
+    brew: tor
+    dnf: tor
+    pacman: tor
+    port: tor
   translate:
     _bin: trans
     _desc: '[Translate Shell](https://github.com/soimort/translate-shell) (formerly Google Translate CLI) is a command-line translator powered by Google Translate (default), Bing Translator, Yandex.Translate, and Apertium. It gives you easy access to these translation engines in your terminal. It is feature-rich and, although there is some overlap, it complements [Normit](https://gitlab.com/megabyte-labs/ansible-roles/normit) well.'
@@ -6835,7 +6982,7 @@ softwarePackages:
     _service: null
     ansible:darwin: professormanhattan.translate
     ansible:linux: professormanhattan.translate
-    apt: translate-shell
+    apt:ubuntu: translate-shell
     brew: translate-shell
     dnf: translate-shell
     pacman: translate-shell
@@ -6953,14 +7100,14 @@ softwarePackages:
     pacman: upx
     port: upx
     scoop: upx
-  arduino:
-    cask: arduino
-    choco: arduino
-    flatpak: cc.arduino.IDE2
   cutter:
+    _when:cask: '! test -d "/Applications/Cutter.app"'
+    cask: cutter
+    choco: cutter
     flatpak: re.rizin.cutter
   librewolf:
     _scoopExtras: true
+    _when:cask: '! test -d "/Applications/LibreWolf.app"'
     cask: librewolf
     choco: librewolf
     flatpak: io.gitlab.librewolf-community
@@ -7094,6 +7241,7 @@ softwarePackages:
     choco: visualstudio2022community
   vscodium:
     _snapClassic: true
+    _when:cask: '! test -d "/Applications/VSCodium.app"'
     cask: vscodium
     choco: vscodium
     flatpak: com.vscodium.codium
@@ -7127,6 +7275,7 @@ softwarePackages:
     _service: null
     _when:darwin: '! test -d "/Applications/VMware Fusion.app"'
     ansible: professormanhattan.vmware
+    cask: vmware-fusion
   what-ip:
     flatpak: org.gabmus.whatip
   volta:
@@ -7394,7 +7543,9 @@ softwarePackages:
     _name: Wireshark
     _service: null
     ansible: professormanhattan.wireshark
-    apt: tshark
+    # Install hangs even with sudo apt-get -o DPkg::Options::=--force-confdef install -y tshark
+    # Need to figure out how to completely automate this
+    # apt: tshark
     brew: wireshark
     dnf: wireshark-cli
     pacman: wireshark-cli
@@ -7490,7 +7641,7 @@ softwarePackages:
     _home: https://developer.apple.com/xcode/
     _name: XCode
     _service: false
-    ansible: professormanhattan.xcode
+    ansible:darwin: professormanhattan.xcode
   xurls:
     _bin: xurls
     _desc: Extract urls from text
@@ -7691,7 +7842,13 @@ softwarePackages:
     _home: null
     _name: Zsh
     _service: null
-    ansible: professormanhattan.zsh
+    ansible:darwin: professormanhattan.zsh
+    ansible:linux: professormanhattan.zsh
+    apt: zsh
+    brew: zsh
+    dnf: zsh
+    pacman: zsh
+    port: zsh
   zx:
     _bin: zx
     _desc: null
