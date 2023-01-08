@@ -968,11 +968,11 @@ softwarePackages:
     brew: clair
     github: github.com/quay/clair
   clamav:
-    _bin: null
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
+    _bin: clamav
+    _desc: [ClamAV](https://www.clamav.net/) is an open-source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
+    _docs: https://docs.clamav.net/
+    _github: https://github.com/Cisco-Talos/clamav
+    _home: https://www.clamav.net/
     _name: ClamAV
     _post: freshclam
     _service: true
@@ -990,12 +990,13 @@ softwarePackages:
   clocker:
     _when: '! test -d /Applications/Clocker.app'
     _bin: null
-    _desc: null
+    _desc: Clocker is designed to help you keep track of your friends and colleagues in different time zones.
     _docs: null
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: Application
     cask: clocker
   cloudflare:
     _bin: null
@@ -1004,7 +1005,8 @@ softwarePackages:
     _github: https://github.com/cloudflare/1.1.1.1
     _home: https://www.cloudflare.com/
     _name: CloudFlare
-    _service: null
+    _service: true
+    _type: cli
     ansible: professormanhattan.cloudflare
   cloudflared:
     _bin: cloudflared
@@ -1013,7 +1015,7 @@ softwarePackages:
     _github: https://github.com/cloudflare/cloudflared
     _home: null
     _name: CloudFlared
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.cloudflared
     brew: cloudflare/cloudflare/cloudflared
@@ -1032,13 +1034,13 @@ softwarePackages:
     choco: cmake
     snap: cmake
   cmctl:
-    _bin: null
+    _bin: cmctl
     _desc: A CLI tool that can help you to manage cert-manager resources inside your cluster
-    _docs: null
-    _github: null
+    _docs: https://cert-manager.io/docs/
+    _github: https://github.com/cert-manager/cert-manager
     _home: https://cert-manager.io/docs/usage/cmctl/
     _name: cmctl
-    _service: null
+    _service: false
     _type: cli
     github: github.com/cert-manager/cert-manager
   cockpit:
@@ -1049,7 +1051,8 @@ softwarePackages:
     _home: https://cockpit-project.org/
     _name: Cockpit
     _post: sudo usermod -a -G libvirtdbus libvirt
-    _service: null
+    _service: true
+    _type: application
     _systemd: cockpit
     _systemd:pacman: cockpit.socket
     ansible:linux: professormanhattan.cockpit
@@ -1092,7 +1095,8 @@ softwarePackages:
     _github: https://github.com/CocoaPods/CocoaPods
     _home: https://cocoapods.org/
     _name: cocoapods
-    _service: null
+    _service: false
+    _type: cli
     _when:brew: '! test -d /usr/local/Cellar/cocoapods'
     ansible:darwin: professormanhattan.cocoapods
     brew:darwin: cocoapods
@@ -1104,28 +1108,31 @@ softwarePackages:
     _github: https://github.com/cointop-sh/cointop
     _home: https://cointop.sh/
     _name: Cointop
-    _service: null
+    _service: false
+    _type: application
     ansible:darwin: professormanhattan.cointop
     ansible:linux: professormanhattan.cointop
     brew: cointop
     port: cointop
   commitizen:
     _bin: cz
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: Commitizen is a tool designed for teams. Its main purpose is to define a standard way of committing rules and communicating it
+    _docs: https://commitizen-tools.github.io/commitizen/
+    _github: https://github.com/commitizen/cz-cli
+    _home: https://commitizen-tools.github.io/commitizen/
+    _name: commitizen
+    _service: false
+    _type: cli
     npm: commitizen
   commitlint:
     _bin: commitlint
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
+    _desc: Lint commit messages
+    _docs: https://commitlint.js.org/#/?id=documentation
+    _github: https://github.com/conventional-changelog/commitlint
+    _home: https://commitlint.js.org
+    _name: commitlint
     _service: false
+    _type: cli
     npm: '@commitlint/cli'
   common:
     _bin: null
@@ -1134,7 +1141,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: Common
-    _service: null
+    _service: false
     ansible: professormanhattan.common
   composer:
     _bin: composer
@@ -1144,6 +1151,7 @@ softwarePackages:
     _home: https://getcomposer.org/
     _name: Composer
     _service: false
+    _type: cli
     ansible: professormanhattan.composer
     brew: composer
     choco: composer
@@ -1158,7 +1166,7 @@ softwarePackages:
     _github: https://github.com/kelseyhightower/confd
     _home: null
     _name: confd
-    _service: null
+    _service: false
     _type: cli
     brew: confd
     choco: confd
@@ -1166,21 +1174,22 @@ softwarePackages:
     yay: confd
   connect:
     _bin: null
-    _desc: null
+    _desc: Handles the connection process for hosts that have not been reassigned a "secure" / non-default port and sets variables that are used later in the playbook
     _docs: null
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
     ansible: professormanhattan.connect
   consul-cli:
     _bin: consul
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Consul](https://www.consul.io/) uses service identities and traditional networking practices to help organizations securely connect applications running in any environment
+    _docs: https://developer.hashicorp.com/consul/docs
+    _github: https://www.github.com/hashicorp/consul
+    _home: https://www.consul.io/
+    _name: Consul
+    _service: false
+    _type: cli
     apt: consul
     brew: consul
     pkg: consul
@@ -1192,39 +1201,43 @@ softwarePackages:
     _github: https://github.com/hashicorp/consul-template
     _home: https://www.hashicorp.com/
     _name: Consul-Template
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.consultemplate
   container-structure-test:
     _bin: container-structure-test
-    _desc: null
+    _desc: The Container Structure Tests provide a powerful framework to validate the structure of a container image. These tests can be used to check the output of commands in an image, as well as verify metadata and contents of the filesystem
     _docs: null
     _github: null
     _home: null
-    _name: null
-    _post:binary:linux: |
-      # TODO
-    _service: null
+    _name: Container Structure Tests
+    _service: false
+    _type: cli
     binary:linux: https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
     brew: container-structure-test
     yay: container-structure-test
   cookiecutter:
     _bin: cookiecutter
-    _desc: null
-    _docs: null
-    _github: null
+    _desc: A cross-platform command-line utility that creates projects from cookiecutters (project templates)
+    _docs: https://cookiecutter.readthedocs.io/
+    _github: https://github.com/cookiecutter/cookiecutter
     _home: null
-    _name: null
-    _service: null
+    _name: cookiecutter
+    _service: false
+    _type: cli
     brew: cookiecutter
     pipx: cookiecutter
   cordova:
     _bin: cordova
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: >-
+      [Apache Cordova](https://cordova.apache.org/) is a tool to create cross-platform apps from standard web technologies (HTML, CSS, and JavaScript).
+      Its primary purpose is to provide a bridge for native device API access and to bundle for distribution
+    _docs: https://cordova.apache.org/docs/en/latest/
+    _github: https://github.com/apache/cordova
+    _home: https://cordova.apache.org/
+    _name: Apache Cordova
+    _service: false
+    _type: cli
     npm: cordova
   croc:
     _bin: croc
@@ -1233,7 +1246,7 @@ softwarePackages:
     _github: https://github.com/schollz/croc
     _home: null
     _name: croc
-    _service: null
+    _service: false
     _type: cli
     brew: croc
     choco: croc
@@ -1249,7 +1262,7 @@ softwarePackages:
     _github: https://github.com/bcicen/ctop
     _home: null
     _name: ctop
-    _service: null
+    _service: false
     _type: cli
     brew: ctop
     github: github.com/bcicen/ctop
@@ -1262,7 +1275,7 @@ softwarePackages:
     _github: https://github.com/gillesdemey/Cumulus
     _home: null
     _name: Cumulus
-    _service: null
+    _service: false
     _type: menubar
     cask: cumulus
     github: github.com/gillesdemey/Cumulus
@@ -1273,7 +1286,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: CUPS
-    _service: null
+    _service: true
+    _type: cli
     _systemd: smbd
     ansible: professormanhattan.cups
     apt:
@@ -1285,13 +1299,13 @@ softwarePackages:
       - avahi-daemon
       - cups
   curator:
-    _bin: null
+    _bin: curator
     _desc: Elasticsearch Curator helps you curate, or manage, your Elasticsearch indices and snapshots
-    _docs: null
+    _docs: https://www.elastic.co/guide/en/elasticsearch/client/curator
     _github: null
     _home: https://www.elastic.co/guide/en/elasticsearch/client/curator
     _name: curator
-    _service: null
+    _service: false
     _type: cli
     pip: elasticsearch-curator
   curl:
@@ -1334,7 +1348,7 @@ softwarePackages:
     _github: https://github.com/TomWright/dasel
     _home: null
     _name: dasel
-    _service: null
+    _service: false
     _type: cli
     brew: dasel
     github: github.com/TomWright/dasel
@@ -1346,7 +1360,7 @@ softwarePackages:
     _github: https://github.com/datproject/dat
     _home: null
     _name: dat
-    _service: null
+    _service: false
     _type: cli
     github: github.com/dat-ecosystem-archive/dat
     npm: dat@next
@@ -1358,7 +1372,7 @@ softwarePackages:
     _github: https://github.com/datproject/dat-desktop
     _home: null
     _name: Dat Desktop
-    _service: null
+    _service: false
     _type: application
     cask: dat
     github: github.com/datproject/dat-desktop
@@ -1371,7 +1385,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: Debloat Windows
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.debloat
   defaultbrowser:
     _bin: null
@@ -1380,7 +1395,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: Default Browser Setter
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.defaultbrowser
   delta:
     _bin: delta
@@ -1407,6 +1423,7 @@ softwarePackages:
     _home: https://github.com/go-delve/delve
     _name: Delve
     _service: false
+    _type: cli
     brew: delve
     go: github.com/go-delve/delve/cmd/dlv@latest
   deno:
@@ -1417,6 +1434,7 @@ softwarePackages:
     _home: https://deno.land/
     _name: Deno
     _service: false
+    _type: cli
     ansible: professormanhattan.deno
     brew: deno
     cargo: deno
@@ -1444,7 +1462,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: Desktop
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.desktop
   deta:
     _bin: deta
@@ -1461,21 +1480,23 @@ softwarePackages:
     script:windows: iwr https://get.deta.dev/cli.ps1 -useb | iex
   dframe:
     _bin: dframe
-    _desc: null
+    _desc: Put device frames around your mobile/web/progressive app screenshots
     _docs: null
-    _github: null
+    _github: https://github.com/c0bra/deviceframe
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     npm: deviceframe
   diff-so-fancy:
-    _bin: null
+    _bin: diff-so-fancy
     _desc: '[diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) strives to make your diffs human readable instead of machine readable. This helps improve code quality and helps you spot defects faster.'
     _docs: null
-    _github: null
+    _github: https://github.com/so-fancy/diff-so-fancy
     _home: null
     _name: diff-so-fancy
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.diffsofancy
   difftastic:
     _bin: difft
@@ -1495,7 +1516,7 @@ softwarePackages:
     _github: https://github.com/direnv/direnv
     _home: https://direnv.net/
     _name: direnv
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.direnv
     apt: direnv
@@ -1509,7 +1530,7 @@ softwarePackages:
     _github: https://github.com/wagoodman/dive
     _home: https://github.com/wagoodman/dive
     _name: dive
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.dive
     brew: dive
@@ -1523,7 +1544,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: DNS
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.dns
   dnsmasq:
     _bin: dnsmasq
@@ -1533,6 +1555,7 @@ softwarePackages:
     _home: null
     _name: dnsmasq
     _service: true
+    _type: cli
     ansible: professormanhattan.dnsmasq
     apt: dnsmasq
     brew: dnsmasq
@@ -1548,7 +1571,9 @@ softwarePackages:
     _post:apt: sudo systemctl start docker
     _post:pacman: sudo systemctl start docker
     _name: Docker
-    _service: null
+    _service: true
+    _systemd: docker
+    _type: cli
     ansible: professormanhattan.docker
     # apt:
     #   - docker.io
@@ -1576,7 +1601,8 @@ softwarePackages:
     _github: https://github.com/christian-korneck/docker-pushrm
     _home: https://hub.docker.com/r/chko/docker-pushrm
     _name: docker-pushrm
-    _service: null
+    _service: false
+    _type: cli
     _when:darwin: '! test -f /Applications/Docker.app/Contents/Resources/cli-plugins/docker-pushrm'
     _when:linux: '! test -f /usr/libexec/docker/cli-plugins/docker-pushrm'
     _when:windows: '! test -f %ProgramData%\Docker\cli-plugins\docker-pushrm.exe'
@@ -1588,7 +1614,7 @@ softwarePackages:
     _github: https://github.com/goodwithtech/dockle
     _home: null
     _name: dockle
-    _service: null
+    _service: false
     _type: cli
     brew: goodwithtech/r/dockle
     github: github.com/goodwithtech/dockle
@@ -1600,7 +1626,7 @@ softwarePackages:
     _github: https://github.com/digitalocean/doctl
     _home: null
     _name: doctl
-    _service: null
+    _service: false
     _type: cli
     brew: doctl
     github: github.com/digitalocean/doctl
@@ -1614,7 +1640,7 @@ softwarePackages:
     _github: https://github.com/ogham/dog
     _home: null
     _name: dog
-    _service: null
+    _service: false
     _type: cli
     brew: dog
     github: github.com/ogham/dog
@@ -1622,35 +1648,38 @@ softwarePackages:
     pkg: dog
   dotenv-linter:
     _bin: dotenv-linter
-    _desc: null
+    _desc: [Dotenv Linter](https://dotenv-linter.github.io) is a lightning-fast linter for .env files. Written in Rust
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/dotenv-linter/dotenv-linter
+    _home: https://dotenv-linter.github.io/
+    _name: Dotenv Linter
+    _service: false
+    _type: cli
     brew: dotenv-linter
     cargo: dotenv-linter
     scoop: dotenv-linter
     yay: dotenv-linter
   dotnet:
     _bin: dotnet
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [.Net](https://dotnet.microsoft.com/) lets you create beautiful apps and scalable cloud services, faster and easier with the free, open-source platform that's loved by developers and trusted by organizations
+    _docs: https://learn.microsoft.com/en-us/dotnet/
+    _github: https://github.com/dotnet
+    _home: https://dotnet.microsoft.com/
+    _name: .Net
+    _service: false
+    _type: cli
     brew: dotnet
     choco: dotnet
     yay: dotnet-sdk-bin
   dprint:
     _bin: dprint
-    _desc: null
-    _docs: null
-    _github: null
+    _desc: [dprint](https://dprint.dev/) is a pluggable and configurable code formatting platform written in Rust.
+    _docs: https://dprint.dev/
+    _github: https://github.com/dprint
     _home: https://dprint.dev/
     _name: DPrint
-    _service: null
+    _service: false
+    _type: cli
     brew: dprint
     cargo: dprint
     npm: dprint
@@ -1677,7 +1706,8 @@ softwarePackages:
     _github: https://github.com/digitalocean/droplet-agent
     _home: https://www.digitalocean.com/products/droplets
     _name: Droplets
-    _service: null
+    _service: false
+    _type: application
     ansible: professormanhattan.droplets
   duf:
     _bin: duf
@@ -1718,6 +1748,7 @@ softwarePackages:
     _home: https://easyengine.io/
     _name: EasyEngine
     _service: true
+    _type: cli
     ansible:darwin: professormanhattan.easyengine
     ansible:linux: professormanhattan.easyengine
   editly:
@@ -1728,6 +1759,7 @@ softwarePackages:
     _home: https://github.com/mifi/editly
     _name: Editly
     _service: false
+    _type: cli
     npm: editly
   elastic-agent:
     # Elastic Agent performs some security measures that make it so that checking the bin only works
@@ -1741,29 +1773,22 @@ softwarePackages:
     _home: https://www.elastic.co/
     _name: Elastic Agent
     _service: true
+    _type: application
     _when: '! sudo which elastic-agent > /dev/null'
     ansible: professormanhattan.elasticagent
   electron:
     _bin: electron
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: Electron CLI
-    _service: null
-    npm: electron
-  electron-app:
-    # TODO: Figure out if this app is necessary and add description that describes the difference between
-    # this and the regular Electron CLI installed via NPM.
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: Electron Desktop App
-    _service: null
+    _desc: [Electron](https://www.electronjs.org/) allows you to build cross-platform desktop apps with JavaScript, HTML, and CSS
+    _docs: https://www.electronjs.org/docs/latest/
+    _github: https://github.com/electron/electron
+    _home: https://www.electronjs.org/
+    _name: Electron
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/Electron.app'
     cask: electron
     choco: electron
+    npm: electron
   emma:
     _bin: emma
     _desc: Advanced package search for NPM
@@ -1772,24 +1797,27 @@ softwarePackages:
     _home: https://www.npmjs.com/package/emma-cli
     _name: Emma
     _service: false
+    _type: cli
     npm: emma-cli
   emoj:
     _bin: emoj
-    _desc: null
+    _desc: Find relevant emoji from text on the command-line
     _docs: null
-    _github: null
+    _github: https://github.com/sindresorhus/emoj
     _home: null
-    _name: null
-    _service: null
+    _name: emoj
+    _service: false
+    _type: cli
     npm: emoj
   emplace:
     _bin: null
-    _desc: null
+    _desc: Emplace objects and arrays - pointer to pointer style
     _docs: null
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     cargo: emplace
     nix: emplace
     scoop: emplace
@@ -1842,7 +1870,7 @@ softwarePackages:
     _github: https://github.com/hashicorp/envconsul
     _home: null
     _name: envconsul
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.envconsul
     brew: envconsul
@@ -1854,16 +1882,18 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.environment
   eslint:
     _bin: eslint
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [ESLint](https://eslint.org/) allows you to find and fix problems in your JavaScript code
+    _docs: https://eslint.org/docs
+    _github: https://github.com/eslint/eslint
+    _home: https://eslint.org/
+    _name: ESLint
+    _service: false
+    _type: cli
     brew: eslint
     npm: eslint
   etcd:
@@ -1873,7 +1903,7 @@ softwarePackages:
     _github: https://github.com/etcd-io/etcd
     _home: null
     _name: etcd
-    _service: null
+    _service: true
     _type: cli
     apt: etcd
     brew: etcd
@@ -1921,16 +1951,17 @@ softwarePackages:
     _github: null
     _home: null
     _name: Extensions
-    _service: null
+    _service: false
     ansible: professormanhattan.extensions
   fastify:
     _bin: fastify
-    _desc: null
+    _desc: Run a Fastify application with one command
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/fastify/fastify-cli
+    _home: https://www.fastify.io/
+    _name: fastify
+    _service: false
+    _type: cli
     npm: fastify-cli
   fcp:
     _bin: fcp
@@ -1940,6 +1971,7 @@ softwarePackages:
     _home: https://github.com/Svetlitski/fcp
     _name: fcp
     _service: false
+    _type: cli
     brew: fcp
     cargo: fcp
     nix: unstable.fcp
@@ -1951,7 +1983,7 @@ softwarePackages:
     _github: https://github.com/sharkdp/fd
     _home: null
     _name: fd
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.fd
     apk: fd
@@ -1965,12 +1997,13 @@ softwarePackages:
     scoop: fd
   feathers:
     _bin: feathers
-    _desc: null
+    _desc: The command line interface for scaffolding Feathers applications
     _docs: null
-    _github: null
+    _github: https://github.com/feathersjs-ecosystem/cli
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     npm: '@feathersjs/cli'
   ffmpeg:
     _bin: ffmpeg
@@ -1979,7 +2012,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: FFmpeg
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.ffmpeg
     apk: ffmpeg
     apt: ffmpeg
@@ -1995,7 +2029,7 @@ softwarePackages:
     _github: https://github.com/timvisee/ffsend
     _home: null
     _name: ffsend
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.ffsend
     apk: ffsend
@@ -2012,6 +2046,7 @@ softwarePackages:
     _home: https://fig.io/
     _name: Fig
     _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Fig.app"'
     ansible:darwin: professormanhattan.fig
     cask: fig
@@ -2040,6 +2075,7 @@ softwarePackages:
     _home: https://filezilla-project.org/
     _name: FileZilla
     _service: false
+    _type: application
     _when:ansible:darwin: '! test -d /Applications/FileZilla.app'
     ansible:darwin: professormanhattan.filezilla
     apt: filezilla
@@ -2054,25 +2090,27 @@ softwarePackages:
     _github: null
     _home: null
     _name: Finish
-    _service: null
+    _service: false
     ansible: professormanhattan.finish
   firebase:
     _bin: firebase
-    _desc: null
+    _desc: The Firebase Command Line Interface (CLI) Tools can be used to test, manage, and deploy your Firebase project from the command line
     _docs: null
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     npm: firebase-tools
   firefox:
-    _bin: null
+    _bin: firefox
     _desc: '[Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/), or simply Firefox, is a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation. Firefox uses the Gecko layout engine to render web pages, which implements current and anticipated web standards.'
     _docs: https://developer.mozilla.org/en-US/
     _github: null
     _home: https://www.mozilla.org/en-US/firefox/new/
     _name: Mozilla Firefox
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Firefox.app"'
     ansible: professormanhattan.firefox
     apt: firefox
@@ -2089,26 +2127,28 @@ softwarePackages:
     _github: null
     _home: null
     _name: Firewall
-    _service: null
+    _service: false
     ansible: professormanhattan.firewall
   fission:
-    _bin: null
-    _desc: Fission CLI helps you to operate Fission
-    _docs: null
-    _github: null
+    _bin: fission
+    _desc: Fast and Simple Serverless Functions for Kubernetes
+    _docs: https://fission.io/docs/
+    _github: https://github.com/fission
     _home: https://fission.io/
     _name: Fission
-    _service: null
+    _service: false
+    _type: cli
     _type: binary
     github: github.com/fission/fission
   fkill:
     _bin: fkill
-    _desc: null
+    _desc: Fabulously kill processes. Cross-platform
     _docs: null
-    _github: null
+    _github: https://github.com/sindresorhus/fkill
     _home: null
-    _name: null
-    _service: null
+    _name: fkill
+    _service: false
+    _type: cli
     npm: fkill-cli
   flameshot:
     _bin: null
@@ -2118,7 +2158,8 @@ softwarePackages:
     _home: https://flameshot.org/
     _name: Flameshot
     _scoopExtras: true
-    _service: true
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/flameshot.app"'
     apt: flameshot
     cask: flameshot
@@ -2136,12 +2177,13 @@ softwarePackages:
     zypper: flameshot
   flutter:
     _bin: flutter
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Flutter](https://flutter.dev/) transforms the app development process. Build, test, and deploy beautiful mobile, web, desktop, and embedded apps from a single codebase
+    _docs: https://docs.flutter.dev/
+    _github: https://github.com/flutter/flutter
+    _home: https://flutter.dev/
+    _name: Flutter
+    _service: false
+    _type: application
     _snapClassic: true
     brew: flutter
     choco: flutter
@@ -2156,6 +2198,7 @@ softwarePackages:
     _home: https://fritzing.org/
     _name: Fritzing
     _service: false
+    _type: application
     choco: fritzing
     flatpak: org.fritzing.Fritzing
   fly:
@@ -2165,7 +2208,8 @@ softwarePackages:
     _github: null
     _home: https://concourse-ci.org/
     _name: fly
-    _service: null
+    _service: false
+    _type: cli
     _type: binary
     cask: fly
     github: https://github.com/concourse/concourse
@@ -2177,7 +2221,7 @@ softwarePackages:
     _github: https://github.com/knipferrc/fm
     _home: null
     _name: fm
-    _service: null
+    _service: false
     _type: cli
     github: github.com/knipferrc/fm
     go: github.com/knipferrc/fm@latest
@@ -2188,7 +2232,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: Install Fonts
-    _service: null
+    _service: false
     ansible: professormanhattan.fontinstall
   fonts:
     _bin: null
@@ -2197,7 +2241,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
     _when:cask: '! ((brew list font-sf-mono-nerd-font | grep SFMono) && (brew list font-hack-nerd-font | grep Hack) && (brew list font-meslo-lg-nerd-font | grep Meslo))'
     cask:
       - epk/epk/font-sf-mono-nerd-font
@@ -2212,7 +2256,8 @@ softwarePackages:
     _github: https://github.com/jordansissel/fpm
     _home: null
     _name: fpm
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.fpm
     gem: fpm
   fpm:deps:
@@ -2239,7 +2284,7 @@ softwarePackages:
     _github: https://github.com/wader/fq
     _home: null
     _name: fq
-    _service: null
+    _service: false
     _type: cli
     apk: fq
     brew: wader/tap/fq
@@ -2254,7 +2299,7 @@ softwarePackages:
     _github: https://github.com/jhspetersson/fselect
     _home: null
     _name: fselect
-    _service: null
+    _service: false
     _type: cli
     brew: fselect
     cargo: fselect
@@ -2268,7 +2313,7 @@ softwarePackages:
     _github: https://github.com/sgarciac/fuego
     _home: null
     _name: Fuego
-    _service: null
+    _service: false
     _type: cli
     github: github.com/sgarciac/fuego
     snap: fuego
@@ -2279,7 +2324,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: Fuse
-    _service: null
+    _service: false
     _when:cask: '! test -d /usr/local/Caskroom/macfuse'
     ansible:darwin: professormanhattan.fuse
     apt: libfuse-dev
@@ -2307,6 +2352,7 @@ softwarePackages:
     _home: https://github.com/junegunn/fzf
     _name: fzf
     _service: false
+    _type: cli
     ansible: professormanhattan.fzf
     apk: fzf
     apt: fzf
@@ -2383,6 +2429,7 @@ softwarePackages:
     _name: Google Cloud SDK
     _snapClassic: true
     _service: false
+    _type: cli
     _when:cask: '! test -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
     ansible: professormanhattan.googlecloudsdk
     cask: google-cloud-sdk
@@ -2391,12 +2438,13 @@ softwarePackages:
     yay: google-cloud-sdk
   gdown:
     _bin: gdown
-    _desc: null
+    _desc: Download a large file from Google Drive
     _docs: null
-    _github: null
+    _github: https://github.com/wkentaro/gdown
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     pipx: gdown
   gdrive:
     _bin: gdrive
@@ -2426,7 +2474,8 @@ softwarePackages:
       sudo snap connect gdu-disk-usage-analyzer:mount-observe :mount-observe
       sudo snap connect gdu-disk-usage-analyzer:system-backup :system-backup
       sudo snap alias gdu-disk-usage-analyzer.gdu gdu
-    _service: null
+    _service: false
+    _type: cli
     brew: gdu
     go: github.com/dundee/gdu/v5/cmd/gdu@latest
     pacman: gdu
@@ -2438,16 +2487,17 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
     apt: gdu
   gfi:
     _bin: gfi
-    _desc: null
+    _desc: Google Font Installer is a NodeJS module/CLI that lets you Search, Download and Install fonts offered by Google Web Fonts
     _docs: null
-    _github: null
+    _github: https://github.com/lordgiotto/google-font-installer
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     npm: google-font-installer
   gh:
     _bin: gh
@@ -2457,6 +2507,7 @@ softwarePackages:
     _home: https://cli.github.com/
     _name: Github CLI
     _service: false
+    _type: cli
     ansible: professormanhattan.gh
     brew: gh
     choco: gh
@@ -2470,7 +2521,7 @@ softwarePackages:
     _github: https://github.com/gabrie30/ghorg
     _home: null
     _name: ghorg
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.ghorg
     brew: gabrie30/utils/ghorg
@@ -2484,7 +2535,8 @@ softwarePackages:
     _github: https://github.com/GNOME/gimp
     _home: https://www.gimp.org/
     _name: GIMP
-    _service: null
+    _service: false
+    _type: cli
     _when:cask: '! test -d /Applications/GIMP-2.10.app'
     ansible: professormanhattan.gimp
     apt: gimp
@@ -2501,7 +2553,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: gist
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.gist
     gem: gist
   git:
@@ -2511,7 +2564,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     apk: git
     apt: git
     brew: git
@@ -2523,7 +2577,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.gitfilterrepo
     brew: git-filter-repo
     pipx: git-filter-repo
@@ -2537,18 +2592,20 @@ softwarePackages:
     _home: null
     _name: Git LFS
     _post: git lfs install
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.gitlfs
     brew: git-lfs
     scoop: git-lfs
   git-open:
     _bin: git-open
-    _desc: null
+    _desc: Open the repo website (GitHub, GitLab, Bitbucket) in your browser
     _docs: null
-    _github: null
+    _github: https://github.com/paulirish/git-open
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     npm: git-open
   git-secret:
     _bin: git-secret
@@ -2559,6 +2616,7 @@ softwarePackages:
     _home: https://git-secret.io/
     _name: Git Secret
     _service: false
+    _type: cli
     ansible:darwin: professormanhattan.gitsecret
     ansible:linux: professormanhattan.gitsecret
     apt: git-secret
@@ -2585,6 +2643,7 @@ softwarePackages:
     _home: https://gitlab.com/mvanremmerden/gitdock
     _name: GitDock
     _service: true
+    _type: application
     _when:cask: '! test -d /Applications/GitDock.app'
     ansible:darwin: professormanhattan.gitdock
     cask: gitdock
@@ -2595,7 +2654,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: GitDocker
-    _service: null
+    _service: false
     ansible: professormanhattan.gitdocker
   git-extras:
     _bin: git-extras
@@ -2604,7 +2663,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: git-extras
-    _service: null
+    _service: false
+    _type: cli
     ansible:windows: professormanhattan.gitextras
     apt: git-extras
     brew: git-extras
@@ -2617,17 +2677,19 @@ softwarePackages:
     _github: null
     _home: null
     _name: git-fuzzy
-    _service: null
+    _service: false
+    _type: cli
     _notes: Installed via dotfiles
     # ansible: professormanhattan.gitfuzzy
   git-notify:
     _bin: git-notify
-    _desc: null
+    _desc: Communicate important updates to your team via git commit messages
     _docs: null
-    _github: null
+    _github: https://github.com/jevakallio/git-notify
     _home: null
     _name: Git Notify
     _service: false
+    _type: cli
     npm: git-notify
   githubbinary:
     _bin: null
@@ -2636,7 +2698,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: GitHub Binary Downloader
-    _service: null
+    _service: false
     ansible: professormanhattan.githubbinary
   gitify:
     _bin: null
@@ -2646,7 +2708,7 @@ softwarePackages:
     _github: https://github.com/manosim/gitify
     _home: https://github.com/manosim/gitify
     _name: Gitify
-    _service: null
+    _service: false
     _type: menubar
     _when:cask: '! test -d /Applications/Gitify.app'
     cask: gitify
@@ -2659,7 +2721,8 @@ softwarePackages:
     _github: Not open-source
     _home: https://www.gitkraken.com/
     _name: GitKraken
-    _service: null
+    _service: false
+    _type: application
     _snapClassic: true
     _when:cask: '! test -d /Applications/GitKraken.app'
     ansible: professormanhattan.gitkraken
@@ -2675,6 +2738,7 @@ softwarePackages:
     _home: https://gitlab.com/gitlab-org/gitlab-runner
     _name: Gitlab Runner
     _service: true
+    _type: cli
     ansible: professormanhattan.gitlabrunner
     brew: gitlab-runner
     choco: gitlab-runner
@@ -2688,7 +2752,7 @@ softwarePackages:
     _github: https://github.com/zricethezav/gitleaks
     _home: null
     _name: gitleaks
-    _service: null
+    _service: false
     _type: cli
     brew: gitleaks
     dnf: gitleaks
@@ -2702,7 +2766,7 @@ softwarePackages:
     _github: https://github.com/muesli/gitomatic
     _home: null
     _name: git-o-matic
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.gitomatic
     github: github.com/muesli/gitomatic
@@ -2715,7 +2779,8 @@ softwarePackages:
     _github: https://github.com/IonicaBizau/git-stats
     _home: null
     _name: git-stats
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.gitstats
     npm: git-stats
   gitui:
@@ -2744,7 +2809,8 @@ softwarePackages:
     _github: https://github.com/yandex/gixy
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     pipx: gixy
   glab:
     _bin: glab
@@ -2753,7 +2819,7 @@ softwarePackages:
     _github: https://github.com/profclems/glab
     _home: null
     _name: glab
-    _service: null
+    _service: false
     _type: cli
     apk: glab
     brew: glab
@@ -2769,7 +2835,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: Glances
-    _service: null
+    _service: false
+    _type: cli
     _post:pipx: pipx inject glances glances[all]
     ansible: professormanhattan.glances
     apt:ubuntu:
@@ -2800,12 +2867,13 @@ softwarePackages:
     flatpak: io.github.jorchube.monitorets
   glen:
     _bin: glen
-    _desc: null
+    _desc: A CLI to gather GitLab project and group variables
     _docs: null
-    _github: null
+    _github: https://github.com/lingrino/glen
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     go: github.com/lingrino/glen@latest
   glow:
     _bin: glow
@@ -2814,7 +2882,7 @@ softwarePackages:
     _github: https://github.com/charmbracelet/glow
     _home: null
     _name: glow
-    _service: null
+    _service: false
     _type: cli
     brew: glow
     github: github.com/charmbracelet/glow
@@ -2842,7 +2910,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     _when:brew:darwin: '(! brew list coreutils | grep coreutils) || (! brew list findutils | grep findutils) || (! brew list gawk | grep gawk) || (! brew list gnu-getopt | grep gnu-getopt) || (! brew list gnu-indent | grep gnu-indent) || (! brew list gnu-tar | grep gnu-tar) || (! brew list gnu-sed | grep gnu-sed) || (! brew list gnutls | grep gnutls) || (! brew list grep | grep grep)'
     brew:darwin:
       - coreutils
@@ -2878,7 +2947,7 @@ softwarePackages:
     _github: https://github.com/vishen/go-chromecast
     _home: null
     _name: go-chromecast
-    _service: null
+    _service: false
     _type: cli
     github: github.com/vishen/go-chromecast
     go: github.com/vishen/go-chromecast@latest
@@ -2889,7 +2958,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     go: github.com/ramya-rao-a/go-outline@latest
   gojq:
     _bin: gojq
@@ -2898,29 +2968,31 @@ softwarePackages:
     _github: https://github.com/itchyny/gojq
     _home: null
     _name: gojq
-    _service: null
+    _service: false
     _type: cli
     brew: gojq
     github: github.com/itchyny/gojq
     go: github.com/itchyny/gojq@latest
   golangci-lint:
     _bin: golangci-lint
-    _desc: null
+    _desc: Fast linters Runner for Go
     _docs: null
-    _github: null
-    _home: null
+    _github: https://github.com/golangci/golangci-lint
+    _home: https://golangci-lint.run/
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew: golangci-lint
     go: github.com/golangci/golangci-lint/cmd/golangci-lint@latest
   gomodifytags:
     _bin: gomodifytags
-    _desc: null
+    _desc: Go tool to modify struct field tags
     _docs: null
-    _github: null
+    _github: https://github.com/fatih/gomodifytags
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew: gomodifytags
     go: github.com/fatih/gomodifytags@latest
   gomplate:
@@ -2962,17 +3034,19 @@ softwarePackages:
     _home: https://github.com/jarun/googler
     _name: Googler
     _service: false
+    _type: application
     ansible:darwin: professormanhattan.googler
     ansible:linux: professormanhattan.googler
     brew: googler
   gopkgs:
     _bin: gopkgs
-    _desc: null
+    _desc: Tool to get list available Go packages
     _docs: null
-    _github: null
+    _github: https://github.com/uudashr/gopkgs
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     go: github.com/uudashr/gopkgs/v2/cmd/gopkgs@latest
   gopls:
     _bin: gopls
@@ -2981,17 +3055,19 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew: gopls
     go: golang.org/x/tools/gopls@latest
   gotests:
     _bin: gotests
-    _desc: null
+    _desc: Automatically generate Go test boilerplate from your source code
     _docs: null
-    _github: null
+    _github: https://github.com/cweill/gotests
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew: gotests
     go: github.com/cweill/gotests/...@latest
   gphotos-sync:
@@ -3002,6 +3078,7 @@ softwarePackages:
     _home: https://gilesknap.github.io/gphotos-sync/main/index.html
     _name: Google Photos Sync
     _service: false
+    _type: cli
     pacman: gphotos-sync
     pipx: gphotos-sync
   gping:
@@ -3011,7 +3088,7 @@ softwarePackages:
     _github: https://github.com/orf/gping
     _home: null
     _name: gping
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.gping
     brew: gping
@@ -3028,6 +3105,7 @@ softwarePackages:
     _home: https://gradle.org/
     _name: Gradle
     _service: false
+    _type: cli
     _snapClassic: true
     ansible: professormanhattan.gradle
     brew: gradle
@@ -3057,7 +3135,7 @@ softwarePackages:
     _github: https://github.com/tomnomnom/gron
     _home: null
     _name: gron
-    _service: null
+    _service: false
     _type: cli
     brew: gron
     github: github.com/tomnomnom/gron
@@ -3070,18 +3148,20 @@ softwarePackages:
     _home: https://github.com/anchore/grype
     _name: Grype
     _service: false
+    _type: cli
     brew: anchore/grype/grype
     choco: grype
     port: grype
     yay: grype-bin
   gtop:
     _bin: gtop
-    _desc: null
+    _desc: System monitoring dashboard for terminal
     _docs: null
-    _github: null
+    _github: https://github.com/aksakalli/gtop
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew: gtop
     npm: gtop
   guacamole:
@@ -3091,7 +3171,8 @@ softwarePackages:
     _github: https://github.com/apache/guacamole-client
     _home: https://guacamole.apache.org/
     _name: Guacamole
-    _service: null
+    _service: true
+    _type: webapp
     ansible: professormanhattan.guacamole
   seafile-client:
     _when:cask: '! test -d "/Applications/Seafile Client.app"'
@@ -3100,12 +3181,13 @@ softwarePackages:
     flatpak: com.seafile.Client
   gulp:
     _bin: gulp
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Gulp](https://gulpjs.com/) is a toolkit to automate & enhance your workflow
+    _docs: https://gulpjs.com/docs/en/getting-started/quick-start
+    _github: https://github.com/gulpjs/gulp
+    _home: https://gulpjs.com/
+    _name: Gulp
+    _service: false
+    _type: cli
     # Brew gulp is deprecated
     # brew: gulp
     npm: gulp
@@ -3131,7 +3213,8 @@ softwarePackages:
     _github: https://github.com/google/gvisor
     _home: https://gvisor.dev/
     _name: gVisor
-    _service: null
+    _service: false
+    _type: cli
     _when: '! test -f /usr/local/bin/runsc || ! test -f /usr/local/bin/containerd-shim-runsc-v1'
     ansible:linux: professormanhattan.gvisor
   gvm:
@@ -3141,26 +3224,29 @@ softwarePackages:
     _github: https://github.com/moovweb/gvm
     _home: null
     _name: rvm
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.gvm
   hadolint:
     _bin: hadolint
-    _desc: null
+    _desc: A smarter Dockerfile linter that helps you build best practice Docker images. The linter parses the Dockerfile into an AST and performs rules on top of the AST
     _docs: null
-    _github: null
+    _github: https://github.com/hadolint/hadolint
     _home: null
-    _name: null
-    _service: null
+    _name: hadolint
+    _service: false
+    _type: cli
     brew: hadolint
     dnf: hadolint
     scoop: hadolint
   hbs-cli:
     _bin: hbs
-    _desc: null
+    _desc: This is a CLI tool to render handlebars templates, with the ability to require in Partials, Helpers and JSON Data
     _docs: null
-    _github: null
+    _github: https://github.com/keithamus/hbs-cli
     _home: null
     _service: false
+    _type: cli
     npm: hbs-cli
   hclq:
     _bin: hclq
@@ -3169,7 +3255,7 @@ softwarePackages:
     _github: https://github.com/mattolenik/hclq
     _home: null
     _name: hclq
-    _service: null
+    _service: false
     _type: cli
     github: github.com/mattolenik/hclq
     go: github.com/mattolenik/hclq@latest
@@ -3180,7 +3266,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: Heroku CLI
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.heroku
     brew: heroku/brew/heroku
     choco: heroku-cli
@@ -3194,7 +3281,7 @@ softwarePackages:
     _github: https://github.com/sharkdp/hexyl
     _home: null
     _name: hexyl
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.hexyl
     apt: hexyl
@@ -3216,7 +3303,7 @@ softwarePackages:
     _github: https://github.com/rakyll/hey
     _home: null
     _name: hey
-    _service: null
+    _service: false
     _type: cli
     brew: hey
     github: github.com/rakyll/hey
@@ -3227,7 +3314,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: Himalaya
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.himalaya
     brew: himalaya
     scoop: himalaya
@@ -3238,7 +3326,7 @@ softwarePackages:
     _github: https://github.com/guumaster/hostctl
     _home: null
     _name: hostctl
-    _service: null
+    _service: false
     _type: cli
     brew: guumaster/tap/hostctl
     github: github.com/guumaster/hostctl
@@ -3251,7 +3339,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: Host Home Page
-    _service: null
+    _service: false
     ansible: professormanhattan.hosthomepage
   hosts:
     _bin: null
@@ -3269,7 +3357,7 @@ softwarePackages:
     _github: https://github.com/mgdm/htmlq
     _home: null
     _name: htmlq
-    _service: null
+    _service: false
     _type: cli
     brew: htmlq
     cargo: htmlq
@@ -3282,6 +3370,7 @@ softwarePackages:
     _home: https://htop.dev/
     _name: htop
     _service: false
+    _type: cli
     ansible:darwin: professormanhattan.htop
     ansible:linux: professormanhattan.htop
     apt: htop
@@ -3297,6 +3386,7 @@ softwarePackages:
     _home: https://http-prompt.com/
     _name: HTTP Prompt
     _service: false
+    _type: cli
     brew: http-prompt
     pipx: http-prompt
   httpie:
@@ -3306,7 +3396,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: HTTPie
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.httpie
     brew: httpie
     choco: httpie
@@ -3323,16 +3414,18 @@ softwarePackages:
     _home: https://github.com/reorx/httpstat
     _name: httpstat
     _service: false
+    _type: cli
     brew: httpstat
     pipx: httpstat
   hub:
     _bin: hub
-    _desc: null
+    _desc: Add GitHub support to git on the command-line
     _docs: null
-    _github: null
+    _github: https://hub.github.com/
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     apt: hub
     brew: hub
     choco: hub
@@ -3342,12 +3435,13 @@ softwarePackages:
     scoop: hub
   husky:
     _bin: husky
-    _desc: null
+    _desc: Husky improves your commits and more
     _docs: null
-    _github: null
-    _home: null
-    _name: null
+    _github: https://github.com/typicode/husky
+    _home: https://typicode.github.io/husky/
+    _name: Husky
     _service: false
+    _type: cli
     npm: husky
   hyper:
     _bin: null
@@ -3356,7 +3450,8 @@ softwarePackages:
     _github: https://github.com/vercel/hyper
     _home: https://hyper.is/
     _name: Hyper
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.hyper
     appimage: https://releases.hyper.is/download/AppImage
     brew: hyper
@@ -3369,7 +3464,7 @@ softwarePackages:
     _github: https://github.com/sharkdp/hyperfine
     _home: null
     _name: hyperfine
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.hyperfine
     apk: hyperfine
@@ -3388,7 +3483,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
     brew:darwin: ideviceinstaller
   imagemagick:
     _bin: magick
@@ -3397,7 +3492,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: application
     apk: imagemagick
     apt:
       - imagemagick
@@ -3408,30 +3504,31 @@ softwarePackages:
     scoop: imagemagick
   imgur-uploader:
     _bin: imgur-uploader
-    _desc: null
+    _desc:  Upload images to imgur
     _docs: null
-    _github: null
+    _github: https://github.com/kevva/imgur-uploader-cli
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     npm: imgur-uploader-cli
   impl:
     _bin: impl
-    _desc: null
+    _desc: impl generates method stubs for implementing an interface
     _docs: null
-    _github: null
+    _github: https://github.com/josharian/impl
     _home: null
     _name: null
-    _service: null
+    _service: false
     go: github.com/josharian/impl@latest
   infracost:
     _bin: infracost
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [infracost](https://www.infracost.io/) provides cloud cost estimates for Terraform in pull requests
+    _docs: https://www.infracost.io/docs
+    _github: https://github.com/infracost/infracost
+    _home: https://www.infracost.io/
+    _name: infracost
+    _service: false
     brew: infracost
     choco: infracost
     yay: infracost
@@ -3442,7 +3539,8 @@ softwarePackages:
     _github: https://github.com/inkscape/inkscape
     _home: https://inkscape.org
     _name: Inkscape
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Inkscape.app"'
     ansible: professormanhattan.inkscape
     apt: inkscape
@@ -3458,7 +3556,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: Installer
-    _service: null
+    _service: false
     ansible: professormanhattan.installer
   intellij-idea-ce:
     _bin: null
@@ -3467,7 +3565,8 @@ softwarePackages:
     _github: https://github.com/JetBrains/intellij-community
     _home: https://www.jetbrains.com/idea/
     _name: IntelliJ IDEA (CE)
-    _service: null
+    _service: false
+    _type: application
     _snapClassic: true
     _when:cask: '! test -d "/Applications/IntelliJ IDEA CE.app"'
     ansible: professormanhattan.intellij
@@ -3476,31 +3575,34 @@ softwarePackages:
     snap: intellij-idea-community
   ionic:
     _bin: ionic
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
+    _desc: [ionic framework](https://ionicframework.com/) The Ionic command line interface (CLI) is your go-to tool for developing Ionic apps
+    _docs: https://ionicframework.com/docs
+    _github: https://github.com/ionic-team/ionic-cli
+    _home: https://ionicframework.com/
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     npm: '@ionic/cli'
   ios-deploy:
     _bin: ios-deploy
-    _desc: null
+    _desc: Install and debug iPhone apps from the command line, without using Xcode
     _docs: null
-    _github: null
+    _github: https://github.com/ios-control/ios-deploy
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew:darwin: ios-deploy
     npm:darwin: ios-deploy
   ipfs:
     _bin: ipfs
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: A peer-to-peer hypermedia protocol designed to preserve and grow humanity's knowledge by making the web upgradeable, resilient, and more open
+    _docs: https://docs.ipfs.tech/
+    _github: https://github.com/ipfs/ipfs
+    _home: https://ipfs.tech/
+    _name: IPFS
+    _service: false
+    _type: cli
     brew: ipfs
     choco: go-ifps
     nix: ipfs
@@ -3509,21 +3611,23 @@ softwarePackages:
     snap: ipfs
   ipfs-deploy:
     _bin: ipd
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: A peer-to-peer hypermedia protocol designed to preserve and grow humanity's knowledge by making the web upgradeable, resilient, and more open
+    _docs: https://docs.ipfs.tech/
+    _github: https://github.com/ipfs/ipfs
+    _home: https://ipfs.tech/
+    _name: IPFS
+    _service: false
+    _type: cli
     npm: ipfs-deploy
   ipfs-desktop:
     _bin: null
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: A peer-to-peer hypermedia protocol designed to preserve and grow humanity's knowledge by making the web upgradeable, resilient, and more open
+    _docs: https://docs.ipfs.tech/
+    _github: https://github.com/ipfs/ipfs
+    _home: https://ipfs.tech/
+    _name: IPFS
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/IPFS Desktop.app"'
     cask: ipfs
     choco: ipfs-desktop
@@ -3531,12 +3635,13 @@ softwarePackages:
     scoop: ipfs-desktop
   is-up:
     _bin: is-up
-    _desc: null
+    _desc: Check whether a website is up or down using the isitup.org API
     _docs: null
-    _github: null
+    _github: https://github.com/sindresorhus/is-up-cli
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     npm: is-up-cli
   iterm2:
     _bin: null
@@ -3545,7 +3650,8 @@ softwarePackages:
     _github: https://github.com/gnachman/iTerm2
     _home: https://iterm2.com/
     _name: iTerm2
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/iTerm.app'
     ansible:darwin: professormanhattan.iterm2
     cask: iterm2
