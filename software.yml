@@ -3520,6 +3520,7 @@ softwarePackages:
     _home: null
     _name: null
     _service: false
+    _type: cli
     go: github.com/josharian/impl@latest
   infracost:
     _bin: infracost
@@ -3575,11 +3576,11 @@ softwarePackages:
     snap: intellij-idea-community
   ionic:
     _bin: ionic
-    _desc: [ionic framework](https://ionicframework.com/) The Ionic command line interface (CLI) is your go-to tool for developing Ionic apps
+    _desc: [Ionic Framework](https://ionicframework.com/) The Ionic command line interface (CLI) is your go-to tool for developing Ionic apps
     _docs: https://ionicframework.com/docs
     _github: https://github.com/ionic-team/ionic-cli
     _home: https://ionicframework.com/
-    _name: null
+    _name: Ionic Framework
     _service: false
     _type: cli
     npm: '@ionic/cli'
@@ -3663,6 +3664,7 @@ softwarePackages:
     _home: https://www.java.com/en/
     _name: Java
     _service: false
+    _type: cli
     ansible: professormanhattan.java
     apt: openjdk-11-jdk
     brew: java
@@ -3674,11 +3676,12 @@ softwarePackages:
   jenv:
     _bin: null
     _desc: '[jenv](https://www.jenv.be/) lets you switch between Java versions. It sets JAVA_HOME inside your shell, in a way that can be set globally, local to the current working directory or per shell.'
-    _docs: null
+    _docs: https://github.com/gcuisinier/jenv/wiki
     _github: https://github.com/jenv/jenv
     _home: https://www.jenv.be/
     _name: jenv
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.jenv
   jiq:
     _bin: jiq
@@ -3687,7 +3690,7 @@ softwarePackages:
     _github: https://github.com/fiatjaf/jiq
     _home: null
     _name: jiq
-    _service: null
+    _service: false
     _type: cli
     github: github.com/fiatjaf/jiq/cmd/jiq
     go: github.com/fiatjaf/jiq/cmd/jiq@latest
@@ -3698,7 +3701,7 @@ softwarePackages:
     _github: https://github.com/jitsi/jitsi-meet-electron
     _home: null
     _name: Jitsi Meet Electron
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d "/Applications/Jitsi Meet.app"'
     cask: jitsi-meet
@@ -3714,7 +3717,7 @@ softwarePackages:
     _github: https://github.com/jpmens/jo
     _home: null
     _name: jo
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.jo
     apt: jo
@@ -3727,11 +3730,11 @@ softwarePackages:
   jq:
     _bin: jq
     _desc: '[jq](https://github.com/stedolan/jq) is like sed for JSON data. You can use it to slice and filter and map and transform structured data with the same ease that sed, awk, grep and friends let you play with text.'
-    _docs: null
+    _docs: https://stedolan.github.io/jq/manual/
     _github: https://github.com/stedolan/jq
-    _home: null
+    _home: https://stedolan.github.io/jq
     _name: jq
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.jq
     apk: jq
@@ -3749,17 +3752,19 @@ softwarePackages:
     _home: https://github.com/noahgorstein/jqp
     _name: jqp
     _service: false
+    _type: cli
     brew: noahgorstein/tap/jqp
     port: jqp
     yay: jqp
   juju:
     _bin: juju
     _desc: '[Juju](https://juju.is/) is a Charmed Operator Framework, composed of a Charmed Operator Lifecycle Manager, and the Charmed Operator SDK. It allows you to deploy, integrate, and manage Kubernetes, container, and VM-native applications seamlessly across hybrid clouds. Juju drives Day 0 through Day 2 operations in your complex environment.'
-    _docs: null
+    _docs: https://juju.is/docs
     _github: null
-    _home: null
+    _home: https://juju.is/
     _name: Juju
-    _service: null
+    _service: false
+    _type: cli
     _snapClassic: true
     ansible: professormanhattan.juju
     brew: juju
@@ -3770,9 +3775,9 @@ softwarePackages:
     _desc: A simple and fast dashboard for Kubernetes
     _docs: null
     _github: https://github.com/kdash-rs/kdash
-    _home: null
+    _home: https://kdash.cli.rs/
     _name: kdash
-    _service: null
+    _service: false
     _type: cli
     brew: kdash-rs/kdash/kdash
     cargo: kdash
@@ -3786,7 +3791,8 @@ softwarePackages:
     _github: https://github.com/keybase/client
     _home: https://keybase.io/
     _name: Keybase
-    _service: null
+    _service: true
+    _type: application
     _when:cask: '! test -d /Applications/Keybase.app'
     ansible: professormanhattan.keybase
     cask: keybase
@@ -3802,7 +3808,8 @@ softwarePackages:
     _github: https://github.com/kovidgoyal/kitty
     _home: https://sw.kovidgoyal.net/kitty/
     _name: KiTTY
-    _service: null
+    _service: false
+    _type: application
     ansible: professormanhattan.kitty
   kn:
     _bin: kn
@@ -3811,7 +3818,7 @@ softwarePackages:
     _github: https://github.com/knative/client
     _home: null
     _name: kn
-    _service: null
+    _service: false
     _type: cli
     brew: kn
     github: github.com/knative/client
@@ -3828,7 +3835,8 @@ softwarePackages:
     _github: https://github.com/xbmc/xbmc
     _home: https://kodi.tv/
     _name: Kodi
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/Kodi.app'
     ansible: professormanhattan.kodi
     apt: kodi
@@ -3839,12 +3847,13 @@ softwarePackages:
     pacman: kodi
   kubectx:
     _bin: kubectx
-    _desc: null
+    _desc: Faster way to switch between clusters and namespaces in kubectl
     _docs: null
     _github: https://github.com/ahmetb/kubectx
     _home: null
-    _name: null
-    _service: null
+    _name: kubectx
+    _service: false
+    _type: cli
     _snapClassic: true
     brew: kubectx
     choco:
@@ -3861,54 +3870,57 @@ softwarePackages:
     _desc: kubenav is the navigator for your Kubernetes clusters right in your pocket
     _docs: null
     _github: https://github.com/kubenav/kubenav
-    _home: null
+    _home: https://kubenav.io/
     _name: kubenav
-    _service: null
-    _type: cli
+    _service: false
+    _type: application
     github: github.com/kubenav/kubenav
     yay: kubenav-bin
   kubernetes-cli:
     _bin: kubectl
-    _desc: null
-    _docs: null
-    _github: null
+    _desc: kubectl is a command line tool for communicating with a Kubernetes cluster's control plane, using the Kubernetes API
+    _docs: https://kubernetes.io/docs/reference/kubectl/kubectl/
+    _github: https://github.com/kubernetes/kubectl
     _home: null
-    _name: null
-    _service: null
+    _name: kubectl
+    _service: false
+    _type: cli
     _snapClassic: true
     brew: kubectl
     choco: kubernetes-cli
     snap: kubectl
   kubernetes-helm:
     _bin: helm
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: The Kubernetes Package Manager. Helm is the best way to find, share, and use software built for Kubernetes.
+    _docs: https://helm.sh/docs
+    _github: https://github.com/helm/helm
+    _home: https://helm.sh/
+    _name: helm
+    _service: false
+    _type: cli
     _snapClassic: true
     brew: helm
     choco: kubernetes-helm
     snap: helm
   kubernetes-kompose:
     _bin: kompose
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: Go from Docker Compose to Kubernetes
+    _docs: https://kompose.io/getting-started/
+    _github: https://github.com/kubernetes/kompose
+    _home: https://kompose.io/
+    _name: kompose
+    _service: false
+    _type: cli
     brew: kompose
     choco: kubernetes-kompose
     snap: kompose
   kubeval:
     _bin: kubeval
-    _desc: null
+    _desc: Validate your Kubernetes configuration files, supports multiple Kubernetes versions
     _docs: null
-    _github: null
-    _home: null
-    _name: null
+    _github: https://github.com/instrumenta/kubeval/
+    _home: https://www.kubeval.com/
+    _name: kubeval
     _post:binary:darwin: |
       tar xf kubeval-darwin-amd64.tar.gz
       sudo cp kubeval /usr/local/bin
@@ -3930,13 +3942,13 @@ softwarePackages:
       - qemu-img
     _desc: Kernel-based Virtual Machine (or [KVM](https://www.linux-kvm.org/page/Main_Page)) is a virtualization module in the Linux kernel that allows the kernel to function as a hypervisor. It was merged into the Linux kernel mainline in kernel version 2.6.20, which was released on February 5, 2007.
     _docs: https://www.linux-kvm.org/page/Documents
-    _github: Not open-source
+    _github: null
     _groups:
       - kvm
       - libvirt
     _home: https://www.linux-kvm.org/page/Main_Page
     _name: KVM
-    _service: null
+    _service: false
     ansible: professormanhattan.kvm
     apt:
       - bridge-utils
@@ -3967,7 +3979,8 @@ softwarePackages:
     _github: https://github.com/jesseduffield/lazygit
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew: lazygit
     choco: lazygit
     eopkg: lazygit
@@ -3981,10 +3994,11 @@ softwarePackages:
     _bin: null
     _desc: '[Ledger Live](https://www.ledger.com/ledger-live) is a new generation wallet desktop application providing a unique interface to maintain multiple cryptocurrencies for your Ledger Nano S / Blue. Manage your device, create accounts, receive and send cryptoassets and many more.'
     _docs: null
-    _github: Not open-source
-    _home: null
+    _github: null
+    _home: https://www.ledger.com/ledger-live
     _name: Ledger Live
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Ledger Live.app"'
     ansible: professormanhattan.ledgerlive
     appimage: https://download.live.ledger.com/latest/linux
@@ -3997,7 +4011,8 @@ softwarePackages:
     _github: https://github.com/lensapp/lens
     _home: https://k8slens.dev/
     _name: Lens
-    _service: null
+    _service: false
+    _type: application
     _snapClassic: true
     _when:cask: '! test -d /Applications/Lens.app'
     ansible: professormanhattan.lens
@@ -4009,10 +4024,11 @@ softwarePackages:
     _bin:snap: lepton
     _desc: Cross-platform snippet manager
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/hackjutsu/Lepton
+    _home: https://hackjutsu.com/Lepton/
+    _name: lepton
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/Lepton.app'
     cask: lepton
     snap: lepton
@@ -4020,20 +4036,21 @@ softwarePackages:
     _bin: lexicon
     _desc: '[Lexicon](https://github.com/AnalogJ/lexicon) provides a way to manipulate DNS records on multiple DNS providers in a standardized/agnostic way.'
     _docs: null
-    _github: null
+    _github: https://github.com/AnalogJ/lexicon
     _home: null
     _name: Lexicon
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.lexicon
     pipx: dns-lexicon[full]
   libimobiledevice:
     _bin: null
     _desc: null
     _docs: null
-    _github: null
-    _home: null
+    _github: https://github.com/libimobiledevice/libimobiledevice
+    _home: https://libimobiledevice.org/
     _name: null
-    _service: null
+    _service: false
     _when: '! test -d /usr/local/Cellar/libimobiledevice'
     brew:darwin: libimobiledevice
   krita:
@@ -4044,11 +4061,12 @@ softwarePackages:
   libreoffice:
     _bin: null
     _desc: '[LibreOffice](https://www.libreoffice.org/) is a free and open-source office productivity software suite, a project of The Document Foundation. It was forked in 2010 from OpenOffice.org, which was an open-sourced version of the earlier StarOffice.'
-    _docs: null
+    _docs: https://documentation.libreoffice.org/en/english-documentation/
     _github: null
-    _home: null
-    _name: null
-    _service: null
+    _home: https://www.libreoffice.org/
+    _name: LibreOffice
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/LibreOffice.app'
     apt: libreoffice
     cask: libreoffice
@@ -4063,7 +4081,7 @@ softwarePackages:
     _github: https://github.com/nishanths/license
     _home: null
     _name: license
-    _service: null
+    _service: false
     _type: cli
     go: github.com/nishanths/license@latest
     yay: nishanths-license-git
@@ -4072,7 +4090,7 @@ softwarePackages:
     _desc: Linkerd is an ultralight, security-first service mesh for Kubernetes
     _docs: null
     _github: https://github.com/linkerd/linkerd2
-    _home: null
+    _home: https://linkerd.io/
     _name: linkerd2
     _service: true
     _type: cli
@@ -4093,22 +4111,23 @@ softwarePackages:
     yay: litecli
   liquidjs:
     _bin: liquidjs
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
+    _desc: A simple, expressive and safe template engine.
+    _docs: https://liquidjs.com/tutorials/intro-to-liquid.html
+    _github: https://github.com/harttle/liquidjs
+    _home: https://liquidjs.com/
     _name: LiquidJS
     _service: false
     _type: cli
     npm: liquidjs
   localtunnel:
     _bin: lt
-    _desc: null
+    _desc: localtunnel exposes your localhost to the world for easy testing and sharing
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/localtunnel/localtunnel
+    _home: https://theboroer.github.io/localtunnel-www/
+    _name: localtunnel
+    _service: false
+    _type: cli
     brew: localtunnel
     npm: localtunnel
   logcli:
@@ -4116,9 +4135,9 @@ softwarePackages:
     _desc: Run LogQL queries against a Loki server
     _docs: null
     _github: https://github.com/grafana/loki
-    _home: null
+    _home: https://grafana.com/loki
     _name: logcli
-    _service: null
+    _service: false
     _type: cli
     brew: logcli
     github: github.com/grafana/loki
@@ -4130,7 +4149,8 @@ softwarePackages:
     _github: null
     _home: https://wiki.gnome.org/Apps/Lollypop
     _name: Lollypop
-    _service: null
+    _service: false
+    _type: application
     ansible:linux: professormanhattan.lollypop
     apt: lollypop
     dnf: lollypop
@@ -4142,17 +4162,18 @@ softwarePackages:
     _desc: >-
       [LastPass CLI](https://github.com/lastpass/lastpass-cli) is a user-friendly command-line client for [LastPass](https://www.lastpass.com/). LastPass is a freemium password manager that stores encrypted passwords online. The standard version of LastPass comes with a web interface, but also includes plugins for various web browsers and apps for many smartphones. It also includes support for bookmarklets. It is similar to but not open-source like
       [Bitwarden](https://gitlab.com/megabyte-labs/ansible-roles/bw).
-    _docs: null
-    _github: null
+    _docs: LastPass command line interface tool
+    _github: https://github.com/lastpass/lastpass-cli
     _home: null
     _name: LastPass CLI
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.lpass
   lsd:
     _bin: null
     _desc: '[LSD](https://github.com/Peltoche/lsd) (LSDeluxe), a clone of ls, is the next gen ls command with colorful output, file type icons, and more.'
     _docs: null
-    _github: null
+    _github: https://github.com/Peltoche/lsd
     _home: null
     _name: LSD (LSDeluxe)
     _service: null
