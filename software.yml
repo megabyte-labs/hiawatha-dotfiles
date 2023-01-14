@@ -4218,31 +4218,34 @@ softwarePackages:
     _type: cli
     brew:darwin: m-cli
   maas:
-    _bin: null
+    _bin: maas
     _desc: '[MAAS](https://maas.io/) allows very fast server provisioning for your data centre. It allows self-service, remote installation of Windows, CentOS, ESXi and Ubuntu on real servers. It turns your data centre into a bare metal cloud.'
     _docs: https://maas.io/docs
     _github: https://github.com/maas/maas
     _home: https://maas.io/
     _name: MAAS
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.maas
   mackup:
     _bin: null
     _desc: '[mackup](https://github.com/lra/mackup) lets you keep your application settings in sync.'
     _docs: null
-    _github: null
+    _github: https://github.com/lra/mackup
     _home: null
     _name: mackup
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.mackup
   malwarebytes:
     _bin: null
-    _desc: null
+    _desc: Cybersecurity. For every one.
     _docs: null
     _github: null
-    _home: null
+    _home: https://www.malwarebytes.com/
     _name: Malwarebytes
     _service: true
+    _type: application
     cask: malwarebytes
     choco: malwarebytes
   dialect:
@@ -4279,7 +4282,8 @@ softwarePackages:
     _github: https://github.com/Foundry376/Mailspring
     _home: https://getmailspring.com/
     _name: Mailspring
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/Mailspring.app'
     ansible: professormanhattan.mailspring
     cask: mailspring
@@ -4294,7 +4298,7 @@ softwarePackages:
     _github: https://github.com/hql287/Manta
     _home: null
     _name: Manta
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/Manta.app'
     cask: manta
@@ -4306,7 +4310,7 @@ softwarePackages:
     _github: https://github.com/marktext/marktext
     _home: null
     _name: MarkText
-    _service: null
+    _service: false
     _type: application
     cask: mark-text
     choco: marktext
@@ -4319,7 +4323,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: MAS CLI
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.mas
   flatseal:
     flatpak: com.github.tchx84.Flatseal
@@ -4332,7 +4337,7 @@ softwarePackages:
     _github: https://github.com/antonreshetov/massCode
     _home: null
     _name: MassCode
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/massCode.app'
     cask: masscode
@@ -4342,7 +4347,7 @@ softwarePackages:
     _desc: MinIO Client is a replacement for ls, cp, mkdir, diff and rsync commands for filesystems and object storage
     _docs: null
     _github: https://github.com/minio/mc
-    _home: null
+    _home: https://min.io/
     _name: mc
     _post:binary:linux: |
       # TODO
@@ -4361,7 +4366,8 @@ softwarePackages:
     _github: https://github.com/cantino/mcfly
     _home: null
     _name: McFly
-    _service: null
+    _service: false
+    _type: cli
     ansible:darwin: professormanhattan.mcfly
     ansible:linux: professormanhattan.mcfly
     brew: mcfly
@@ -4375,7 +4381,8 @@ softwarePackages:
     _github: false
     _home: https://www.microsoft.com/en-us/edge
     _name: Microsoft Edge
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Microsoft Edge.app"'
     ansible: professormanhattan.microsoftedge
     cask: microsoft-edge
@@ -4384,24 +4391,26 @@ softwarePackages:
     yay: microsoft-edge-stable-bin
   gnome-boxes:
     _bin: null
-    _desc: null
-    _docs: null
+    _desc: GNOME Boxes is an application of the GNOME Desktop Environment, used to access virtual systems. Boxes uses the QEMU, KVM, and libvirt virtualization technologies
+    _docs: https://help.gnome.org/users/gnome-boxes/stable/
     _github: null
-    _home: null
+    _home: https://apps.gnome.org/app/org.gnome.Boxes/
     _name: GNOME Boxes
     _service: true
+    _type: application
     apt: gnome-boxes
     dnf: gnome-boxes
     flatpak: org.gnome.Boxes
     pacman: gnome-boxes
   microsoft-office:
     _bin: null
-    _service: null
     _desc: '[Microsoft Office](https://www.microsoft.com/en-us/microsoft-365/microsoft-office), or simply Office, is a family of client software, server software, and services developed by Microsoft.'
     _docs: https://docs.microsoft.com/en-us/microsoft-365/?view=o365-worldwide
-    _github: false
+    _github: null
     _home: https://www.office.com/
     _name: Office
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Microsoft Word.app"'
     cask: microsoft-office
     choco: office365business
@@ -4412,20 +4421,22 @@ softwarePackages:
     _github: false
     _home: https://todo.microsoft.com/tasks/
     _name: Microsoft To-Do
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/Ao.app'
     ansible: professormanhattan.microsofttodo
     cask: ao
     snap: microsoft-todo-unofficial
   minikube:
     _bin: minikube
-    _desc: null
-    _docs: null
-    _github: null
+    _desc: minikube quickly sets up a local Kubernetes cluster on macOS, Linux, and Windows
+    _docs: https://minikube.sigs.k8s.io/docs/
+    _github: https://github.com/kubernetes/minikube
     _home: null
-    _name: null
+    _name: minikube
     _post: minikube config set driver virtualbox
-    _service: null
+    _service: false
+    _type: cli
     brew: minikube
     brew:darwin:
       - hyperkit
@@ -4433,12 +4444,13 @@ softwarePackages:
     choco: minikube
   mitmproxy:
     _bin: mitmproxy
-    _desc: '[mitmproxy](https://github.com/mitmproxy/mitmproxy) is an interactive, SSL/TLS-capable intercepting proxy with a console interface for HTTP/1, HTTP/2, and WebSockets. It also includes mitmweb which is a web-based interface for mitmproxy.'
-    _docs: null
-    _github: null
-    _home: null
+    _desc: '[mitmproxy](https://mitmproxy.org/) is an interactive, SSL/TLS-capable intercepting proxy with a console interface for HTTP/1, HTTP/2, and WebSockets. It also includes mitmweb which is a web-based interface for mitmproxy.'
+    _docs: https://docs.mitmproxy.org/stable
+    _github: https://github.com/mitmproxy/mitmproxy
+    _home: https://mitmproxy.org/
     _name: mitmproxy
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.mitmproxy
     apt: mitmproxy
     brew: mitmproxy
@@ -4464,7 +4476,7 @@ softwarePackages:
     _github: https://github.com/FiloSottile/mkcert
     _home: null
     _name: mkcert
-    _service: null
+    _service: false
     _type: cli
     brew: mkcert
     choco: mkcert
@@ -4478,7 +4490,7 @@ softwarePackages:
     _github: https://github.com/mockoon/mockoon
     _home: null
     _name: Mockoon
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/Mockoon.app'
     cask: mockoon
@@ -4491,11 +4503,11 @@ softwarePackages:
   mole:
     _bin: mole
     _desc: CLI application to create ssh tunnels focused on resiliency and user experience
-    _docs: null
+    _docs: https://davrodpin.github.io/mole/
     _github: https://github.com/davrodpin/mole
-    _home: null
+    _home: https://davrodpin.github.io/mole/
     _name: mole
-    _service: null
+    _service: false
     _type: cli
     brew: davrodpin/homebrew-mole/mole
     github: github.com/davrodpin/mole
@@ -4518,7 +4530,8 @@ softwarePackages:
     _github: https://github.com/monero-project/monero
     _home: https://www.getmonero.org/
     _name: Monero
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/monero-wallet-gui.app'
     ansible: professormanhattan.monero
     brew: monero
@@ -4532,7 +4545,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: Message of the Day
-    _service: null
+    _service: false
     ansible: professormanhattan.motd
   motrix:
     _bin: null
@@ -4541,7 +4554,7 @@ softwarePackages:
     _github: https://github.com/agalwood/Motrix
     _home: https://motrix.app/
     _name: Motrix
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/Motrix.app'
     ansible: professormanhattan.motrix
@@ -4553,12 +4566,13 @@ softwarePackages:
     yay: motrix-bin
   mpg123:
     _bin: mpg123
-    _desc: null
+    _desc: mpg123 is a free and open-source audio player. It supports MPEG audio formats, including MP3
     _docs: null
     _github: null
-    _home: null
+    _home: https://mpg123.org/
     _name: mpg123
-    _service: null
+    _service: false
+    _type: cli
     apt: mpg123
     brew: mpg123
     choco: mpg123
@@ -4573,7 +4587,7 @@ softwarePackages:
     _github: https://github.com/emqx/MQTTX
     _home: null
     _name: MQTT X
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/MQTTX.app'
     cask: mqttx
@@ -4588,7 +4602,7 @@ softwarePackages:
     _github: https://github.com/raviqqe/muffet
     _home: null
     _name: muffet
-    _service: null
+    _service: false
     _type: cli
     brew: muffet
     github: github.com/raviqqe/muffet
@@ -4601,7 +4615,7 @@ softwarePackages:
     _github: https://github.com/mullvad/mullvadvpn-app
     _home: null
     _name: Mullvad VPN
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d "/Applications/Mullvad VPN.app"'
     cask: mullvadvpn
@@ -4610,11 +4624,11 @@ softwarePackages:
   multipass:
     _bin: multipass
     _desc: '[Multipass](https://multipass.run/) makes it so that you can get an instant Ubuntu VM with a single command. Multipass can launch and run virtual machines and configure them with cloud-init like a public cloud. It is a product of [Canonical](https://canonical.com/), the same company that publishes Ubuntu.'
-    _docs: null
-    _github: null
-    _home: null
+    _docs: https://multipass.run/docs
+    _github: https://github.com/canonical/multipass
+    _home: https://multipass.run/
     _name: Multipass
-    _service: null
+    _service: true
     _post:cask: multipass set local.driver=virtualbox
     _post:choco: multipass set local.driver=virtualbox
     _when:cask: '! test -d /Applications/Multipass.app'
@@ -4638,12 +4652,13 @@ softwarePackages:
     _bin: nativefier
     _deps:
       - imagemagick
-    _desc: null
+    _desc: Make any web page a desktop application
     _docs: null
-    _github: null
+    _github: https://github.com/nativefier/nativefier
     _home: null
-    _name: null
-    _service: null
+    _name: nativefier
+    _service: false
+    _type: cli
     npm: nativefier
   nb:
     _bin: nb
@@ -4656,8 +4671,8 @@ softwarePackages:
       - w3m
     _desc: '[nb](https://xwmx.github.io/nb) is a command line and local web note‑taking, bookmarking, archiving, and knowledge base application with plain text data storage, encryption, filtering, pinning, #tagging,  search, Git-backed versioning and syncing, Pandoc-backed conversion and many more features.'
     _docs: null
-    _github: null
-    _home: null
+    _github: https://github.com/xwmx/nb
+    _home: https://xwmx.github.io/nb
     _name: nb
     _post: nb completions install
     _service: null
@@ -4668,42 +4683,45 @@ softwarePackages:
     npm: nb.sh
   ncc:
     _bin: ncc
-    _desc: null
+    _desc: Compile a Node.js project into a single file. Supports TypeScript, binary addons, dynamic requires.
     _docs: null
-    _github: null
+    _github: https://github.com/vercel/ncc
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew: ncc
     npm: '@vercel/ncc'
   nebula:
     _bin: null
-    _desc: A scalable overlay networking tool
+    _desc: A scalable overlay networking tool with a focus on performance, simplicity and security
     _docs: null
     _github: https://github.com/slackhq/nebula
     _home: null
     _name: nebula
-    _service: null
+    _service: false
     _type: cli
     github: github.com/slackhq/nebula
     pacman: nebula
   nectar:
-    _bin: nectar
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _bin: nerd
+    _desc: JavaScript native compiler. No bytecode no VM, just pure native binaries.
+    _docs: https://nectar.js.org/docs/
+    _github: https://github.com/NerdLang/nerd
+    _home: https://nectar.js.org/
+    _name: nerctarjs
+    _service: false
+    _type: cli
     npm: nectarjs
   neovim:
     _bin: nvim
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [neovim](https://neovim.io/) is Vim-fork focused on extensibility and usability
+    _docs: https://neovim.io/doc/general/
+    _github: https://github.com/neovim/neovim
+    _home: https://neovim.io/
+    _name: neovim
+    _service: false
+    _type: cli
     apk: neovim
     apt:
       - neovim
@@ -4730,21 +4748,23 @@ softwarePackages:
       - python3-neovim
   nest:
     _bin: nest
-    _desc: null
-    _docs: null
-    _github: null
+    _desc: CLI tool for Nest applications
+    _docs: https://docs.nestjs.com/cli/overview
+    _github: https://github.com/nestjs/nest-cli
     _home: null
-    _name: null
-    _service: null
+    _name: nest
+    _service: false
+    _type: cli
     npm: '@nestjs/cli'
   netcat:
     _bin: netcat
-    _desc: null
+    _desc: netcat (often abbreviated to nc) is a computer networking utility for reading from and writing to network connections using TCP or UDP.
     _docs: null
     _github: null
-    _home: null
-    _name: null
-    _service: null
+    _home: https://nc110.sourceforge.io/
+    _name: netcat
+    _service: false
+    _type: cli
     apt: netcat
     brew: netcat
     choco: netcat
@@ -4759,6 +4779,7 @@ softwarePackages:
     _home: https://www.netdata.cloud/
     _name: Netdata
     _service: true
+    _type: webapp
     ansible: professormanhattan.netdata
     brew: netdata
     pacman: netdata
@@ -4766,22 +4787,24 @@ softwarePackages:
     script: curl https://my-netdata.io/kickstart.sh > /tmp/netdata-kickstart.sh && sh /tmp/netdata-kickstart.sh
   newman:
     _bin: newman
-    _desc: null
+    _desc: Command-line collection runner for Postman
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/postmanlabs/newman
+    _home: https://www.getpostman.com
+    _name: newman
+    _service: false
+    _type: cli
     brew: newman
     npm: newman
   nextcloud:
     _bin: null
     _desc: '[Nextcloud Client](https://nextcloud.com) is a tool to keep your files synchronized between your Nextcloud server and your desktop. Select one or more directories on your local machine and always have access to your latest files wherever you are'
     _docs: null
-    _github: null
-    _home: null
+    _github: https://github.com/nextcloud/desktop
+    _home: https://nextcloud.com
     _name: Nextcloud Client
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.nextcloud
     flatpak: com.nextcloud.desktopclient.nextcloud
   nginx:
@@ -4805,32 +4828,35 @@ softwarePackages:
     _desc: '[Ngrok](https://ngrok.com/) exposes local servers behind NATs and firewalls to the public internet over secure tunnels. Ngrok also provides a real-time web UI where you can introspect all HTTP traffic running over your tunnels. You can replay any request against your tunnels with one click. The main feature is the ability to generate an internet-accessible URL that directs traffic to your local web server even if it is behind a firewall or proxy.'
     _docs: null
     _github: null
-    _home: null
+    _home: https://ngrok.com/)
     _name: Ngrok
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.ngrok
     cask: ngrok
     choco: ngrok
     snap: ngrok
   ngxtop:
     _bin: ngxtop
-    _desc: null
+    _desc: Real-time metrics for nginx server
     _docs: null
-    _github: null
+    _github: https://github.com/lebinh/ngxtop
     _home: null
-    _name: null
-    _service: null
+    _name: ngxtop
+    _service: false
+    _type: cli
     pipx: ngxtop
   nmap:
     _bin: nmap
     _desc: >-
       [Nmap](https://github.com/nmap/nmap) (short for Network Mapper) is a free and open source utility for network discovery and security auditing. Many systems and network administrators also find it useful for tasks such as network inventory, managing service upgrade schedules, and monitoring host or service uptime. Nmap uses raw IP packets in novel ways to determine what hosts are available on the network, what services those hosts are offering, what operating systems they are running, what
       type of packet filters/firewalls are in use, and dozens of other characteristics. It was designed to rapidly scan large networks, but works fine against single hosts. Nmap runs on all major operating systems.
-    _docs: null
-    _github: null
-    _home: null
+    _docs: https://nmap.org/docs.html
+    _github: https://github.com/nmap/nmap
+    _home: https://nmap.org/
     _name: Nmap
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.nmap
   nnn:
     _bin: nnn
@@ -4839,7 +4865,7 @@ softwarePackages:
     _github: https://github.com/jarun/nnn
     _home: null
     _name: nnn
-    _service: null
+    _service: false
     _type: cli
     apk: nnn
     apt: nnn
@@ -4854,7 +4880,8 @@ softwarePackages:
     _github: https://github.com/nodejs/node
     _home: https://nodejs.org/en/
     _name: Node.js
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.nodejs
     brew: node
     scoop: nodejs
@@ -4865,18 +4892,19 @@ softwarePackages:
     _github: https://github.com/tj/node-prune
     _home: null
     _name: node-prune
-    _service: null
+    _service: false
     _type: cli
     github: github.com/tj/node-prune
     go: github.com/tj/node-prune@latest
   nomad:
     _bin: nomad
     _desc: '[HashiCorp Nomad](https://www.nomadproject.io/) is a simple and flexible scheduler and workload orchestrator to deploy and manage containers and non-containerized applications across on-prem and clouds at scale.'
-    _docs: null
+    _docs: https://developer.hashicorp.com/nomad/docs
     _github: null
-    _home: null
+    _home: https://www.nomadproject.io/
     _name: HashiCorp Nomad
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.nomad
     brew: nomad
     choco: nomad
@@ -4888,7 +4916,7 @@ softwarePackages:
     _github: https://github.com/yaa110/nomino
     _home: null
     _name: nomino
-    _service: null
+    _service: false
     _type: cli
     cargo: nomino
     github: github.com/yaa110/nomino
@@ -4900,7 +4928,8 @@ softwarePackages:
     _github: https://github.com/jotyGill/openpyn-nordvpn
     _home: https://nordvpn.com/
     _name: NordVPN
-    _service: null
+    _service: true
+    _type: application
     ansible: professormanhattan.nordvpn
   normit:
     _bin: normit
@@ -4908,38 +4937,41 @@ softwarePackages:
       - mpg123
     _desc: '[Normit](https://github.com/pawurb/normit) allows you to easily translate any text from one language to another. It also includes the ability to generate audio through speech synthesis as well.'
     _docs: null
-    _github: null
+    _github: https://github.com/pawurb/normit
     _home: null
     _name: Normit
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.normit
     npm: normit
   np:
     _bin: np
-    _desc: null
+    _desc: A better `npm publish`
     _docs: null
-    _github: null
+    _github: https://github.com/sindresorhus/np
     _home: null
-    _name: null
-    _service: null
+    _name: np
+    _service: false
+    _type: cli
     npm: np
   npm-check:
     _bin: npm-check
-    _desc: null
+    _desc:  Check for outdated, incorrect, and unused dependencies.
     _docs: null
-    _github: null
+    _github: https://github.com/dylang/npm-check
     _home: null
-    _name: null
-    _service: null
+    _name: npm-check
+    _service: false
+    _type: cli
     npm: npm-check
   nuclear:
     _bin: null
     _desc: Streaming music player that finds free music
     _docs: null
     _github: https://github.com/nukeop/nuclear
-    _home: null
+    _home: https://nuclear.js.org/
     _name: Nuclear
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/nuclear.app'
     cask: nuclear
