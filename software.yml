@@ -4982,22 +4982,24 @@ softwarePackages:
     yay: nuclear-player-bin
   oclif:
     _bin: oclif
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [oclif]() is a framework for building CLIs in Node.js. This framework was built out of the Heroku CLI but generalized to build any custom CLI. It's designed both for single-file CLIs with a few flag options, or for very complex CLIs that have subcommands (like git or heroku)
+    _docs: https://oclif.io/docs/
+    _github: https://github.com/oclif/oclif
+    _home: https://oclif.io/
+    _name: oclif
+    _service: false
+    _type: cli
     npm: oclif
   oh-my-posh:
     _bin: oh-my-posh
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
+    _desc: A blazing fast cross platform/shell prompt renderer
+    _docs: https://ohmyposh.dev/docs
+    _github: https://github.com/jandedobbeleer/oh-my-posh
+    _home: https://ohmyposh.dev/
+    _name: oh-my-posh
     _post:scoop: clink autorun install
-    _service: null
+    _service: false
+    _type: cli
     brew: jandedobbeleer/oh-my-posh/oh-my-posh
     scoop:
       - clink
@@ -5009,7 +5011,8 @@ softwarePackages:
     _github: https://github.com/onionshare/onionshare
     _home: https://onionshare.org/
     _name: OnionShare
-    _service: null
+    _service: false
+    _type: application
     ansible: professormanhattan.onionshare
     apt: onionshare
     cask: onionshare
@@ -5029,7 +5032,7 @@ softwarePackages:
       sudo chmod 644 /etc/udev/rules.d/49-onlykey.rules
       sudo udevadm control --reload-rules
       sudo udevadm trigger
-    _service: null
+    _service: false
     _when:ansible:darwin: '! test -d "/Applications/OnlyKey App.app"'
     ansible:darwin: professormanhattan.onlykey
     choco: onlykey
@@ -5039,9 +5042,9 @@ softwarePackages:
     _desc: A performant, and portable jq wrapper to facilitate the consumption and output of formats other than JSON; using jq filters to transform the data
     _docs: null
     _github: https://github.com/Blacksmoke16/oq
-    _home: null
+    _home: https://blacksmoke16.github.io/oq/
     _name: oq
-    _service: null
+    _service: false
     _type: cli
     brew: oq
     github: github.com/Blacksmoke16/oq
@@ -5066,30 +5069,32 @@ softwarePackages:
     _desc: Share end-to-end encrypted secrets with others via a one-time URL
     _docs: null
     _github: https://github.com/sniptt-official/ots
-    _home: null
+    _home: https://ots.sniptt.com/
     _name: ots
-    _service: null
+    _service: false
     _type: cli
     brew: ots
     github: github.com/sniptt-official/ots
     go: github.com/sniptt-official/ots@latest
   package-size:
     _bin: package-size
-    _desc: null
+    _desc: Get the bundle size of an npm package
     _docs: null
-    _github: null
+    _github: https://github.com/egoist/package-size
     _home: null
-    _name: null
-    _service: null
+    _name: package-size
+    _service: false
+    _type: cli
     npm: package-size
   packer:
     _bin: packer
     _desc: '[Packer](https://www.packer.io/) is a free and open source tool for creating golden images for multiple platforms from a single source configuration. Packer is lightweight, runs on every major operating system, and is highly performant, creating machine images for multiple platforms in parallel. It is a [HashiCorp](https://www.hashicorp.com/) product.'
-    _docs: null
-    _github: null
-    _home: null
+    _docs: https://developer.hashicorp.com/packer/docs
+    _github: https://github.com/hashicorp/packer
+    _home: https://www.packer.io/
     _name: Packer
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.packer
     apt: packer
     brew: packer
@@ -5102,7 +5107,7 @@ softwarePackages:
     _github: https://github.com/detectify/page-fetch
     _home: null
     _name: page-fetch
-    _service: null
+    _service: false
     _type: cli
     go: github.com/detectify/page-fetch@latest
   pageres:
@@ -5111,19 +5116,21 @@ softwarePackages:
     _docs: null
     _github: https://github.com/sindresorhus/pageres-cli
     _home: null
-    _name: null
-    _service: null
+    _name: pageres
+    _service: false
+    _type: cli
     npm: pageres-cli
   pandoc:
     _bin: pandoc
     _deps:
       - python
     _desc: '[Pandoc](https://pandoc.org/) is a Haskell library for converting from one documentation markup format to another. If you need to convert files from one markup format into another, then look no further. Pandoc is your swiss-army knife. It converts from and to dozens of formats like HTML, markdown, docx, JSON, YAML, and CSV, to name a few.'
-    _docs: null
-    _github: null
-    _home: null
+    _docs: https://pandoc.org/getting-started.html
+    _github: https://github.com/jgm/pandoc
+    _home: https://pandoc.org/
     _name: Pandoc
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.pandoc
     apt: pandoc
     brew:
@@ -5141,33 +5148,35 @@ softwarePackages:
     winget: pandoc
   papertrail:
     _bin: papertrail
-    _desc: null
+    _desc: Command-line client for Papertrail hosted log management service. Tails and searches app server logs and system syslog. Supports Boolean search and works with grep and pipe output (Unix)
     _docs: null
-    _github: null
+    _github: https://github.com/papertrail/papertrail-cli
     _home: null
-    _name: null
-    _service: null
+    _name: papertrail
+    _service: false
+    _type: cli
     gem: papertrail
   parallels:
     _bin: null
     _desc: '[Parallels Desktop for Mac](https://www.parallels.com/) is software providing hardware virtualization for Macintosh computers with Intel processors. It is developed by Parallels, since 2018 a subsidiary of Corel.'
     _docs: https://kb.parallels.com/
-    _github: Not open-source
+    _github: null
     _home: https://www.parallels.com/
     _name: Parallels
-    _service: null
+    _service: false
+    _type: application
     _when: '! test -d "/Applications/Parallels Desktop.app"'
     ansible:darwin: professormanhattan.parallels
   gnome-passwords-keys:
     flatpak: org.gnome.seahorse.Application
   pass:
     _bin: pass
-    _desc: Password manager
+    _desc: pass is a very simple password store that keeps passwords inside gpg2(1) encrypted files
     _docs: null
-    _github: https://www.passwordstore.org/
-    _home: null
+    _github: null
+    _home: https://www.passwordstore.org/
     _name: pass
-    _service: null
+    _service: false
     _type: cli
     apt: pass
     brew: pass
@@ -5181,7 +5190,7 @@ softwarePackages:
     _github: https://github.com/sharkdp/pastel
     _home: null
     _name: pastel
-    _service: null
+    _service: false
     _type: cli
     brew: pastel
     cargo: pastel
@@ -5195,7 +5204,7 @@ softwarePackages:
     _github: https://github.com/peco/peco
     _home: https://peco.github.io/
     _name: Peco
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.peco
     apt: peco
@@ -5211,7 +5220,8 @@ softwarePackages:
     _home: null
     _name: Peek
     _rpmFusion: true
-    _service: null
+    _service: false
+    _type: application
     ansible:linux: professormanhattan.peek
     apt:
       - software-properties-common
@@ -5234,16 +5244,18 @@ softwarePackages:
     _github: https://github.com/pfsense/pfsense
     _home: https://www.pfsense.org/
     _name: pfSense
-    _service: null
+    _service: true
+    _type: webapp
     ansible: professormanhattan.pfsense
   pgcli:
     _bin: pgcli
-    _desc: '[pgcli](https://github.com/dbcli/pgcli) is a free and open-source CLI for Postgres that does auto-completion and syntax highlighting.'
-    _docs: null
-    _github: null
-    _home: null
+    _desc: '[pgcli](https://www.pgcli.com/) is a free and open-source CLI for Postgres that does auto-completion and syntax highlighting.'
+    _docs: https://www.pgcli.com/docs
+    _github: https://github.com/dbcli/pgcli
+    _home: https://www.pgcli.com/
     _name: pgcli
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.pgcli
     brew: pgcli
     choco: pgcli
@@ -5258,7 +5270,8 @@ softwarePackages:
     _github: https://github.com/php/php-src
     _home: https://www.php.net/
     _name: PHP
-    _service: false
+    _service: false_
+    _type: cli
     ansible: professormanhattan.php
     apt: php
     brew: php
@@ -5335,44 +5348,48 @@ softwarePackages:
     _github: https://github.com/pi-hole/pi-hole
     _home: https://pi-hole.net/
     _name: PiHole
-    _service: null
+    _service: true
+    _type: webapp
     ansible: professormanhattan.pihole
   pip:
-    _bin: null
+    _bin: pip
     _desc: '[pip](https://pypi.org/project/pip/) is a package-management system written in Python used to install and manage software packages. It connects to an online repository of public and paid-for private packages, called the Python Package Index.'
     _docs: https://pip.pypa.io/en/stable/user_guide/
     _github: https://github.com/pypa/pip
     _home: https://pip.pypa.io/en/stable/
     _name: PIP
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.pip
   pipx:
-    _bin: null
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
+    _bin: pipx
+    _desc: [pipx](https://pypi.org/project/pipx/) is a tool to help you install and run end-user applications written in Python. It's roughly similar to macOS's brew, JavaScript's npx, and Linux's apt
+    _docs: https://pypa.github.io/pipx/
+    _github: https://github.com/pypa/pipx
+    _home: https://pypi.org/project/pipx/
     _name: null
     _post:brew: pipx ensurepath
     _service: null
     brew: pipx
   pkg:
     _bin: pkg
-    _desc: null
+    _desc: This command line interface enables you to package your Node.js project into an executable that can be run even on devices without Node.js installed.
     _docs: null
-    _github: null
+    _github: https://github.com/vercel/pkg
     _home: null
-    _name: null
-    _service: null
+    _name: pkg
+    _service: false
+    _type: cli
     npm: pkg
   playwright:
     _bin: playwright
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Playwright](https://playwright.dev) enables reliable end-to-end testing for modern web apps. It allows testing Chromium, Firefox and WebKit with a single API
+    _docs: https://playwright.dev/docs/intro
+    _github: https://github.com/Microsoft/playwright
+    _home: https://playwright.dev
+    _name: Playwright
+    _service: false
+    _type: cli
     npm: playwright
   plex:
     _bin: null
@@ -5381,7 +5398,8 @@ softwarePackages:
     _github: https://github.com/plexinc/plex-media-player
     _home: https://www.plex.tv/
     _name: Plex
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/Plex.app'
     ansible: professormanhattan.plex
     cask:
@@ -5398,12 +5416,13 @@ softwarePackages:
     yay: plex-media-server
   pm2:
     _bin: pm2
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: PM2 is a production process manager for Node.js applications with a built-in load balancer. It allows you to keep applications alive forever, to reload them without downtime and to facilitate common system admin tasks
+    _docs: https://pm2.keymetrics.io/docs/usage/quick-start/
+    _github: https://github.com/Unitech/pm2
+    _home: https://pm2.keymetrics.io/
+    _name: pm2
+    _service: false
+    _type: cli
     npm: pm2
   pnpm:
     _bin: pnpm
@@ -5412,7 +5431,8 @@ softwarePackages:
     _github: https://github.com/pnpm/pnpm
     _home: https://pnpm.io/
     _name: pnpm
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.pnpm
     brew: pnpm
     npm: pnpm
@@ -5420,21 +5440,23 @@ softwarePackages:
     yay: pnpm
   pnpm-lock-export:
     _bin: pnpm-lock-export
-    _desc: null
+    _desc: A CLI utility that reads a package.json and pnpm-lock.yaml, and outputs an npm ci compatible package-lock.json
     _docs: null
     _github: null
     _home: null
     _name: null
     _service: false
+    _type: cli
     npm: pnpm-lock-export
   poetry:
     _bin: poetry
     _desc: '[Poetry](https://python-poetry.org) helps you declare, manage and install dependencies of Python projects, ensuring you have the right stack everywhere.'
-    _docs: null
-    _github: null
-    _home: null
+    _docs: https://python-poetry.org/docs/
+    _github: https://github.com/python-poetry/poetry
+    _home: https://python-poetry.org/
     _name: Poetry
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.poetry
     brew: poetry
     yay: python-poetry-git
@@ -5445,7 +5467,7 @@ softwarePackages:
     _github: https://github.com/jessfraz/pony
     _home: null
     _name: pony
-    _service: null
+    _service: false
     _type: cli
     github: github.com/jessfraz/pony
     go: github.com/jessfraz/pony@latest
@@ -5457,16 +5479,18 @@ softwarePackages:
     _home: https://safing.io/
     _name: Portmaster
     _service: true
+    _type: application
     ansible:linux: professormanhattan.portmaster
     ansible:windows: professormanhattan.portmaster
   postman:
     _bin: null
     _desc: "[Postman](https://www.postman.com/) is a collaboration platform for API development. Postman's features simplify each step of building an API and streamline collaboration so you can create better APIs — faster."
     _docs: https://learning.postman.com/docs/getting-started/introduction/
-    _github: Not open-source
+    _github: null
     _home: https://www.postman.com/
     _name: Postman
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/Postman.app'
     ansible: professormanhattan.postman
     cask: postman
@@ -5477,11 +5501,12 @@ softwarePackages:
   powershell:
     _bin: null
     _desc: '[PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.1) is a task automation and configuration management framework from Microsoft, consisting of a command-line shell and the associated scripting language. Initially a Windows component only, known as Windows PowerShell, it was made open-source and cross-platform in 2016 with the introduction of PowerShell Core.'
-    _docs: null
+    _docs: https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.1
     _github: null
     _home: null
     _name: Powershell
-    _service: null
+    _service: false
+    _type: cli
     _snapClassic: true
     _when:cask: '! test -d /Applications/PowerShell.app'
     ansible: professormanhattan.powershell
@@ -5489,17 +5514,17 @@ softwarePackages:
     snap: powershell
   pre-commit:
     _bin: pre-commit
-    _desc: null
+    _desc: Automatically installs a git pre-commit script in your git repository which runs your `npm test` on pre-commit
     _docs: null
-    _github: null
+    _github: https://github.com/observing/pre-commit
     _home: null
-    _name: null
-    _service: null
+    _name: pre-commit
+    _service: false
     brew: pre-commit
     pipx: pre-commit
   prepare:
     _bin: null
-    _desc: null
+    _desc: An Ansible Role that prepares hosts for playbook execution
     _docs: null
     _github: null
     _home: null
@@ -5508,12 +5533,12 @@ softwarePackages:
     ansible: professormanhattan.prepare
   prettier:
     _bin: prettier
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: [Prettier](https://prettier.io/docs/en/index.html) is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary
+    _docs: https://prettier.io/docs/en/index.html
+    _github: https://github.com/prettier/prettier
+    _home: https://prettier.io/
+    _name: Prettier
+    _service: false
     brew: prettier
     npm: prettier
   pretzel:
@@ -5523,7 +5548,7 @@ softwarePackages:
     _github: https://github.com/amiechen/pretzel
     _home: null
     _name: Pretzel
-    _service: null
+    _service: false
     _type: menubar
     github: github.com/amiechen/pretzel
   procs:
@@ -5533,7 +5558,7 @@ softwarePackages:
     _github: https://github.com/dalance/procs
     _home: null
     _name: procs
-    _service: null
+    _service: false
     _type: cli
     apk: procs
     brew: procs
@@ -5550,7 +5575,8 @@ softwarePackages:
     _github: https://github.com/ProtonMail/WebClients
     _home: https://protonmail.com/
     _name: Proton
-    _service: null
+    _service: true
+    _type: application
     _when:cask: '! test -d /Applications/ProtonVPN.app'
     ansible: professormanhattan.proton
     cask: protonvpn
@@ -5571,12 +5597,13 @@ softwarePackages:
     flatpak: com.usebottles.bottles
   psi:
     _bin: psi
-    _desc: null
+    _desc: Run mobile and desktop performance tests for your deployed site using Google PageSpeed Insights v5 with tidy reporting for your build process
     _docs: null
-    _github: null
+    _github: https://github.com/GoogleChromeLabs/psi
     _home: null
-    _name: null
-    _service: null
+    _name: psi
+    _service: false
+    _type: cli
     npm: psi
   psu:
     _bin: null
@@ -5585,7 +5612,7 @@ softwarePackages:
     _github: https://github.com/greenled/portainer-stack-utils
     _home: null
     _name: psu
-    _service: null
+    _service: false
     _type: cli
     github: github.com/greenled/portainer-stack-utils
   pup:
@@ -5595,7 +5622,7 @@ softwarePackages:
     _github: https://github.com/ericchiang/pup
     _home: null
     _name: pup
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.pup
     brew: pup
@@ -5608,6 +5635,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
+    _service: false
     _post:brew: |
       python3 -m pip install --upgrade setuptools
       python3 -m pip install --upgrade pip
@@ -5618,13 +5646,14 @@ softwarePackages:
     pacman: python-pip
     scoop: python
   pywhat:
-    _bin: pywhat
-    _desc: null
+    _bin: what
+    _desc: Identify anything. pyWhat easily lets you identify emails, IP addresses, and more. Feed it a .pcap file or some text and it'll tell you what it is!
     _docs: null
-    _github: null
+    _github: https://github.com/bee-san/pyWhat
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew: pywhat
     pipx: pywhat
     port: pywhat
@@ -5635,7 +5664,8 @@ softwarePackages:
     _github: https://github.com/qbittorrent/qBittorrent
     _home: https://www.qbittorrent.org/
     _name: qBittorrent
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/qBittorrent.app'
     ansible: professormanhattan.qbittorrent
     apt: qbittorrent
@@ -5652,7 +5682,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: null
-    _service: null
+    _service: false
     _when: '! ((brew list provisionql | grep ProvisionQL) && (brew list qlcolorcode | grep QLColorCode) && (brew list qlimagesize | grep qlImageSize) && (brew list qlmarkdown | grep QLMarkdown) && (brew list qlstephen | grep QLStephen) && (brew list qlvideo | grep QLVideo) && (brew list quicklook-json | grep QuickLookJSON) && (brew list quicklookapk | grep QuickLookAPK) && (brew list webpquicklook | grep WebpQuickLook))'
     cask:
       - provisionql
@@ -5672,6 +5702,7 @@ softwarePackages:
     _home: https://github.com/quasar/Quasar
     _name: Quasar
     _service: false
+    _type: application
     ansible:windows: professormanhattan.quasar
   ramda:
     _bin: ramda
@@ -5681,15 +5712,16 @@ softwarePackages:
     _home: https://github.com/raine/ramda-cli
     _name: Ramda
     _service: false
+    _type: cli
     npm: ramda-cli
   rancher-cli:
     _bin: rancher
     _desc: The Rancher Command Line Interface (CLI) is a unified tool for interacting with your Rancher Server
-    _docs: null
+    _docs: https://ranchermanager.docs.rancher.com/reference-guides/cli-with-rancher/rancher-cli
     _github: https://github.com/rancher/cli
     _home: null
     _name: rancher
-    _service: null
+    _service: false
     _type: cli
     brew: rancher-cli
     github: github.com/rancher/cli
@@ -5702,6 +5734,7 @@ softwarePackages:
     _home: https://www.raspberrypi.com/software/
     _name: Raspberry Pi Imager
     _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Raspberry Pi Imager.app"'
     ansible: professormanhattan.raspberryimager
     cask: raspberry-pi-imager
@@ -5718,6 +5751,7 @@ softwarePackages:
     _home: https://rclone.org/
     _name: Rclone
     _service: true
+    _type: cli
     ansible: professormanhattan.rclone
     apt: rclone
     brew: rclone
@@ -5737,6 +5771,7 @@ softwarePackages:
     _home: https://resp.app/
     _name: Redis Desktop Manager
     _service: false
+    _type: application
     ansible:linux: professormanhattan.rdm
     flatpak: app.resp.RESP
     snap: redis-desktop-manager
@@ -5747,12 +5782,13 @@ softwarePackages:
       - progress
       - util-linux
     _bin: recoverpy
-    _desc: '[RecoverPy](https://github.com/PabloLec/RecoverPy) is a highly configurable terminal emulator, SSH and serial client for Windows, macOS and Linux.'
+    _desc: '[RecoverPy](https://github.com/PabloLec/RecoverPy) is a powerful tool that leverages your system capabilities to recover lost file. Unlike others, you can not only recover deleted files but also overwritten data.'
     _docs: https://github.com/PabloLec/RecoverPy#usage
     _github: https://github.com/PabloLec/RecoverPy
     _home: https://github.com/PabloLec/RecoverPy
     _name: RecoverPy
     _service: false
+    _type: cli
     ansible:linux: professormanhattan.recoverpy
     script:linux: python3 -m pip install recoverpy
   coreutils:
@@ -5789,12 +5825,13 @@ softwarePackages:
       - xrdp
   remmina:
     _bin: null
-    _desc: null
-    _docs: null
+    _desc: Remmina is a GTK Remmina Remote Desktop Client which provides remote access, screen and file sharing to your desktop
+    _docs: https://gitlab.com/Remmina/Remmina/-/wikis/home
     _github: null
-    _home: null
+    _home: https://remmina.org/
     _name: Remmina
-    _service: true
+    _service: false
+    _type: application
     apt: remmina
     dnf: remmina
     flatpak: org.remmina.Remmina
@@ -5809,6 +5846,7 @@ softwarePackages:
     _home: null
     _name: Microsoft Remote Desktop
     _service: true
+    _type: application
     _when:cask: '! test -d "/Applications/Microsoft Remote Desktop.app"'
     cask: microsoft-remote-desktop
   xrdp:
@@ -5834,7 +5872,7 @@ softwarePackages:
     _github: https://github.com/responsively-org/responsively-app
     _home: null
     _name: Responsively
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/ResponsivelyApp.app'
     cask: responsively
@@ -5847,7 +5885,8 @@ softwarePackages:
     _github: https://github.com/restic/restic
     _home: https://restic.net/
     _name: Restic
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.restic
     apk: restic
     apt: restic
@@ -5865,10 +5904,11 @@ softwarePackages:
     _bin: rg
     _desc: '[ripgrep](https://github.com/BurntSushi/ripgrep) is a line-oriented search tool that recursively searches your current directory for a regex pattern. By default, ripgrep will respect your .gitignore and automatically skip hidden files/directories and binary files. This role also installs ripgrep-all. [ripgrep-all](https://github.com/phiresky/ripgrep-all) is just like ripgrep except it also searches in PDFs, E-Books, Office documents, zip, tar.gz, etc.'
     _docs: null
-    _github: null
+    _github: https://github.com/BurntSushi/ripgrep
     _home: null
     _name: ripgrep
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.ripgrep
     apt: ripgrep
     brew: ripgrep
@@ -5883,12 +5923,13 @@ softwarePackages:
     zypper: ripgrep
   ripgrep-all:
     _bin: rga
-    _desc: null
+    _desc: rga is a line-oriented search tool that allows you to look for a regex in a multitude of file types. rga wraps the awesome ripgrep and enables it to search in pdf, docx, sqlite, jpg, movie subtitles (mkv, mp4), etc.
     _docs: null
-    _github: null
+    _github: https://github.com/phiresky/ripgrep-all
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew:
       - ffmpeg
       - pandoc
@@ -5900,10 +5941,10 @@ softwarePackages:
     pacman: ripgrep-all
   rkhunter:
     _bin: rkhunter
-    _desc: null
+    _desc: rkhunter is a Unix-based tool that scans for rootkits, backdoors and possible local exploits
     _docs: null
     _github: null
-    _home: null
+    _home: https://rkhunter.sourceforge.net/
     _name: rkhunter
     _post: rkhunter --propupd && rkhunter --update
     _service: true
@@ -5931,12 +5972,13 @@ softwarePackages:
     yay: rm-improved
   rofi:
     _bin: rofi
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: Rofi is a window switcher, application launcher and dmenu replacement
+    _docs: https://davatorium.github.io/rofi/
+    _github: https://github.com/davatorium/rofi
+    _home: https://davatorium.github.io/rofi/
+    _name: rofi
+    _service: false
+    _type: cli
     apt: rofi
     dnf: rofi
     pacman: rofi
@@ -5946,12 +5988,13 @@ softwarePackages:
     zypper: rofi
   rsync:
     _bin: rsync
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: rsync is an open source utility that provides fast incremental file transfer.
+    _docs: https://rsync.samba.org/documentation.html
+    _github: https://github.com/WayneD/rsync
+    _home: https://rsync.samba.org/
+    _name: rsync
+    _service: true
+    _type: cli
     apt: rsync
     brew: rsync
     choco: rsync
@@ -5979,7 +6022,7 @@ softwarePackages:
     _github: https://github.com/lukehaas/RunJS
     _home: null
     _name: RunJS
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/RunJS.app'
     cask: runjs
@@ -6041,7 +6084,7 @@ softwarePackages:
     _github: https://github.com/peak/s5cmd
     _home: null
     _name: s5cmd
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.s5cmd
     brew: peak/tap/s5cmd
