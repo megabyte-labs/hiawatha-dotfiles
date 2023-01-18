@@ -6091,13 +6091,14 @@ softwarePackages:
     github: github.com/peak/s5cmd
     go: github.com/peak/s5cmd@latest
   sad:
-    _bin: null
-    _desc: null
+    _bin: sad
+    _desc: sad is a Batch File Edit tool. It will show you a really nice diff of proposed changes before you commit them
     _docs: null
-    _github: null
+    _github: https://github.com/ms-jpq/sad
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     brew: ms-jpq/sad/sad
     pacman: sad
   samba:
@@ -6124,10 +6125,11 @@ softwarePackages:
     _bin: null
     _desc: '[Sanoid](https://github.com/jimsalterjrs/sanoid/) is a free and open source snapshot management tool. Sanoid is a policy-driven snapshot management tool for ZFS filesystems. When combined with the Linux KVM hypervisor, you can use it to make your systems functionally immortal.'
     _docs: null
-    _github: null
+    _github: https://github.com/jimsalterjrs/sanoid/
     _home: null
     _name: Sanoid
-    _service: null
+    _service: false
+    _type: cli
     ansible:linux: professormanhattan.sanoid
     apt:
       - libcapture-tiny-perl
@@ -6156,7 +6158,7 @@ softwarePackages:
     _github: https://github.com/Confbase/schema
     _home: null
     _name: schema
-    _service: null
+    _service: false
     _type: cli
     go: github.com/Confbase/schema@latest
   scrcpy:
@@ -6166,7 +6168,7 @@ softwarePackages:
     _github: https://github.com/Genymobile/scrcpy
     _home: null
     _name: scrcpy
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.scrcpy
     apt: scrcpy
@@ -6184,7 +6186,7 @@ softwarePackages:
     _github: https://github.com/Tomotoes/scrcpy-gui
     _home: null
     _name: Scrcpy GUI
-    _service: null
+    _service: false
     _type: application
     flatpak: in.srev.guiscrcpy
     github: github.com/Tomotoes/scrcpy-gui
@@ -6195,7 +6197,7 @@ softwarePackages:
     _github: https://github.com/chmln/sd
     _home: null
     _name: sd
-    _service: null
+    _service: false
     _type: cli
     apk: sd
     brew: sd
@@ -6212,26 +6214,27 @@ softwarePackages:
     _github: https://github.com/sdkman/sdkman-cli
     _home: https://sdkman.io/
     _name: SDKMAN
-    _service: null
+    _service: false
+    _type: cli
     _note: SDKMan is installed via .chezmoiscripts
     # ansible: professormanhattan.sdkman
   seconion:
     _bin: null
     _desc: '[Security Onion](https://securityonionsolutions.com/) is a free and open source Linux distribution for threat hunting, enterprise security monitoring, and log management. It includes Elasticsearch, Logstash, Kibana, Snort, Suricata, Bro, Wazuh, Sguil, Squert, NetworkMiner, and many other security tools. The easy-to-use Setup wizard allows you to build an army of distributed sensors for your enterprise in minutes! This role takes it a step further and automates the whole setup process.'
-    _docs: https://docs.securityonion.net/en/2.3/index.html
+    _docs: https://docs.securityonion.net
     _github: https://github.com/Security-Onion-Solutions/securityonion
     _home: https://securityonionsolutions.com/
     _name: Security Onion
-    _service: null
+    _service: false
     ansible: professormanhattan.seconion
   secretive:
     _bin: null
-    _desc: null
+    _desc: Store SSH keys in the Secure Enclave
     _docs: null
-    _github: null
+    _github: https://github.com/maxgoedjen/secretive
     _home: null
     _name: null
-    _service: null
+    _service: false
     _when:cask: '! test -d /Applications/Secretive.app'
     cask: secretive
   security:
@@ -6245,12 +6248,13 @@ softwarePackages:
     ansible: professormanhattan.security
   semantic-release:
     _bin: semantic-release
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: semantic-release automates the whole package release workflow including: determining the next version number, generating the release notes, and publishing the package
+    _docs: https://semantic-release.gitbook.io
+    _github: https://github.com/semantic-release/semantic-release
+    _home: https://semantic-release.gitbook.io
+    _name: semantic-release
+    _service: false
+    _type: cli
     npm: semantic-release
   sentry-cli:
     _bin: sentry-cli
@@ -6259,7 +6263,7 @@ softwarePackages:
     _github: https://github.com/getsentry/sentry-cli/
     _home: null
     _name: sentry-cli
-    _service: null
+    _service: false
     _type: cli
     brew:darwin: getsentry/tools/sentry-cli
     github: github.com/getsentry/sentry-cli
@@ -6268,21 +6272,23 @@ softwarePackages:
     yay: sentry-cli-bin
   serve:
     _bin: serve
-    _desc: null
+    _desc: serve helps you serve a static site, single page application or just a static file (no matter if on your device or on the local network). It also provides a neat interface for listing the directory's contents
     _docs: null
-    _github: null
+    _github: https://github.com/vercel/serve
     _home: null
-    _name: null
-    _service: null
+    _name: serve
+    _service: false
+    _type: cli
     npm: serve
   serverless:
     _bin: serverless
-    _desc: null
-    _docs: null
+    _desc: Build applications with serverless architectures
+    _docs: https://www.serverless.com/framework/docs
     _github: null
-    _home: null
-    _name: null
-    _service: null
+    _home: https://www.serverless.com/
+    _name: serverless
+    _service: false
+    _type: cli
     brew: serverless
     npm: serverless
   sftpgo:
@@ -6301,12 +6307,13 @@ softwarePackages:
     yay: sftpgo-bin
   share:
     _bin: share
-    _desc: null
+    _desc: Quickly share files from your command line
     _docs: null
-    _github: null
+    _github: https://github.com/marionebl/share-cli
     _home: null
-    _name: null
-    _service: null
+    _name: share
+    _service: false
+    _type: cli
     npm: share-cli
   sharex:
     _bin: null
@@ -6315,17 +6322,19 @@ softwarePackages:
     _github: https://github.com/ShareX/ShareX
     _home: https://getsharex.com/
     _name: ShareX
-    _service: null
+    _service: false
+    _type: application
     ansible:windows: professormanhattan.sharex
     choco: sharex
   sharp:
     _bin: sharp
-    _desc: null
+    _desc: CLI for sharp (a Node.js image processing module)
     _docs: null
-    _github: null
+    _github: https://github.com/vseventer/sharp-cli
     _home: null
-    _name: null
-    _service: null
+    _name: sharp
+    _service: false
+    _type: cli
     npm: sharp-cli
   shc:
     _bin: shc
@@ -6335,6 +6344,7 @@ softwarePackages:
     _home: https://neurobin.org/projects/softwares/unix/shc/
     _name: shc
     _service: false
+    _type: cli
     ansible:darwin: professormanhattan.shc
     ansible:linux: professormanhattan.shc
     brew: shc
@@ -6348,7 +6358,8 @@ softwarePackages:
     _github: https://github.com/reconquest/shdoc
     _home: null
     _name: shdoc
-    _service: null
+    _service: false
+    _type: cli
     ansible:darwin: professormanhattan.shdoc
     ansible:linux: professormanhattan.shdoc
     script:darwin: cd /tmp && git clone --recursive https://github.com/reconquest/shdoc && cd shdoc && sudo make install
@@ -6386,8 +6397,8 @@ softwarePackages:
     _docs: null
     _github: https://github.com/mvdan/sh
     _home: https://pkg.go.dev/mvdan.cc/sh/v3
-    _name: Java
-    _service: null
+    _name: shfmt
+    _service: false
     _type: cli
     ansible: professormanhattan.shfmt
     apk: shfmt
@@ -6405,7 +6416,8 @@ softwarePackages:
     _github: https://github.com/mltframework/shotcut
     _home: https://shotcut.org/
     _name: Shotcut
-    _service: null
+    _service: false
+    _type: application
     _snapClassic: true
     _when:cask: '! test -d /Applications/Shotcut.app'
     ansible: professormanhattan.shotcut
@@ -6422,7 +6434,8 @@ softwarePackages:
     _github: https://github.com/GNOME/shotwell
     _home: https://wiki.gnome.org/Apps/Shotwell
     _name: Shotwell
-    _service: null
+    _service: false
+    _type: application
     ansible:linux: professormanhattan.shotwell
     apt: shotwell
     dnf: shotwell
@@ -6430,12 +6443,13 @@ softwarePackages:
     pacman: shotwell
   skate:
     _bin: skate
-    _desc: null
+    _desc: Skate is a personal key-value store. Use it to save and retrieve anything you’d like—even binary data. It’s fully encrypted, backed up to the cloud (that you can self-host if you want) and can be synced with all your machines
     _docs: null
-    _github: null
+    _github: https://github.com/charmbracelet/skate
     _home: null
-    _name: null
-    _service: null
+    _name: skate
+    _service: false
+    _type: cli
     brew: charmbracelet/tap/skate
     go: github.com/charmbracelet/skate@latest
     nix: nixpkgs.skate
@@ -6447,7 +6461,7 @@ softwarePackages:
     _github: https://github.com/TimothyYe/skm
     _home: null
     _name: skm
-    _service: null
+    _service: false
     _type: cli
     brew: timothyye/tap/skm
     github: github.com/TimothyYe/skm
@@ -6462,7 +6476,7 @@ softwarePackages:
     _github: Not open-source
     _home: https://www.skype.com/en/
     _name: Skype
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/Skype.app'
     ansible: professormanhattan.skype
@@ -6478,7 +6492,7 @@ softwarePackages:
     _github: https://github.com/slackhq/SlackTextViewController
     _home: https://slack.com/
     _name: Slack
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/Slack.app'
     ansible: professormanhattan.slack
@@ -6490,10 +6504,11 @@ softwarePackages:
     _bin: slack-term
     _desc: '[slack-term](https://github.com/erroneousboat/slack-term) features a colorful interface as well as keyboard shortcuts. It is one of, if not the, most well-received [Slack](https://slack.com/) client available on GitHub.'
     _docs: null
-    _github: null
+    _github: https://github.com/erroneousboat/slack-term
     _home: null
     _name: slack-term
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.slackterm
     go: github.com/erroneousboat/slack-term@latest
   sloth:
@@ -6503,7 +6518,8 @@ softwarePackages:
     _github: https://github.com/sveinbjornt/Sloth
     _home: https://sveinbjorn.org/sloth
     _name: Sloth
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/Sloth.app'
     cask: sloth
   snapd:
@@ -6511,38 +6527,41 @@ softwarePackages:
     _desc: '[Snap](https://snapcraft.io/) is a software packaging and deployment system developed by Canonical for operating systems that use the Linux kernel. The packages, called snaps, and the tool for using them, snapd, work across a range of Linux distributions and allow upstream software developers to distribute their applications directly to users. Snaps are self-contained applications running in a sandbox with mediated access to the host system.'
     _docs: null
     _github: null
-    _home: null
+    _home: https://snapcraft.io/
     _name: Snap
-    _service: null
+    _service: true
     ansible:linux: professormanhattan.snapd
   snitch:
     _bin: null
     _desc: '[Little Snitch](https://www.obdev.at/products/littlesnitch/index.html) (macOS) and [OpenSnitch](https://github.com/evilsocket/opensnitch) (Linux) are application firewalls that make Internet connections visible. You can then configure which applications can access the internet (or LAN) as well as monitor the traffic patterns of applications.'
-    _docs: null
-    _github: null
-    _home: null
+    _docs: https://www.obdev.at/products/littlesnitch/getting-started.html
+    _github: https://github.com/evilsocket/opensnitch
+    _home: https://www.obdev.at/products/littlesnitch/index.html
     _name: OpenSnitch/Little Snitch
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Little Snitch.app"'
     ansible: professormanhattan.snitch
     cask: little-snitch
   social-analyzer:
     _bin: social-analyzer
-    _desc: null
+    _desc: API, CLI, and Web App for analyzing and finding a person's profile in 1000 social media \ websites
     _docs: null
-    _github: null
+    _github: https://github.com/qeeqbox/social-analyzer
     _home: null
-    _name: null
-    _service: null
+    _name: social-analyzer
+    _service: false
+    _type: cli
     pipx: social-analyzer
   solidity:
     _bin: solcjs
-    _desc: null
+    _desc: Javascript bindings for the Solidity compiler
     _docs: null
-    _github: null
+    _github: https://github.com/ethereum/solc-js
     _home: null
-    _name: null
-    _service: null
+    _name: solcjs
+    _service: false
+    _type: cli
     npm: solc
   sonatype-nexus:
     _bin: null
@@ -6551,27 +6570,30 @@ softwarePackages:
     _github: https://github.com/sonatype/nexus-public
     _home: https://www.sonatype.com/products/nexus-repository
     _name: Sonatype Nexus
-    _service: null
+    _service: true
+    _type: webapp
     ansible: professormanhattan.sonatype-nexus
   speed-test:
     _bin: speed-test
-    _desc: null
+    _desc: Test your internet connection speed and ping using speedtest.net from the CLI
     _docs: null
-    _github: null
+    _github: https://github.com/sindresorhus/speed-test
     _home: null
-    _name: null
-    _service: null
+    _name: speed-test
+    _service: false
+    _type: cli
     npm: speed-test
   spotdl:
     _bin: spotdl
     _deps:
       - ffmpeg
-    _desc: null
-    _docs: null
-    _github: null
+    _desc: Download your Spotify playlists and songs along with album art and metadata
+    _docs: https://spotdl.readthedocs.io/en/latest/
+    _github: https://github.com/spotDL/spotify-downloader
     _home: null
-    _name: null
-    _service: null
+    _name: spotdl
+    _service: false
+    _type: cli
     pipx: spotdl
   gnome-eyedropper:
     flatpak: com.github.finefindus.eyedropper
@@ -6584,7 +6606,7 @@ softwarePackages:
     _github: https://github.com/sqlectron/sqlectron-gui
     _home: null
     _name: SQLectron
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/sqlectron.app'
     cask: sqlectron
@@ -6618,7 +6640,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: SSH
-    _service: null
+    _service: true
     ansible: professormanhattan.ssh
   ssh-vault:
     _bin: ssh-vault
@@ -6627,18 +6649,20 @@ softwarePackages:
     _github: https://github.com/ssh-vault/ssh-vault
     _home: https://ssh-vault.com/
     _name: ssh-vault
-    _service: null
+    _service: fault
+    _type: cli
     ansible: professormanhattan.sshvault
     brew: ssh-vault
     github: github.com/ssh-vault/ssh-vault
   sshpass:
     _bin: sshpass
-    _desc: null
+    _desc: Sshpass is a tool for non-interactivly performing password authentication with SSH's so called "interactive keyboard password authentication". Most user should use SSH's more secure public key authentiaction instead.
     _docs: null
     _github: null
-    _home: null
-    _name: null
-    _service: null
+    _home: https://sourceforge.net/projects/sshpass/
+    _name: sshpass
+    _service: false
+    _type: cli
     apt: sshpass
     brew: hudochenkov/sshpass/sshpass
     dnf: sshpass
@@ -6660,7 +6684,7 @@ softwarePackages:
     _github: https://github.com/suyashkumar/ssl-proxy
     _home: null
     _name: ssl-proxy
-    _service: null
+    _service: false
     _type: cli
     github: github.com/suyashkumar/ssl-proxy
   # Error installing aiohttp dependency
@@ -6674,7 +6698,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: Starship
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.starship
   startmenu:
     _bin: null
@@ -6683,7 +6708,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: Start Menu Configuration
-    _service: null
+    _service: false
     ansible: professormanhattan.startmenu
   statcode:
     _bin: statcode
@@ -6692,17 +6717,19 @@ softwarePackages:
     _github: https://github.com/shobrook/statcode
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     pipx: statcode
     yay: statcode
   staticcheck:
     _bin: staticcheck
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: State of the art linter for the Go programming language
+    _docs: https://staticcheck.io/docs/
+    _github: https://github.com/dominikh/go-tools
+    _home: https://staticcheck.io/
+    _name: staticcheck
+    _service: false
+    _type: cli
     brew: staticcheck
     dnf: golang-honnef-tools
     go: honnef.co/go/tools/cmd/staticcheck@latest
@@ -6711,27 +6738,28 @@ softwarePackages:
     scoop: staticcheck
   stats:
     _bin: null
-    _desc: null
+    _desc: System monitor for the menu bar
     _docs: null
-    _github: null
+    _github: https://github.com/exelban/stats
     _home: null
-    _name: null
+    _name: stats
     _service: null
     _when:cask: '! test -d /Applications/Stats.app'
     cask: stats
   stegcloak:
     _bin: stegcloak
-    _desc: null
+    _desc: StegCloak is a pure JavaScript steganography module designed in functional programming style, to hide secrets inside text by compressing and encrypting the secret before cloaking it with special unicode invisible characters
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/KuroLabs/stegcloak
+    _home: https://stegcloak.surge.sh/
+    _name: stegcloak
+    _service: false
+    _type: cli
     npm: stegcloak
   stubby:
     _bin: stubby
-    _desc: null
-    _docs: null
+    _desc: DNS privacy enabled stub resolver service based on getdns
+    _docs: https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Daemon+-+Stubby
     _github: null
     _home: null
     _name: Stubby
@@ -6740,40 +6768,44 @@ softwarePackages:
     brew:darwin: stubby
   supdock:
     _bin: supdock
-    _desc: null
+    _desc: A slightly more visual way to interact with the docker daemon. Supdock is a wrapper for the docker command meaning you can still use all of the other docker commands without issues
     _docs: null
-    _github: null
+    _github: https://github.com/segersniels/supdock
     _home: null
-    _name: null
-    _service: null
+    _name: supdock
+    _service: false
+    _type: cli
     npm: supdock
   surge:
     _bin: surge
-    _desc: null
+    _desc:  CLI for the surge.sh CDN
     _docs: null
-    _github: null
+    _github: https://github.com/sintaxi/surge
     _home: null
-    _name: null
-    _service: null
+    _name: surge
+    _service: false
+    _type: cli
     npm: surge
   svgo:
     _bin: svgo
-    _desc: null
+    _desc: SVG Optimizer is a Node.js-based tool for optimizing SVG vector graphics files.
     _docs: null
-    _github: null
+    _github: https://github.com/svg/svgo
     _home: null
-    _name: null
-    _service: null
+    _name: svgo
+    _service: false
+    _type: cli
     brew: svgo
     npm: svgo
   swarm:
     _bin: null
-    _desc: null
+    _desc: Docker Swarm is an orchestration management tool that runs Docker applications. It helps in creating and deploying a cluster of Docker nodes
     _docs: https://docs.docker.com/engine/swarm/
     _github: https://github.com/moby/swarmkit
     _home: null
-    _name: null
-    _service: null
+    _name: Docker Swarm
+    _service: true
+    _type: cli
     ansible: professormanhattan.swarm
   switchhosts:
     _appimageName: SwitchHosts.AppImage
@@ -6799,18 +6831,19 @@ softwarePackages:
     _github: https://github.com/samber/sync-ssh-keys
     _home: null
     _name: sync-ssh-keys
-    _service: null
+    _service: false
     _type: cli
     github: github.com/samber/sync-ssh-keys
     yay: sync-ssh-keys-bin
   synp:
     _bin: synp
-    _desc: null
+    _desc: Convert yarn.lock to package-lock.json and vice versa
     _docs: null
-    _github: null
+    _github: https://github.com/imsnif/synp
     _home: null
-    _name: null
+    _name: synp
     _service: false
+    _type: cli
     npm: synp
   sysbench:
     _bin: sysbench
@@ -6819,7 +6852,7 @@ softwarePackages:
     _github: https://github.com/akopytov/sysbench
     _home: null
     _name: sysbench
-    _service: null
+    _service: false
     _type: cli
     apk: sysbench
     apt: sysbench
@@ -6830,35 +6863,37 @@ softwarePackages:
   sysdig:
     _bin: sysdig
     _desc: '[sysdig](https://www.sysdig.com/) is a simple tool for deep system visibility, exploration and troubleshooting, with native support for containers.'
-    _docs: null
-    _github: null
+    _docs: https://docs.sysdig.com/
+    _github: https://github.com/draios
     _groups:
       - sysdig
-    _home: null
+    _home: https://sysdig.com/
     _name: sysdig
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.sysdig
     brew: sysdig
     pacman:
       - sysdig
       - sysdig-dkms
   sysget:
-    _bin: null
+    _bin: sysget
     _desc: One package manager to rule them all
     _docs: null
     _github: https://github.com/emilengler/sysget
     _home: null
     _name: sysget
-    _service: null
+    _service: false
     _type: cli
   t:
     _bin: t
-    _desc: null
+    _desc: A command-line power tool for Twitter
     _docs: null
-    _github: null
+    _github: https://github.com/sferik/t
     _home: null
     _name: null
-    _service: null
+    _service: false
+    _type: cli
     gem: t
   t-rec:
     _bin: t-rec
@@ -6886,7 +6921,7 @@ softwarePackages:
     _github: https://github.com/Eugeny/tabby
     _home: https://tabby.sh/
     _name: Tabby
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/Tabby.app'
     ansible:linux: professormanhattan.tabby
@@ -6902,6 +6937,7 @@ softwarePackages:
     _name: Tailscale
     _post: sudo tailscale up
     _service: true
+    _type: cli
     _systemd:pacman: tailscaled
     ansible: professormanhattan.tailscale
     brew: tailscale
@@ -6938,10 +6974,11 @@ softwarePackages:
     _bin: null
     _desc: '[Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software) is a proprietary business communication platform developed by Microsoft, as part of the Microsoft 365 family of products. Teams primarily competes with the similar service Slack, offering workspace chat and videoconferencing, file storage, and application integration.'
     _docs: null
-    _github: Not open-source
+    _github: null
     _home: null
     _name: Microsoft Teams
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Microsoft Teams.app"'
     ansible: professormanhattan.teams
     cask: microsoft-teams
@@ -6956,7 +6993,8 @@ softwarePackages:
     _github: Not open-source
     _home: https://www.teamviewer.com/en-us/
     _name: TeamViewer
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/TeamViewer.app'
     ansible:linux: professormanhattan.teamviewer
     cask: teamviewer
@@ -6969,7 +7007,7 @@ softwarePackages:
     _github: https://github.com/gravitational/teleport
     _home: null
     _name: Teleport
-    _service: null
+    _service: true
     _type: cli
     ansible: professormanhattan.teleport
     brew: teleport
@@ -6982,7 +7020,7 @@ softwarePackages:
     _github: https://github.com/tellerops/teller
     _home: null
     _name: teller
-    _service: null
+    _service: false
     _type: cli
     brew: spectralops/tap/teller
     github: github.com/tellerops/teller
@@ -6993,25 +7031,28 @@ softwarePackages:
     _github: https://github.com/jackd248/temps
     _home: null
     _name: Temps
-    _service: null
+    _service: false
     _type: application
     github: github.com/jackd248/temps
   terminalizer:
-    _bin: null
-    _desc: null
+    _bin: terminalizer
+    _desc: Record your terminal and generate animated gif images or share a web player
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/faressoft/terminalizer
+    _home: https://www.terminalizer.com/
+    _name: terminalizer
+    _service: false
+    _type: cli
     npm: terminalizer
   termius:
     _bin: null
     _desc: '[Termius](https://www.termius.com/) is the SSH client that works on Desktop and Mobile.'
     _docs: null
     _github: null
-    _home: null
+    _home: https://www.termius.com/
     _name: Termius
+    _service: false
+    _type: application
     _post:binary:windows: |
       # TODO
     _service:
@@ -7035,6 +7076,7 @@ softwarePackages:
     _name: tfenv
     _post: if ! command -v terraform; then tfenv use latest; fi
     _service: false
+    _type: cli
     ansible:darwin: professormanhattan.tfenv
     ansible:linux: professormanhattan.tfenv
     brew: tfenv
@@ -7046,7 +7088,7 @@ softwarePackages:
     _github: https://github.com/terraform-linters/tflint
     _home: null
     _name: tflint
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.tflint
     brew: tflint
@@ -7059,70 +7101,74 @@ softwarePackages:
     _github: null
     _home: null
     _name: Betelgeuse Theme
-    _service: null
+    _service: false
     ansible: professormanhattan.theme
   tig:
     _bin: tig
-    _desc: null
+    _desc: Tig is an ncurses-based text-mode interface for git. It functions mainly as a Git repository browser, but can also assist in staging changes for commit at chunk level and act as a pager for output from various Git commands
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/jonas/tig
+    _home: https://jonas.github.io/tig/
+    _name: tig
+    _service: false
+    _type: cli
     brew: tig
     nix: tig
     pkg: tig
   tilt:
     _bin: tilt
     _desc: Define your dev environment as code. For microservice apps on Kubernetes
-    _docs: null
+    _docs: https://docs.tilt.dev/
     _github: https://github.com/tilt-dev/tilt
-    _home: null
+    _home: https://tilt.dev/
     _name: tilt
-    _service: null
-    _type: cli
+    _service: true
+    _type: webapp
     brew: tilt
     github: github.com/tilt-dev/tilt
     yay: tilt-bin
   timeshift:
     _bin: null
-    _desc: '[Timeshift](https://github.com/jimsalterjrs/timeshift/) is a free and open source system restore tool for Linux. Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS. Timeshift protects your system by taking incremental snapshots of the file system at regular intervals. These snapshots can be restored at a later date to undo all changes to the system.'
+    _desc: '[Timeshift](https://github.com/teejee2008/timeshift) is a free and open source system restore tool for Linux. Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS. Timeshift protects your system by taking incremental snapshots of the file system at regular intervals. These snapshots can be restored at a later date to undo all changes to the system.'
     _docs: null
-    _github: null
-    _home: null
+    _github: https://github.com/teejee2008/timeshift
+    _home: https://teejeetech.com/timeshift/
     _name: Timeshift
-    _service: null
+    _service: false
+    _type: application
     ansible:linux: professormanhattan.timeshift
     apt: timeshift
     dnf: timeshift
     yay: timeshift
   tinypng:
     _bin: tinypng
-    _desc: null
+    _desc: Handy command line tool for shrinking PNG images using the TinyPNG API
     _docs: null
-    _github: null
+    _github: https://github.com/websperts/tinypng-cli
     _home: null
-    _name: null
+    _name: tinypng
     _service: null
     npm: tinypng-cli
   tldr:
     _bin: tldr
-    _desc: null
+    _desc: Simplified and community-driven man pages
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/tldr-pages/tldr
+    _home: https://tldr.sh/
+    _name: tldr
+    _service: false
+    _type: cli
     brew: tldr
     npm: tldr
   tmux:
     _bin: tmux
     _desc: '[Tmux](https://github.com/tmux/tmux/wiki) is a terminal multiplexer. It enables a number of terminals to be created, accessed, and controlled from a single screen. Tmux may be detached from a screen and continue running in the background, then later reattached.'
-    _docs: null
-    _github: null
+    _docs: https://github.com/tmux/tmux/wiki
+    _github: https://github.com/tmux/tmux
     _home: null
     _name: tmux
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.tmux
     apt: tmux
     brew:
@@ -7137,7 +7183,7 @@ softwarePackages:
     _github: https://github.com/XAMPPRocky/tokei
     _home: null
     _name: tokei
-    _service: null
+    _service: false
     _type: cli
     apk: tokei
     brew: tokei
@@ -7149,12 +7195,13 @@ softwarePackages:
     scoop: tokei
   privoxy:
     _bin: privoxy
-    _desc: null
-    _docs: null
+    _desc: Privoxy is a non-caching web proxy with advanced filtering capabilities for enhancing privacy, modifying web page data and HTTP headers, controlling access, and removing ads and other obnoxious Internet junk
+    _docs: https://www.privoxy.org/user-manual/index.html
     _github: null
-    _home: null
+    _home: https://www.privoxy.org/
     _name: Privoxy
     _service: true
+    _type: cli
     apt: privoxy
     brew: privoxy
     dnf: privoxy
@@ -7167,7 +7214,8 @@ softwarePackages:
     _github: https://github.com/TheTorProject
     _home: https://www.torproject.org/
     _name: TOR
-    _service: null
+    _service: false
+    _type: application
     ansible:linux: professormanhattan.tor
     apt: tor
     brew: tor
@@ -7178,10 +7226,11 @@ softwarePackages:
     _bin: trans
     _desc: '[Translate Shell](https://github.com/soimort/translate-shell) (formerly Google Translate CLI) is a command-line translator powered by Google Translate (default), Bing Translator, Yandex.Translate, and Apertium. It gives you easy access to these translation engines in your terminal. It is feature-rich and, although there is some overlap, it complements [Normit](https://gitlab.com/megabyte-labs/ansible-roles/normit) well.'
     _docs: null
-    _github: null
+    _github: https://github.com/soimort/translate-shell
     _home: null
     _name: Translate Shell
-    _service: null
+    _service: false
+    _type: cli
     ansible:darwin: professormanhattan.translate
     ansible:linux: professormanhattan.translate
     apt:ubuntu: translate-shell
@@ -7195,25 +7244,27 @@ softwarePackages:
     _github: null
     _home: null
     _name: tree-cli
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.tree
   tree-sitter:
     _bin: null
-    _desc: null
+    _desc: CLI tool for creating and testing tree-sitter parsers
     _docs: null
-    _github: null
+    _github: https://github.com/tree-sitter/tree-sitter-cli
     _home: null
-    _name: null
-    _service: null
+    _name: tree-sitter-cli
+    _service: false
     cargo: tree-sitter-cli
   trellis:
     _bin: trellis
-    _desc: null
+    _desc: A CLI to manage Trellis projects
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/roots/trellis-cli
+    _home: https://roots.io/trellis/
+    _name: trellis
+    _service: false
+    _type: cli
     brew: roots/tap/trellis-cli
   trivy:
     _bin: null
@@ -7222,46 +7273,49 @@ softwarePackages:
     _github: https://github.com/aquasecurity/trivy
     _home: null
     _name: trivy
-    _service: null
+    _service: false
     _type: cli
     github: github.com/aquasecurity/trivy
     yay: trivy-bin
   trufflehog:
     _bin: trufflehog
-    _desc: null
+    _desc: Find credentials all over the place
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/trufflesecurity/trufflehog
+    _home: https://trufflesecurity.com/trufflehog/
+    _name: trufflehog
+    _service: false
+    _type: cli
     brew: trufflesecurity/trufflehog/trufflehog
   ts2c:
     _bin: ts2c
-    _desc: null
+    _desc: Convert Javascript/TypeScript to C
     _docs: null
-    _github: null
+    _github: https://github.com/andrei-markeev/ts2c
     _home: null
-    _name: null
-    _service: null
+    _name: ts2c
+    _service: false
+    _type: cli
     npm: ts2c
   typescript:
     _bin: tsc
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+    _docs: https://www.typescriptlang.org/docs/
+    _github: https://github.com/microsoft/TypeScript
+    _home: https://www.typescriptlang.org/
+    _name: TypeScript
+    _service: false
     brew: typescript
     npm: tsc
   ulauncher:
-    _bin: null
-    _desc: '[Ulauncher](https://ulaunchercraft.io/) is a software packaging and deployment system developed by Canonical for operating systems that use the Linux kernel. The packages, called ulaunchers, and the tool for using them, ulauncher, work across a range of Linux distributions and allow upstream software developers to distribute their applications directly to users. Ulaunchers are self-contained applications running in a sandbox with mediated access to the host system.'
-    _docs: null
-    _github: null
-    _home: null
+    _bin: ulauncher
+    _desc: '[Ulauncher](https://ulauncher.io/) is a software packaging and deployment system developed by Canonical for operating systems that use the Linux kernel. The packages, called ulaunchers, and the tool for using them, ulauncher, work across a range of Linux distributions and allow upstream software developers to distribute their applications directly to users. Ulaunchers are self-contained applications running in a sandbox with mediated access to the host system.'
+    _docs: https://docs.ulauncher.io/
+    _github: https://github.com/Ulauncher/Ulauncher/
+    _home: https://ulauncher.io/
     _name: Ulauncher
-    _service: null
+    _service: true
+    _type: cli
     ansible: professormanhattan.ulauncher
   up:
     _bin: up
@@ -7270,7 +7324,7 @@ softwarePackages:
     _github: https://github.com/akavel/up
     _home: null
     _name: Ultimate Plumber (up)
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.up
     brew: up
@@ -7283,9 +7337,10 @@ softwarePackages:
     _docs: null
     _github: https://github.com/sigoden/upt
     _home: null
-    _name: null
-    _service: null
-    'cargo:': upt
+    _name: upt
+    _service: false
+    _type: cli
+    cargo: upt
   upx:
     _bin: upx
     _desc: '[UPX](https://upx.github.io/) is an advanced executable file compressor. UPX will typically reduce the file size of programs and DLLs by around 50%-70%, thus reducing disk space, network load times, download times and other distribution and storage costs. It supports compressing a wide variety of binary-like files. Surprisingly, it even compresses executables better than WinZip. Best of all, it is free and open source.'
@@ -7294,6 +7349,7 @@ softwarePackages:
     _home: https://upx.github.io/
     _name: UPX
     _service: false
+    _type: cli
     ansible: professormanhattan.upx
     apt: upx
     brew: upx
