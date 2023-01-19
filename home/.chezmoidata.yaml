@@ -23,6 +23,22 @@ config:
   gpg: https://raw.githubusercontent.com/drduh/config/master/gpg.conf
 fonts:
   main: Montserrat Bold
+grub:
+  shiftToSee: false
+  timeout: 9
+removeLinuxPackages:
+  - aisleriot
+  - gnome-mahjongg
+  - gnome-mines
+  - gnome-sudoku
+  - rhythmbox
+removeLinuxShortcuts:
+  - cmake_cmake-gui.desktop
+  - display-im6.q16.desktop
+  - flutter_openurl.desktop
+  - htop.desktop
+  - scvim.desktop
+theme: Betelgeuse
 softwareGroups:
   Android: &Android
     - scrcpy
@@ -164,6 +180,7 @@ softwareGroups:
     - zsh
     - zx
   CLI-Extras: &CLI-Extras
+    - axel
     - bin
     - bitly
     - desed
@@ -303,15 +320,20 @@ softwareGroups:
     - docker
   Essentials-Desktop: &Essentials-Desktop
     - firefox
+    - kvantum
     - portmaster
+    - rofi
     - tabby
     - vlc
     - vscode
     - vscodium
   File-System: &File-System
-    - catfs
+    # After `sudo apt-get install -y fuse libfuse-dev, the following error still shows up:
+    # error: could not find system library 'fuse' required by the 'fuse' crate
+    # - catfs
     - glusterfs
     - goofys
+    - sshfs
   Finance: &Finance
     - infracost
   Finance-Desktop: &Finance-Desktop
@@ -321,12 +343,14 @@ softwareGroups:
     - gh
     - gist
     - git
+    - git-bug
     - git-extras
     - git-filter-repo
     - git-fuzzy
     - git-lfs
     - git-open
     - git-secret
+    - git-subrepo
     - gitomatic
     - git-stats
     - gitui
@@ -395,6 +419,7 @@ softwareGroups:
     - fuego
     - papertrail
     - sentry-cli
+    - unbuffer
   Media: &Media
     - beets
     # editly NPM package is failing to install on macOS - attempts to compile with node-gyp
@@ -419,6 +444,7 @@ softwareGroups:
     - lollypop
     - nuclear
     - plex
+    - plex-htpc
     - raspberry-pi-imager
     - shotcut
     - shotwell
@@ -428,9 +454,10 @@ softwareGroups:
     - cerebro
     - clocker
     - cumulus
+    - gnome-tweaks
     - pretzel
     - qlplugins
-    - remote-desktop # bundle
+    - remote-desktop
     - remmina
     - rofi
     - secretive
@@ -439,15 +466,20 @@ softwareGroups:
     - temps
     - teamviewer
   Misc-Development-Tools: &Misc-Development-Tools
+    - ansifilter
     - aqua
     # - asdf # Handled by dotfiles
     # - astronvim
     - automake
+    - bfg
     - bundler
     - carthage
     - cmake
     - cocoapods
+    - codeclimate
     - dotnet
+    - expect
+    - fury
     - gradle
     - ideviceinstaller
     - ios-deploy
@@ -455,6 +487,7 @@ softwareGroups:
     - libimobiledevice
     - rust
     - sdkman
+    - snapcraft
     - solidity
     - upx
     - windows-adk
@@ -496,7 +529,8 @@ softwareGroups:
   Productivity-Desktop: &Productivity-Desktop
     - libreoffice
     - microsoft-office
-    - microsoft-todo
+    # Deprecated in favor of Google Tasks
+    # - microsoft-todo
   Python: &Python
     - poetry
     - python
@@ -525,6 +559,7 @@ softwareGroups:
     - envchain
     - envconsul
     - pony
+    - protonvpn-cli
     - skate
     - ssh-vault
     - stubby
@@ -546,7 +581,8 @@ softwareGroups:
     - netdata
     - samba
     - sftpgo
-    - vector
+    # Headless install needs work since it is run via script
+    # - vector
     - wazuh
   Shell-Scripting: &Shell-Scripting
     - shc
@@ -602,7 +638,8 @@ softwareGroups:
   Virtualization: &Virtualization
     - kvm
     - lxdc
-    - multipass
+    # Opens persistent menu icon on GNOME and has issues that sometimes require switching the virt driver
+    # - multipass
     - packer
     - vagrant
   Virtualization-Desktop: &Virtualization-Desktop
@@ -683,6 +720,18 @@ softwareGroups:
     - *Backup
     - *Cloud-Storage
     - bitwarden-cli
+  _Standard-Desktop-Filter:
+    - discord
+    - gitkraken
+    - jitsi-meet
+    - microsoft-teams
+    - microsoft-todo
+    - nuclear
+    - plex-htpc
+    - slack
+    - thunderbird
+    - yubico-authenticator
+    - zoom
   _Standard-Desktop: &_Standard-Desktop
     - *_Basic-Desktop
     - *Backup-Desktop

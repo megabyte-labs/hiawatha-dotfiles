@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 
 # @file local/provision.sh
-# @brief Installs dependencies, clones the Hiawatha Dotfiles repository, and then starts Chezmoi
+# @brief Installs dependencies, clones the Sexy Start repository, and then starts Chezmoi
 # @description
 #   This script ensures Chezmoi, Glow, and Gum are installed. It also includes logging functions for styled logging.
-#   After dependencies are installed, it adds the necessary files from https://gitlab.com/megabyte-labs/hiawatha-dotfiles.git into
+#   After dependencies are installed, it adds the necessary files from https://gitlab.com/megabyte-labs/sexy-start.git into
 #   ~/.local/share/chezmoi. Finally, it begins the TUI experience by displaying styled documentation, prompts, and finishes
 #   by calling the appropriate Chezmoi commands.
+
+### Ensure ~/.local/share/megabyte-labs is a directory
+if [ ! -d "${XDG_DATA_DIR:-$HOME/.local/share}/megabyte-labs" ]; then
+  mkdir -p "${XDG_DATA_DIR:-$HOME/.local/share}/megabyte-labs"
+fi
 
 # @description Installs glow (a markdown renderer) from GitHub releases
 # @example installGlow
@@ -175,7 +180,6 @@ logg() {
   fi
 }
 
-
 ### Qubes dom0
 if command -v qubesctl > /dev/null; then
   # The VM name that will manage the Ansible provisioning (for Qubes dom0)
@@ -261,29 +265,29 @@ if ! command -v brew > /dev/null && [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; 
 fi
 
 
-if ! command -v curl > /dev/null || ! command -v git > /dev/null || ! command -v brew > /dev/null || ! command -v rsync > /dev/null; then
+if ! command -v curl > /dev/null || ! command -v git > /dev/null || ! command -v brew > /dev/null || ! command -v rsync > /dev/null || ! command -v unbuffer > /dev/null; then
   # shellcheck disable=SC2016
-  logg info 'Ensuring `curl` and `git` are installed via the system package manager'
+  logg info 'Ensuring `curl`, `expect`, `git`, and `rsync` are installed via the system package manager'
   if command -v apt-get > /dev/null; then
     # Debian / Ubuntu
     sudo apt-get update
-    sudo apt-get install -y build-essential curl git rsync
+    sudo apt-get install -y build-essential curl expect git rsync
   elif command -v dnf > /dev/null; then
     # Fedora
-    sudo dnf install -y curl git rsync
+    sudo dnf install -y curl expect git rsync
   elif command -v yum > /dev/null; then
     # CentOS
-    sudo yum install -y curl git rsync
+    sudo yum install -y curl expect git rsync
   elif command -v pacman > /dev/null; then
     # Archlinux
     sudo pacman update
-    sudo pacman -Sy curl git rsync
+    sudo pacman -Sy curl expect git rsync
   elif command -v zypper > /dev/null; then
     # OpenSUSE
-    sudo zypper install -y curl git nodejs rsync
+    sudo zypper install -y curl expect git rsync
   elif command -v apk > /dev/null; then
     # Alpine
-    apk add curl git rsync
+    apk add curl expect git rsync
   elif [ -d /Applications ] && [ -d /Library ]; then
     # macOS
     sudo xcode-select -p >/dev/null 2>&1 || xcode-select --install
@@ -301,7 +305,7 @@ if ! command -v curl > /dev/null || ! command -v git > /dev/null || ! command -v
     echo "TODO - Add support for Void"
   elif [[ "$OSTYPE" == 'cygwin' ]] || [[ "$OSTYPE" == 'msys' ]] || [[ "$OSTYPE" == 'win32' ]]; then
     # Windows
-    choco install -y curl git node rsync
+    choco install -y curl expect git node rsync
   fi
 fi
 
@@ -354,38 +358,51 @@ if command -v brew > /dev/null; then
   installBrewPackage zx
 fi
 
+### Clones the source repository
+cloneStart() {
+  logg info "Cloning ${START_REPO:-https://gitlab.com/megabyte-labs/sexy-start.git} to /usr/local/src/sexy-start"
+  rm -rf /usr/local/src/sexy-start
+  sudo git clone ${START_REPO:-https://gitlab.com/megabyte-labs/sexy-start.git} /usr/local/src/sexy-start
+  chown -Rf "$USER":"$(id -g -n)" /usr/local/src/sexy-start
+}
+
 ### Ensure source files are present
-logg 'Ensuring /usr/local/src/hiawatha is owned by the user'
-if [ -d /usr/local/src/hiawatha ] && [ ! -w /usr/local/src/hiawatha ]; then
-  sudo chown -Rf "$USER":"$(id -g -n)" /usr/local/src/hiawatha
+logg 'Ensuring /usr/local/src/sexy-start is owned by the user'
+if [ -d /usr/local/src/sexy-start ] && [ ! -w /usr/local/src/sexy-start ]; then
+  sudo chown -Rf "$USER":"$(id -g -n)" /usr/local/src/sexy-start
 fi
-if [ -d /usr/local/src/hiawatha/.git ]; then
-  logg info 'Pulling the latest changes from https://gitlab.com/megabyte-labs/hiawatha-dotfiles.git to /usr/local/src/hiawatha'
-  cd /usr/local/src/hiawatha || exit 1
-  git config pull.rebase false
-  git reset --hard HEAD
-  git clean -fxd
-  git pull origin master
+if [ -d /usr/local/src/sexy-start/.git ]; then
+  cd /usr/local/src/sexy-start || exit 1
+  if [ "$(git remote get-url origin)" == 'https://gitlab.com/megabyte-labs/sexy-start.git' ]; then
+    logg info "Pulling the latest changes from ${START_REPO:-https://gitlab.com/megabyte-labs/sexy-start.git} to /usr/local/src/sexy-start"
+    git config pull.rebase false
+    git reset --hard HEAD
+    git clean -fxd
+    git pull origin master
+  else
+    logg info "The repository's origin URL has changed so /usr/local/src/sexy-start will be removed and re-cloned using the origin specified by the START_REPO variable"
+    cloneStart
+  fi
 else
-  logg info 'Cloning https://gitlab.com/megabyte-labs/hiawatha-dotfiles.git to /usr/local/src/hiawatha'
-  rm -rf /usr/local/src/hiawatha
-  sudo git clone https://gitlab.com/megabyte-labs/hiawatha-dotfiles.git /usr/local/src/hiawatha
-  chown -Rf "$USER":"$(id -g -n)" /usr/local/src/hiawatha
+  cloneStart
 fi
+
+### Copy new files from src git repository to dotfiles with rsync
+rsyncChezmoiFiles() {
+  rsync -rtvu --delete /usr/local/src/sexy-start/docs/ "${XDG_DATA_DIR:-$HOME/.local/share}/chezmoi/docs/" &
+  rsync -rtvu --delete /usr/local/src/sexy-start/home/ "${XDG_DATA_DIR:-$HOME/.local/share}/chezmoi/home/" &
+  rsync -rtvu --delete /usr/local/src/sexy-start/system/ "${XDG_DATA_DIR:-$HOME/.local/share}/chezmoi/system/" &
+  rsync -rtvu /usr/local/src/sexy-start/.chezmoiignore "${XDG_DATA_DIR:-$HOME/.local/share}/chezmoi/.chezmoiignore" &
+  rsync -rtvu /usr/local/src/sexy-start/.chezmoiroot "${XDG_DATA_DIR:-$HOME/.local/share}/chezmoi/.chezmoiroot" &
+  rsync -rtvu /usr/local/src/sexy-start/software.yml "${XDG_DATA_DIR:-$HOME/.local/share}/chezmoi/software.yml" &
+  wait
+  logg success 'Successfully updated the ~/.local/share/chezmoi folder with changes from the upstream repository'
+}
 
 ### Copy files to HOME folder with rsync
-logg info 'Copying files from /usr/local/src/hiawatha to the HOME directory via rsync'
-mkdir -p "$HOME/.local/share/chezmoi"
-rsync -rtvu --delete /usr/local/src/hiawatha/docs/ "$HOME/.local/share/chezmoi/docs/" &
-rsync -rtvu --delete /usr/local/src/hiawatha/home/ "$HOME/.local/share/chezmoi/home/" &
-rsync -rtvu --delete /usr/local/src/hiawatha/system/ "$HOME/.local/share/chezmoi/system/" &
-rsync -rtvu /usr/local/src/hiawatha/.chezmoiignore "$HOME/.local/share/chezmoi/.chezmoiignore" &
-rsync -rtvu /usr/local/src/hiawatha/.chezmoiroot "$HOME/.local/share/chezmoi/.chezmoiroot" &
-rsync -rtvu /usr/local/src/hiawatha/software.yml "$HOME/.local/share/chezmoi/software.yml" &
-logg info 'Waiting for rsync jobs to finish'
-wait
-logg success 'Successfully updated the ~/.local/share/chezmoi folder with changes from the upstream repository'
-
+logg info 'Copying files from /usr/local/src/sexy-start to the HOME directory via rsync'
+mkdir -p "${XDG_DATA_DIR:-$HOME/.local/share}/chezmoi"
+rsyncChezmoiFiles
 ### Ensure ~/.local/bin files are executable
 logg info 'Ensuring scripts in ~/.local/bin are executable'
 find "$HOME/.local/bin" -maxdepth 1 -mindepth 1 -type f | while read -r BINFILE; do
@@ -418,8 +435,21 @@ export DEBIAN_FRONTEND=noninteractive
 ### Run chezmoi apply
 # shellcheck disable=SC2016
 logg info 'Running `chezmoi apply`'
-if [ -n "$FORCE_CHEZMOI" ]; then
-  chezmoi apply -k --force
+if [ "$DEBUG_MODE" == 'true' ]; then
+  DEBUG_MODIFIER="-vvvvv"
 else
-  chezmoi apply -k
+  DEBUG_MODIFIER=""
+fi
+if [ -n "$FORCE_CHEZMOI" ]; then
+  if command -v unbuffer > /dev/null; then
+    unbuffer -p chezmoi apply $DEBUG_MODIFIER -k --force 2>&1 | tee "${XDG_DATA_DIR:-$HOME/.local/share}/megabyte-labs/betelgeuse.$(date +%s).log"
+  else
+    chezmoi apply $DEBUG_MODIFIER -k --force 2>&1 | tee "${XDG_DATA_DIR:-$HOME/.local/share}/megabyte-labs/betelgeuse.$(date +%s).log"
+  fi
+else
+  if command -v unbuffer > /dev/null; then
+    unbuffer -p chezmoi apply $DEBUG_MODIFIER -k 2>&1 | tee "${XDG_DATA_DIR:-$HOME/.local/share}/megabyte-labs/betelgeuse.$(date +%s).log"
+  else
+    chezmoi apply $DEBUG_MODIFIER -k 2>&1 | tee "${XDG_DATA_DIR:-$HOME/.local/share}/megabyte-labs/betelgeuse.$(date +%s).log"
+  fi
 fi

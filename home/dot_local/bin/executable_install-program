@@ -86,10 +86,18 @@ function fileExists(pathToFile) {
 
 let installData
 let installOrders = {}
+let installMeta = {}
+let binLinkRan = false
 const installOrdersPre = []
 const installOrdersPost = []
-const installOrdersSystemd = []
+const installOrdersService = []
+const installOrdersPlugins = []
+const installOrdersBinLink = []
 let brewUpdated, osType, osID, snapRefreshed
+
+// Register the OS platform type
+const osPlatformData = os.platform()
+const osPlatform = osPlatformData === 'win32' ? 'windows' : osPlatformData
 
 // Download the installation map
 async function downloadInstallData() {
@@ -228,6 +236,10 @@ async function generateInstallOrders(pkgsToInstall) {
             }
             log('info', 'Filter', `${bin} already in PATH (via _bin:${pref})`)
             continue pkgFor
+          } else {
+            if (preference === 'cask' || preference === 'flatpak') {
+              installOrdersBinLink.push({ package: packageKey, bin: doubleScoped, preference })
+            }
           }
         } else if (scopedPkgManager) {
           const bin =
@@ -238,6 +250,10 @@ async function generateInstallOrders(pkgsToInstall) {
             const pref = preference
             log('info', 'Filter', `${bin} already in PATH (via _bin:${pref})`)
             continue pkgFor
+          } else {
+            if (preference === 'cask' || preference === 'flatpak') {
+              installOrdersBinLink.push({ package: packageKey, bin: scopedPkgManager, preference })
+            }
           }
         } else if (scopedSystem) {
           const bin =
@@ -253,6 +269,10 @@ async function generateInstallOrders(pkgsToInstall) {
             }
             log('info', 'Filter', `${bin} already in PATH (via _bin:${pref})`)
             continue pkgFor
+          } else {
+            if (preference === 'cask' || preference === 'flatpak') {
+              installOrdersBinLink.push({ package: packageKey, bin: scopedSystem, preference })
+            }
           }
         } else if (normalCheck) {
           const bin =
@@ -262,6 +282,10 @@ async function generateInstallOrders(pkgsToInstall) {
           if (bin) {
             log('info', 'Filter', `${bin} already in PATH (via _bin)`)
             continue pkgFor
+          } else {
+            if (preference === 'cask' || preference === 'flatpak') {
+              installOrdersBinLink.push({ package: packageKey, bin: normalCheck, preference })
+            }
           }
         }
 
@@ -367,21 +391,48 @@ async function updateInstallMaps(preference, packages, scopedPreference, pkg, pa
   if (postHook) {
     installOrdersPost.concat(typeof postHook === 'string' ? [postHook] : postHook)
   }
-  const systemdHook = getHook(packages, 'systemd', scopedPreference, preference)
-  if (systemdHook) {
-    installOrdersSystemd.concat(typeof systemdHook === 'string' ? [systemdHook] : systemdHook)
+  const serviceHook = getHook(packages, 'service', scopedPreference, preference)
+  if (serviceHook) {
+    installOrdersService.concat(typeof serviceHook === 'string' ? [serviceHook] : serviceHook)
+  }
+  const pluginMap = installData && installData.softwarePlugins && installData.softwarePlugins[pkg]
+  if (pluginMap) {
+    if (pluginMap.cmd && pluginMap.plugins) {
+      installOrdersPlugins.push({ package: pkg, cmd: pluginMap.cmd, plugins: pluginMap.plugins })
+    }
   }
   if (!installOrders[preference]) {
     installOrders[preference] = []
   }
   log('info', 'Match', `Found a match for the package \`${pkg}\` (${packageKey} via ${scopedPreference})`)
   const newPackages = packages[scopedPreference]
-  const newPkgs = typeof newPackages === 'string' ? [newPackages] : newPackages
-  if (preference === 'snap' && softwarePackages[pkg]['_snapClassic'] === true) {
-    if (!installOrders[preference + '-classic']) {
-      installOrders[preference + '-classic'] = []
+  const newPkgs = typeof newPackages === 'string' ? [ newPackages ] : newPackages
+  if (typeof newPackages === 'string') {
+    installMeta[newPackages] = {
+      preference,
+      packages,
+      scopedPreference,
+      pkg,
+      packageKey,
+      softwarePackages
     }
-    installOrders[preference + '-classic'] = installOrders[preference].concat(newPkgs)
+  } else {
+    for (const dataKey in newPackages) {
+      installMeta[newPackages] = {
+        preference,
+        packages,
+        scopedPreference,
+        pkg,
+        packageKey,
+        softwarePackages
+      }
+    }
+  }
+  if (preference === 'snap' && softwarePackages[pkg]['_snapClassic'] === true) {
+    if (!installOrders['snap-classic']) {
+      installOrders['snap-classic'] = []
+    }
+    installOrders['snap-classic'] = installOrders['snap-classic'].concat(newPkgs)
   } else {
     installOrders[preference] = installOrders[preference].concat(newPkgs)
   }
@@ -528,10 +579,16 @@ async function ensurePackage(dep) {
         }
         try {
           log('info', 'apt-get Installation', `Checking if ${dep} is already installed`)
-          runCommand(`Checking if ${dep} is already installed via apt-get`, `dpkg -l ${dep} | grep -E '^ii' > /dev/null`)
+          runCommand(
+            `Checking if ${dep} is already installed via apt-get`,
+            `dpkg -l ${dep} | grep -E '^ii' > /dev/null`
+          )
           log('info', 'Filter', `${pkg} already installed via apt-get`)
         } catch (e) {
-          runCommand(`Installing ${dep} via apt-get`, `sudo apt-get -o DPkg::Options::=--force-confdef install -y ${dep}`)
+          runCommand(
+            `Installing ${dep} via apt-get`,
+            `sudo apt-get -o DPkg::Options::=--force-confdef install -y ${dep}`
+          )
           log('success', 'Install', `Successfully installed ${pkg} via apt-get`)
         }
       } else if (dnf) {
@@ -610,6 +667,9 @@ async function beforeInstall(packageManager) {
   updateDone[packageManager] = true
   const logStage = 'Pre-Install Package Manager'
   if (packageManager === 'appimage') {
+    if (!fileExists(`${process.env.HOME}/Applications`)) {
+      runSilentCommand(`mkdir -p "${process.env.HOME}/Applications"`)
+    }
   } else if (packageManager === 'ansible') {
     log('info', logStage, `Temporarily enabling passwordless sudo for Ansible role installations`)
     await $`echo "$(whoami) ALL=(ALL:ALL) NOPASSWD: ALL # TEMPORARY FOR ANSIBLE INSTALL" | sudo tee -a /etc/sudoers`
@@ -619,7 +679,11 @@ async function beforeInstall(packageManager) {
     if (unbuffer) {
       unbufferPrefix = 'unbuffer'
     }
-    await $`${unbufferPrefix} ansible 127.0.0.1 -vv -e '{ ansible_connection: "local", ansible_become_user: "${process.env.USER}", ansible_user: "${process.env.USER}", install_homebrew: False }' -m setup`
+    if (osPlatform === 'darwin' || osPlatform === 'linux' || osPlatform === 'windows') {
+      await $`ANSIBLE_CONFIG=${process.env.HOME}/.local/share/ansible/ansible.cfg ${unbufferPrefix} ansible 127.0.0.1 -e '{ ansible_connection: "local", ansible_become_user: "${process.env.USER}", ansible_user: "${process.env.USER}", ansible_family: "${osPlatform}", install_homebrew: False }' -m setup`
+    } else {
+      log('warn', 'Ansible', 'Unsupported platform - ' + osPlatform)
+    }
   } else if (packageManager === 'apk') {
     await $`sudo apk update`
   } else if (packageManager === 'apt') {
@@ -879,7 +943,10 @@ async function ensurePackageManager(packageManager) {
       } else if (apt) {
         runCommand('Installing flatpak via apt-get', 'sudo apt-get install -y flatpak')
         if (fileExists('/usr/bin/gnome-shell')) {
-          runCommand('Installing gnome-software-plugin-flatpak via apt-get', 'sudo apt-get install -y gnome-software-plugin-flatpak')
+          runCommand(
+            'Installing gnome-software-plugin-flatpak via apt-get',
+            'sudo apt-get install -y gnome-software-plugin-flatpak'
+          )
         }
         if (fileExists('/usr/bin/plasmashell')) {
           runCommand('Installing plasmashell via apt-get', 'sudo apt-get install -y plasmashell')
@@ -1052,22 +1119,23 @@ async function installPackageList(packageManager, packages) {
     if (packageManager === 'appimage') {
       for (let pkg of packages) {
         try {
-          if (pkg.substring(0, 4) === 'http' && pkg.slice(-8) === 'AppImage') {
+          if (pkg.substring(0, 4) === 'http') {
             log('info', 'AppImage Install', `Installing ${pkg} from its URL`)
-            runCommand('Installing ${pkg} via apk', `sudo zap install --from ${pkg}`)
-          } else if (pkg.includes('/')) {
+            runCommand('Installing ${pkg} via zap', `sudo zap install --select-first -q --from ${pkg}`)
+          } else if ((pkg.match(/\//g) || []).length === 1) {
             log('info', 'AppImage Install', `Installing ${pkg} from a GitHub Release`)
-            runCommand('Installing ${pkg} via apk', `sudo zap install --github --from ${pkg}`)
+            runCommand('Installing ${pkg} via zap', `sudo zap install --select-first -q --github --from ${pkg}`)
           } else {
             log('info', 'AppImage Install', `Installing ${pkg} using the AppImage Catalog`)
-            runCommand('Installing ${pkg} via apk', `sudo zap install ${pkg}`)
+            runCommand('Installing ${pkg} via zap', `sudo zap install --select-first -q ${pkg}`)
           }
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error using Zap to install ${pkg}`)
+          log('error', 'Install', `There was an error using Zap to install ${pkg}`)
           console.error(e)
         }
       }
+      log('warn', 'Install', 'Zap installs might fail - this is expected. Waiting on fixes to Zap upstream project')
     } else if (packageManager === 'ansible') {
       for (let pkg of packages) {
         try {
@@ -1076,11 +1144,15 @@ async function installPackageList(packageManager, packages) {
           if (unbuffer) {
             unbufferPrefix = 'unbuffer'
           }
-          const verboseMode = process.env.DEBUG_MODE === 'on' ? 'vv' : ''
-          await $`ansible 127.0.0.1 -v${verboseMode} -e '{ ansible_connection: "local", ansible_become_user: "root", ansible_user: "${process.env.USER}", install_homebrew: False }' -m include_role -a name=${pkg}`
-          log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
+          const verboseMode = process.env.DEBUG_MODE === 'true' ? 'vv' : ''
+          if (osPlatform === 'darwin' || osPlatform === 'linux' || osPlatform === 'windows') {
+            await $`ANSIBLE_CONFIG=${process.env.HOME}/.local/share/ansible/ansible.cfg ansible 127.0.0.1 -v${verboseMode} -e '{ ansible_connection: "local", ansible_become_user: "root", ansible_user: "${process.env.USER}", ansible_family: "${osPlatform}", install_homebrew: False }' -m include_role -a name=${pkg}`
+            log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
+          } else {
+            log('warn', 'Ansible', 'Unsupported platform - ' + osPlatform)
+          }
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with Ansible`)
+          log('error', 'Install', `There was an error installing ${pkg} with Ansible`)
         }
       }
     } else if (packageManager === 'apk') {
@@ -1089,17 +1161,20 @@ async function installPackageList(packageManager, packages) {
           runCommand('Installing ${pkg} via apk', `sudo apk add ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with apk`)
-          console.log(e)
+          log('error', 'Install', `There was an error installing ${pkg} with apk`)
+          console.error(e)
         }
       }
     } else if (packageManager === 'apt') {
       for (let pkg of packages) {
         try {
-          runCommand(`Installing ${pkg} via ${packageManager}`, `sudo apt-get -o DPkg::Options::=--force-confdef install -y ${pkg}`)
+          runCommand(
+            `Installing ${pkg} via ${packageManager}`,
+            `sudo apt-get -o DPkg::Options::=--force-confdef install -y ${pkg}`
+          )
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with apt-get`)
+          log('error', 'Install', `There was an error installing ${pkg} with apt-get`)
           console.error(e)
         }
       }
@@ -1108,16 +1183,20 @@ async function installPackageList(packageManager, packages) {
         try {
           await $`basher install ${pkg}`
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with basher`)
+          log('error', 'Install', `There was an error installing ${pkg} with basher`)
           console.error(e)
         }
       }
     } else if (packageManager === 'binary') {
       for (let pkg of packages) {
         try {
-          await $`TMP="$(mktemp)" && curl -sSL ${pkg} > "$TMP" && sudo mv "$TMP" /usr/local/src/${binName} && chmod +x /usr/local/src/${binName}`
+          const bins = installData.softwarePackages.filter((x) => x.appimage === pkg)
+          if (bins && bins[0]) {
+            const binName = bins[0]['_bin']
+            await $`TMP="$(mktemp)" && curl -sSL ${pkg} > "$TMP" && sudo mv "$TMP" /usr/local/src/${binName} && chmod +x /usr/local/src/${binName}`
+          }
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing the binary release for ${pkg}`)
+          log('error', 'Install', `There was an error installing the binary release for ${pkg}`)
           console.error(e)
         }
       }
@@ -1127,7 +1206,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `brew install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with brew`)
+          log('error', 'Install', `There was an error installing ${pkg} with brew`)
           console.error(e)
         }
       }
@@ -1137,7 +1216,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `brew install --cask ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with Homebrew Cask`)
+          log('error', 'Install', `There was an error installing ${pkg} with Homebrew Cask`)
           console.error(e)
         }
       }
@@ -1147,7 +1226,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `cargo install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with Cargo`)
+          log('error', 'Install', `There was an error installing ${pkg} with Cargo`)
           console.error(e)
         }
       }
@@ -1157,7 +1236,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `choco install -y ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with Chocolatey`)
+          log('error', 'Install', `There was an error installing ${pkg} with Chocolatey`)
           console.error(e)
         }
       }
@@ -1171,7 +1250,7 @@ async function installPackageList(packageManager, packages) {
             runCommand(`Installing ${pkg} via ${packageManager}`, `sudo dnf install -y ${pkg}`)
             log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
           } catch (e) {
-            log('error', 'Install Failure', `There was an error installing ${pkg} with dnf`)
+            log('error', 'Install', `There was an error installing ${pkg} with dnf`)
             console.error(e)
           }
         } else if (yum) {
@@ -1179,7 +1258,7 @@ async function installPackageList(packageManager, packages) {
             runCommand(`Installing ${pkg} via ${packageManager}`, `sudo yum install -y ${pkg}`)
             log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
           } catch (e) {
-            log('error', 'Install Failure', `There was an error installing ${pkg} with yum`)
+            log('error', 'Install', `There was an error installing ${pkg} with yum`)
             console.error(e)
           }
         }
@@ -1190,7 +1269,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `sudo flatpak install -y flathub ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with flatpak`)
+          log('error', 'Install', `There was an error installing ${pkg} with flatpak`)
           console.error(e)
         }
       }
@@ -1199,9 +1278,8 @@ async function installPackageList(packageManager, packages) {
         try {
           runCommand(`Installing ${pkg} via ${packageManager}`, `gem install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
-          await $`gem install ${pkg}`
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with gem`)
+          log('error', 'Install', `There was an error installing ${pkg} with gem`)
           console.error(e)
         }
       }
@@ -1211,7 +1289,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `go install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with go`)
+          log('error', 'Install', `There was an error installing ${pkg} with go`)
           console.error(e)
         }
       }
@@ -1222,7 +1300,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `volta install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with volta`)
+          log('error', 'Install', `There was an error installing ${pkg} with volta`)
           console.error(e)
         }
       }
@@ -1232,7 +1310,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `sudo pacman -Sy --noconfirm --needed ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with pacman`)
+          log('error', 'Install', `There was an error installing ${pkg} with pacman`)
           console.error(e)
         }
       }
@@ -1242,7 +1320,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `pipx install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with pipx`)
+          log('error', 'Install', `There was an error installing ${pkg} with pipx`)
           console.error(e)
         }
       }
@@ -1255,7 +1333,7 @@ async function installPackageList(packageManager, packages) {
             runCommand(`Installing ${pkg} via ${packageManager}`, `sudo port install ${pkg}`)
             log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
           } catch (e) {
-            log('error', 'Install Failure', `There was an error installing ${pkg} with port`)
+            log('error', 'Install', `There was an error installing ${pkg} with port`)
             console.error(e)
           }
         }
@@ -1272,7 +1350,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `scoop install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with scoop`)
+          log('error', 'Install', `There was an error installing ${pkg} with scoop`)
           console.error(e)
         }
       }
@@ -1282,16 +1360,16 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `sudo snap install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with snap`)
+          log('error', 'Install', `There was an error installing ${pkg} with snap`)
           console.error(e)
         }
       }
     } else if (packageManager === 'script') {
       for (let pkg of packages) {
         try {
-          await $`${pkg}`
+          await $`bash -c ${pkg}`
         } catch (e) {
-          log('error', 'Install Failure', `There was an error running the script installation method for ${pkg}`)
+          log('error', 'Install', `There was an error running the script installation method for ${pkg}`)
           console.error(e)
         }
       }
@@ -1301,7 +1379,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `sudo snap install --classic ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with snap in classic mode`)
+          log('error', 'Install', `There was an error installing ${pkg} with snap in classic mode`)
           console.error(e)
         }
       }
@@ -1311,7 +1389,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `whalebrew install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with whalebrew`)
+          log('error', 'Install', `There was an error installing ${pkg} with whalebrew`)
           console.error(e)
         }
       }
@@ -1321,7 +1399,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `winget install ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with winget`)
+          log('error', 'Install', `There was an error installing ${pkg} with winget`)
           console.error(e)
         }
       }
@@ -1331,7 +1409,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `yay -Sy --noconfirm --needed ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with yay`)
+          log('error', 'Install', `There was an error installing ${pkg} with yay`)
           console.error(e)
         }
       }
@@ -1341,7 +1419,7 @@ async function installPackageList(packageManager, packages) {
           runCommand(`Installing ${pkg} via ${packageManager}`, `sudo zypper install -y ${pkg}`)
           log('success', 'Install', `${pkg} successfully installed via ${packageManager}`)
         } catch (e) {
-          log('error', 'Install Failure', `There was an error installing ${pkg} with zypper`)
+          log('error', 'Install', `There was an error installing ${pkg} with zypper`)
           console.error(e)
         }
       }
@@ -1352,14 +1430,14 @@ async function installPackageList(packageManager, packages) {
   }
 }
 
-async function updateSystemd(service) {
-  const logStage = 'Systemd Service'
+async function updateService(service) {
+  const logStage = 'Service Service'
   if (osType === 'linux') {
-    const systemd = which.sync('systemctl', { nothrow: true })
-    if (systemd) {
+    const systemctl = which.sync('systemctl', { nothrow: true })
+    if (systemctl) {
       try {
-        log('info', logStage, `Starting / enabling the ${service} service`)
-        await $`sudo systemctl enable --now ${service}`
+        runCommand(`Starting / enabling ${service} with systemctl`, `sudo systemctl enable --now ${service}`)
+        log('success', logStage, `Started / enabled the ${service} service`)
       } catch (e) {
         log('error', logStage, `There was an error starting / enabling the ${service} service`)
         console.error(e)
@@ -1375,8 +1453,8 @@ async function updateSystemd(service) {
     const brew = which.sync('brew', { nothrow: true })
     if (brew) {
       try {
-        log('info', logStage, `Starting / enabling the ${service} service with Homebrew`)
-        await $`brew services start ${service}`
+        runCommand(`Starting / enabling ${service} with Homebrew`, `brew services start ${service}`)
+        log('success', logStage, `Started / enabled the ${service} service with Homebrew`)
       } catch (e) {
         log('error', logStage, `There was an error starting / enabling the ${service} Homebrew service`)
         console.error(e)
@@ -1388,12 +1466,12 @@ async function updateSystemd(service) {
 }
 
 /**
-* Filter that resolves when all asynchronous filter actions are done
-*/
+ * Filter that resolves when all asynchronous filter actions are done
+ */
 const asyncFilter = async (arr, predicate) => {
-	const results = await Promise.all(arr.map(predicate));
+  const results = await Promise.all(arr.map(predicate))
 
-	return arr.filter((_v, index) => results[index]);
+  return arr.filter((_v, index) => results[index])
 }
 
 async function pruneInstallOrders(installOrders) {
@@ -1402,7 +1480,16 @@ async function pruneInstallOrders(installOrders) {
   for (const pkgManager in installOrders) {
     log('info', 'Filter', `Filtering the ${pkgManager} installOrders`)
     console.log(newOrders[pkgManager])
-    if (pkgManager === 'apt') {
+    if (pkgManager === 'appimage') {
+      newOrders[pkgManager] = await asyncFilter(newOrders[pkgManager], async (pkg) => {
+        try {
+          await runSilentCommand(`zap list | grep "${pkg}" > /dev/null`)
+          return false
+        } catch (e) {
+          return true
+        }
+      })
+    } else if (pkgManager === 'apt') {
       newOrders[pkgManager] = await asyncFilter(newOrders[pkgManager], async (pkg) => {
         try {
           await runSilentCommand(`dpkg -l ${pkg} | grep -E '^ii' > /dev/null`)
@@ -1416,7 +1503,7 @@ async function pruneInstallOrders(installOrders) {
       for (const pkg of newOrders[pkgManager]) {
         try {
           runCommand(`Ensuring Homebrew package is not already installed - ${pkg}`, `brew list ${pkg}`)
-          newVal = newVal.filter(x => x === pkg)
+          newVal = newVal.filter((x) => x === pkg)
         } catch (e) {
           // Do nothing
         }
@@ -1437,10 +1524,11 @@ async function pruneInstallOrders(installOrders) {
         }
       })
     } else if (pkgManager === 'flatpak') {
-      const flatpakInstallation = await $`flatpak --installation`
+      const flatpakInstallation = await $`flatpak --installations`
+      const flatpakDir = flatpakInstallation.stdout.replace('\n', '')
       newOrders[pkgManager] = await asyncFilter(newOrders[pkgManager], async (pkg) => {
         try {
-          await runSilentCommand(`test -d ${flatpakInstallation}/app/${pkg}`)
+          await runSilentCommand(`test -d ${flatpakDir}/app/${pkg}`)
           return false
         } catch (e) {
           return true
@@ -1479,6 +1567,68 @@ async function pruneInstallOrders(installOrders) {
   return newOrders
 }
 
+async function installPlugins(pluginData) {
+  if (pluginData.cmd && pluginData.plugins && pluginData.plugins.length) {
+    for (const plugin of pluginData.plugins) {
+      try {
+        const pluginCmd = pluginData.cmd.replace(/{PLUGIN}/g, plugin)
+        runCommand(`Installing ${pluginData.package} plugin - ${plugin}`, pluginCmd)
+        log('success', 'Plugin', `Successfully installed ${pluginData.package} plugin - ${plugin}`)
+      } catch (e) {
+        log('error', 'Plugin', `Failed to install ${pluginData.package} plugin - ${plugin}`)
+        console.error(e)
+      }
+    }
+  }
+}
+
+async function linkBin(installOrdersBinLink) {
+  let flatpakInstallation, flatpakDir
+  const softwarePackages = installData.softwarePackages
+  const flatpak = which.sync('flatpak', { nothrow: true })
+  if (flatpak) {
+    flatpakInstallation = await $`flatpak --installations`
+    flatpakDir = flatpakInstallation.stdout.replace('\n', '')
+  }
+  for (const binLink of installOrdersBinLink) {
+    const pkg = softwarePackages[binLink.package][binLink.preference]
+    if (typeof pkg === 'string') {
+      if (!which.sync(binLink.bin, { nothrow: true })) {
+        if (binLink.preference === 'flatpak' && flatpak) {
+          try {
+            runCommand(
+              `Adding bin link for ${pkg} (${binLink.bin})`,
+              `bash -c 'test -d ${flatpakDir}/app/${pkg} && mkdir -p "${process.env.HOME}/.local/bin/flatpak" && echo "flatpak run ${pkg} \"$*\"" > "${process.env.HOME}/.local/bin/flatpak/${binLink.bin}" && chmod +x  "${process.env.HOME}/.local/bin/flatpak/${binLink.bin}"'`
+            )
+            log('success', 'Bin', `Linked ~/.local/bin/flatpak/${binLink.bin} to the ${pkg} Flatpak`)
+          } catch (e) {
+            log('warn', 'Bin', `Expected flatpak directory not available - ${flatpakDir}/app/${pkg}`)
+          }
+        } else if (binLink.preference === 'cask') {
+          try {
+            const caskWhen = softwarePackages[binLink.package]['_when:cask']
+            const caskDir = caskWhen.replace('! test -d ', '').replace(/"/g, '')
+            if (fileExists(caskDir)) {
+              runCommand(
+                `Adding shortcut bin link for ${binLink.package}`,
+                `bash -c 'mkdir -p "${process.env.HOME}/.local/bin/cask" && echo "open ${caskDir}" > "${process.env.HOME}/.local/bin/cask/${binLink.bin}" && chmod +x "${process.env.HOME}/.local/bin/cask/${binLink.bin}"'`
+              )
+            } else {
+              log('warn', 'Bin', `Expected Homebrew cask directory not found - ${pkg}`)
+            }
+          } catch (e) {
+            log('warn', 'Bin', `Error creating bin shortcut link for ${pkg}`)
+          }
+        }
+      } else {
+        log('info', 'Bin', `Link already exists for ${binLink.package}`)
+      }
+    } else {
+      log('info', 'Bin', `Skipping ${binLink.package} because there was more than one _bin value`)
+    }
+  }
+}
+
 // main process
 async function installSoftware(pkgsToInstall) {
   osType = await OSType()
@@ -1490,11 +1640,7 @@ async function installSoftware(pkgsToInstall) {
   installData = await downloadInstallData()
   log('info', 'Filter', `Calculating the install orders`)
   await generateInstallOrders(pkgsToInstall ? pkgsToInstall : process.argv.slice(3))
-  log(
-    'info',
-    'Pre-Reqs',
-    `Ensuring any package managers that will be used are installed / configured`
-  )
+  log('info', 'Pre-Reqs', `Ensuring any package managers that will be used are installed / configured`)
   const packageManagers = Object.keys(installOrders)
   for (const packageManager of packageManagers) {
     await ensurePackageManager(packageManager)
@@ -1525,11 +1671,20 @@ async function installSoftware(pkgsToInstall) {
     await Promise.all(asyncOrders)
   }
   log('info', 'Post-Install', `Running package-specific post-installation steps`)
-  for (const service of installOrdersSystemd) {
-    await updateSystemd(service)
+  for (const service of installOrdersService) {
+    await updateService(service)
   }
-  for (const script of installOrdersPost) {
-    await $`${script}`
+  if (!binLinkRan) {
+    binLinkRan = true
+    log('info', 'Bin', 'Linking bin aliases to their installed packages')
+    await linkBin(installOrdersBinLink)
+    for (const script of installOrdersPost) {
+      await $`${script}`
+    }
+  }
+  log('info', 'Plugin', 'Installing package-specific plugins')
+  for (const plugin of installOrdersPlugins) {
+    await installPlugins(plugin)
   }
   log('info', 'Post-Install', `Running package manager post-installation steps`)
   for (const packageManager of packageManagers) {
