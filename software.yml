@@ -203,7 +203,7 @@ softwarePackages:
     flatpak: com.rafaelmardojai.WebfontKitGenerator
   act:
     _bin: act
-    _desc: [Act](https://github.com/nektos/act) Run GitHub actions locally
+    _desc: '[Act](https://github.com/nektos/act) Run GitHub actions locally'
     _docs: https://github.com/nektos/act#example-commands
     _github: https://github.com/nektos/act
     _home: https://github.com/nektos/act
@@ -219,7 +219,7 @@ softwarePackages:
     yay: act
   allure:
     _bin: allure
-    _desc: [Allure Report](https://docs.qameta.io/allure-testops/) is a flexible, lightweight multi-language test reporting tool. It provides clear graphical reports and allows everyone involved in the development process to extract the maximum of information from the everyday testing process.
+    _desc: '[Allure Report](https://docs.qameta.io/allure-testops/) is a flexible, lightweight multi-language test reporting tool. It provides clear graphical reports and allows everyone involved in the development process to extract the maximum of information from the everyday testing process.'
     _docs: https://docs.qameta.io/allure-report/
     _github: https://github.com/allure-framework/allure2
     _home: https://docs.qameta.io/allure-testops/
@@ -245,7 +245,7 @@ softwarePackages:
     yay: allure
   altair:
     _bin:snap: altair
-    _desc: [Altair GraphQL Client](https://altairgraphql.dev/) A beautiful feature-rich GraphQL Client for all platforms.
+    _desc: '[Altair GraphQL Client](https://altairgraphql.dev/) A beautiful feature-rich GraphQL Client for all platforms.'
     _docs: https://altairgraphql.dev/docs/
     _github: https://github.com/altair-graphql/altair
     _home: https://altairgraphql.dev/
@@ -277,7 +277,7 @@ softwarePackages:
     yay: android-studio
   angular-cli:
     _bin: ng
-    _desc: [Angular](https://angular.io) The web development framework for building the future
+    _desc: '[Angular](https://angular.io) The web development framework for building the future'
     _docs: https://angular.io/docs
     _github: https://github.com/angular/angular
     _home: https://angular.io
@@ -288,7 +288,7 @@ softwarePackages:
     npm: '@angular/cli'
   ansible:
     _bin: ansible
-    _desc: [Ansible](https://www.ansible.com/) Ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy and maintain
+    _desc: '[Ansible](https://www.ansible.com/) Ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy and maintain'
     _docs: https://docs.ansible.com/
     _github: https://github.com/ansible/ansible
     _home: https://www.ansible.com/
@@ -301,7 +301,7 @@ softwarePackages:
     pipx: ansible
   ansible-lint:
     _bin: ansible-lint
-    _desc: [Ansible Lint](https://github.com/ansible/ansible-lint/) is a command-line tool for linting playbooks, roles and collections aimed toward any Ansible users
+    _desc: '[Ansible Lint](https://github.com/ansible/ansible-lint/) is a command-line tool for linting playbooks, roles and collections aimed toward any Ansible users'
     _docs: https://ansible-lint.readthedocs.io/
     _github: https://github.com/ansible/ansible-lint/
     _home: https://github.com/ansible/ansible-lint/
@@ -314,7 +314,7 @@ softwarePackages:
     _deps:
       - sshpass
       - tmux
-    _desc: [ansibleconnect](https://github.com/psykulsk/ansibleconnect) allows you to connect to all hosts from the inventory with one command
+    _desc: '[ansibleconnect](https://github.com/psykulsk/ansibleconnect) allows you to connect to all hosts from the inventory with one command'
     _docs: https://github.com/psykulsk/ansibleconnect
     _github: https://github.com/psykulsk/ansibleconnect
     _home: https://github.com/psykulsk/ansibleconnect
@@ -350,7 +350,7 @@ softwarePackages:
     choco: appium-desktop
   appnest-readme:
     _bin: readme
-    _desc: [Readme](https://github.com/andreasbm/readme/) Automatically generate a beautiful best-practice README file based on the contents of your repository
+    _desc: '[Readme](https://github.com/andreasbm/readme/) Automatically generate a beautiful best-practice README file based on the contents of your repository'
     _docs: https://github.com/andreasbm/readme/
     _github: https://github.com/andreasbm/readme/
     _home: https://github.com/andreasbm/readme/
@@ -371,7 +371,7 @@ softwarePackages:
     ansible: professormanhattan.aptcacherng
   aqua:
     _bin: aqua
-    _desc: [aqua](https://aquaproj.github.io/) is a Declarative CLI Version manager written in Go. It supports Lazy Install, Registry, and continuous update with Renovate.
+    _desc: '[aqua](https://aquaproj.github.io/) is a Declarative CLI Version manager written in Go. It supports Lazy Install, Registry, and continuous update with Renovate.'
     _docs: https://aquaproj.github.io
     _github: https://github.com/aquaproj/aqua
     _home: https://aquaproj.github.io
@@ -416,7 +416,7 @@ softwarePackages:
     cask: ariang
   asciinema:
     _bin: asciinema
-    _desc: [Asciinema](https://asciinema.org) allows you to record and share your terminal sessions, the simple way
+    _desc: '[Asciinema](https://asciinema.org) allows you to record and share your terminal sessions, the simple way'
     _docs: https://asciinema.org/docs/
     _github: https://github.com/asciinema/asciinema
     _home: https://asciinema.org/
@@ -441,7 +441,7 @@ softwarePackages:
     ansible: professormanhattan.asdf
   assh:
     _bin: assh
-    _desc: [assh](https://manfred.life/assh) makes your ssh client smarter
+    _desc: '[assh](https://manfred.life/assh) makes your ssh client smarter'
     _docs: https://github.com/moul/assh
     _github: https://github.com/moul/assh
     _home: https://manfred.life/assh
@@ -460,7 +460,7 @@ softwarePackages:
       - python
       - ripgrep
       - tree-sitter
-    _desc: [AstroNvim](https://astronvim.github.io/) is an aesthetic and feature-rich neovim config that is extensible and easy to use with a great set of plugins
+    _desc: '[AstroNvim](https://astronvim.github.io/) is an aesthetic and feature-rich neovim config that is extensible and easy to use with a great set of plugins'
     _docs: https://astronvim.github.io/
     _github: https://github.com/AstroNvim/AstroNvim
     _home: https://astronvim.github.io/
@@ -470,7 +470,7 @@ softwarePackages:
     _type: cli
   auto-install:
     _bin: auto-install
-    _desc: [auto-install](https://github.com/siddharthkp/auto-install) installs dependencies as you code
+    _desc: '[auto-install](https://github.com/siddharthkp/auto-install) installs dependencies as you code'
     _docs: https://github.com/siddharthkp/auto-install
     _github: https://github.com/siddharthkp/auto-install
     _home: https://github.com/siddharthkp/auto-install
@@ -495,7 +495,7 @@ softwarePackages:
     yay: autokey-gtk
   automake:
     _bin: automake
-    _desc: [GNU Automake](https://www.gnu.org/software/automake/) is a tool for automatically generating Makefile.in files compliant with the GNU Coding Standards
+    _desc: '[GNU Automake](https://www.gnu.org/software/automake/) is a tool for automatically generating Makefile.in files compliant with the GNU Coding Standards'
     _docs: https://www.gnu.org/software/automake/manual/automake.html
     _github: null
     _home: https://www.gnu.org/software/automake/
@@ -521,7 +521,7 @@ softwarePackages:
     brew: autorestic
   awscli:
     _bin: aws
-    _desc: The [AWS CLI](https://aws.amazon.com/cli/) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts.
+    _desc: 'The [AWS CLI](https://aws.amazon.com/cli/) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts.'
     _docs: https://docs.aws.amazon.com/cli/index.html
     _github: https://github.com/aws/aws-cli
     _home: https://aws.amazon.com/
@@ -547,7 +547,7 @@ softwarePackages:
     pipx: https://releases.ansible.com/ansible-tower/cli/ansible-tower-cli-latest.tar.gz
   azure-cli:
     _bin: az
-    _desc: The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. It is the official CLI, released by Microsoft.
+    _desc: 'The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. It is the official CLI, released by Microsoft.'
     _docs: https://docs.microsoft.com/en-us/cli/azure/
     _github: https://github.com/Azure/azure-cli
     _home: https://azure.microsoft.com/
@@ -561,7 +561,7 @@ softwarePackages:
     yay: azure-cli
   azure-functions:
     _bin: func
-    _desc: [azure-functions-core-tools](https://github.com/Azure/azure-functions-core-tools) A local development experience for creating, developing, testing, running, and debugging Azure Functions
+    _desc: '[azure-functions-core-tools](https://github.com/Azure/azure-functions-core-tools) A local development experience for creating, developing, testing, running, and debugging Azure Functions'
     _docs: null
     _github: https://github.com/Azure/azure-functions-core-tools
     _home: null
@@ -603,7 +603,7 @@ softwarePackages:
     pkg: bandwhich
   bane:
     _bin: bane
-    _desc: [bane](https://github.com/genuinetools/bane) Custom & better AppArmor profile generator for Docker containers
+    _desc: '[bane](https://github.com/genuinetools/bane) Custom & better AppArmor profile generator for Docker containers'
     _docs: null
     _github: https://github.com/genuinetools/bane
     _home: null
@@ -644,7 +644,7 @@ softwarePackages:
     zypper: bat
   beets:
     _bin: beet
-    _desc: The purpose of [Beets](https://beets.io/) is to get your music collection right once and for all. It catalogs your collection, automatically improving its metadata as it goes using the MusicBrainz database. Then it provides a bouquet of tools for manipulating and accessing your music.
+    _desc: 'The purpose of [Beets](https://beets.io/) is to get your music collection right once and for all. It catalogs your collection, automatically improving its metadata as it goes using the MusicBrainz database. Then it provides a bouquet of tools for manipulating and accessing your music.'
     _docs: https://beets.readthedocs.io/en/stable/
     _github: https://github.com/beetbox/beets
     _home: https://beets.io/
@@ -717,7 +717,7 @@ softwarePackages:
     snap: bw
   bivac:
     _bin: null
-    _desc: [Bivac](https://bivac.io/) - Backup Interface for Volumes Attached to Containers - allows to backup Container volumes using Restic
+    _desc: '[Bivac](https://bivac.io/) - Backup Interface for Volumes Attached to Containers - allows to backup Container volumes using Restic'
     _docs: null
     _github: https://github.com/camptocamp/bivac
     _home: https://bivac.io/
@@ -739,7 +739,7 @@ softwarePackages:
   bottom:
     _bin: bottom
     _bin:brew: btm
-    _desc: [bottom](https://clementtsang.github.io/bottom/) is yet another cross-platform graphical process/system monitor. It is a customizable cross-platform graphical process/system monitor for the terminal that supports Linux, macOS, and Windows
+    _desc: '[bottom](https://clementtsang.github.io/bottom/) is yet another cross-platform graphical process/system monitor. It is a customizable cross-platform graphical process/system monitor for the terminal that supports Linux, macOS, and Windows'
     _docs: https://clementtsang.github.io/bottom/nightly/
     _github: https://github.com/ClementTsang/bottom
     _home: https://clementtsang.github.io/
@@ -783,7 +783,7 @@ softwarePackages:
     port: broot
   browser-sync:
     _bin: browser-sync
-    _desc: [Browsersync](https://browsersync.io/) allows you to keep multiple browsers & devices in sync when building websites
+    _desc: '[Browsersync](https://browsersync.io/) allows you to keep multiple browsers & devices in sync when building websites'
     _docs: https://browsersync.io/docs
     _github: https://github.com/BrowserSync/browser-sync
     _home: https://browsersync.io/
@@ -793,7 +793,7 @@ softwarePackages:
     npm: browser-sync
   budibase-cli:
     _bin: budi
-    _desc: [Budibase](https://budibase.com) The Budibase CLI is how you initialise, manage and update your Budibase installation
+    _desc: '[Budibase](https://budibase.com) The Budibase CLI is how you initialise, manage and update your Budibase installation'
     _docs: https://docs.budibase.com/docs/budibase-cli-reference
     _github: https://github.com/Budibase/budibase
     _home: https://budibase.com
@@ -804,7 +804,7 @@ softwarePackages:
     npm: '@budibase/cli'
   bundler:
     _bin: bundler
-    _desc: [Bundler](https://bundler.io/) provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed
+    _desc: '[Bundler](https://bundler.io/) provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed'
     _docs: https://bundler.io/docs.html
     _github: https://github.com/rubygems/rubygems/tree/master/bundler
     _home: https://bundler.io/
@@ -834,7 +834,7 @@ softwarePackages:
     github: github.com/jenssegers/captain
   carbon-now:
     _bin: carbon
-    _desc: [Carbon](https://carbon.now.sh/) lets you create and share beautiful images of your source code
+    _desc: '[Carbon](https://carbon.now.sh/) lets you create and share beautiful images of your source code'
     _docs: null
     _github: https://github.com/carbon-app/carbon
     _home: https://carbon.now.sh/
@@ -884,7 +884,7 @@ softwarePackages:
     snap: certbot
   cfssl:
     _bin: cfssl
-    _desc: [CFSSL](https://cfssl.org/) is CloudFlare's PKI/TLS swiss army knife. It is both a command line tool and an HTTP API server for signing, verifying, and bundling TLS certificates
+    _desc: "[CFSSL](https://cfssl.org/) is CloudFlare's PKI/TLS swiss army knife. It is both a command line tool and an HTTP API server for signing, verifying, and bundling TLS certificates"
     _docs: null
     _github: https://github.com/cloudflare/cfssl
     _home: https://cfssl.org/
@@ -969,7 +969,7 @@ softwarePackages:
     github: github.com/quay/clair
   clamav:
     _bin: clamav
-    _desc: [ClamAV](https://www.clamav.net/) is an open-source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
+    _desc: '[ClamAV](https://www.clamav.net/) is an open-source antivirus engine for detecting trojans, viruses, malware & other malicious threats.'
     _docs: https://docs.clamav.net/
     _github: https://github.com/Cisco-Talos/clamav
     _home: https://www.clamav.net/
@@ -1136,7 +1136,7 @@ softwarePackages:
     npm: '@commitlint/cli'
   common:
     _bin: null
-    _desc: For example, this role sets the timezone, sets the hostname, sets up the swap space, ensures auto-login is either disabled or enabled, and customizes GRUB (on Linux). It also ensures that specified groups are present on the system. On Windows, the role ensures all the available updates are installed, ensures [Scoop](https://scoop.sh/) is installed, and ensures common dependencies like [Bandizip](https://en.bandisoft.com/bandizip/) (a compressed-file manager) are installed.
+    _desc: 'For example, this role sets the timezone, sets the hostname, sets up the swap space, ensures auto-login is either disabled or enabled, and customizes GRUB (on Linux). It also ensures that specified groups are present on the system. On Windows, the role ensures all the available updates are installed, ensures [Scoop](https://scoop.sh/) is installed, and ensures common dependencies like [Bandizip](https://en.bandisoft.com/bandizip/) (a compressed-file manager) are installed.'
     _docs: null
     _github: null
     _home: null
@@ -1183,7 +1183,7 @@ softwarePackages:
     ansible: professormanhattan.connect
   consul-cli:
     _bin: consul
-    _desc: [Consul](https://www.consul.io/) uses service identities and traditional networking practices to help organizations securely connect applications running in any environment
+    _desc: '[Consul](https://www.consul.io/) uses service identities and traditional networking practices to help organizations securely connect applications running in any environment'
     _docs: https://developer.hashicorp.com/consul/docs
     _github: https://www.github.com/hashicorp/consul
     _home: https://www.consul.io/
@@ -1648,7 +1648,7 @@ softwarePackages:
     pkg: dog
   dotenv-linter:
     _bin: dotenv-linter
-    _desc: [Dotenv Linter](https://dotenv-linter.github.io) is a lightning-fast linter for .env files. Written in Rust
+    _desc: '[Dotenv Linter](https://dotenv-linter.github.io) is a lightning-fast linter for .env files. Written in Rust'
     _docs: null
     _github: https://github.com/dotenv-linter/dotenv-linter
     _home: https://dotenv-linter.github.io/
@@ -1661,7 +1661,7 @@ softwarePackages:
     yay: dotenv-linter
   dotnet:
     _bin: dotnet
-    _desc: [.Net](https://dotnet.microsoft.com/) lets you create beautiful apps and scalable cloud services, faster and easier with the free, open-source platform that's loved by developers and trusted by organizations
+    _desc: "[.Net](https://dotnet.microsoft.com/) lets you create beautiful apps and scalable cloud services, faster and easier with the free, open-source platform that's loved by developers and trusted by organizations"
     _docs: https://learn.microsoft.com/en-us/dotnet/
     _github: https://github.com/dotnet
     _home: https://dotnet.microsoft.com/
@@ -1673,7 +1673,7 @@ softwarePackages:
     yay: dotnet-sdk-bin
   dprint:
     _bin: dprint
-    _desc: [dprint](https://dprint.dev/) is a pluggable and configurable code formatting platform written in Rust.
+    _desc: '[dprint](https://dprint.dev/) is a pluggable and configurable code formatting platform written in Rust.'
     _docs: https://dprint.dev/
     _github: https://github.com/dprint
     _home: https://dprint.dev/
@@ -1778,7 +1778,7 @@ softwarePackages:
     ansible: professormanhattan.elasticagent
   electron:
     _bin: electron
-    _desc: [Electron](https://www.electronjs.org/) allows you to build cross-platform desktop apps with JavaScript, HTML, and CSS
+    _desc: '[Electron](https://www.electronjs.org/) allows you to build cross-platform desktop apps with JavaScript, HTML, and CSS'
     _docs: https://www.electronjs.org/docs/latest/
     _github: https://github.com/electron/electron
     _home: https://www.electronjs.org/
@@ -1887,7 +1887,7 @@ softwarePackages:
     ansible: professormanhattan.environment
   eslint:
     _bin: eslint
-    _desc: [ESLint](https://eslint.org/) allows you to find and fix problems in your JavaScript code
+    _desc: '[ESLint](https://eslint.org/) allows you to find and fix problems in your JavaScript code'
     _docs: https://eslint.org/docs
     _github: https://github.com/eslint/eslint
     _home: https://eslint.org/
@@ -2137,7 +2137,6 @@ softwarePackages:
     _home: https://fission.io/
     _name: Fission
     _service: false
-    _type: cli
     _type: binary
     github: github.com/fission/fission
   fkill:
@@ -2177,7 +2176,7 @@ softwarePackages:
     zypper: flameshot
   flutter:
     _bin: flutter
-    _desc: [Flutter](https://flutter.dev/) transforms the app development process. Build, test, and deploy beautiful mobile, web, desktop, and embedded apps from a single codebase
+    _desc: '[Flutter](https://flutter.dev/) transforms the app development process. Build, test, and deploy beautiful mobile, web, desktop, and embedded apps from a single codebase'
     _docs: https://docs.flutter.dev/
     _github: https://github.com/flutter/flutter
     _home: https://flutter.dev/
@@ -2209,7 +2208,6 @@ softwarePackages:
     _home: https://concourse-ci.org/
     _name: fly
     _service: false
-    _type: cli
     _type: binary
     cask: fly
     github: https://github.com/concourse/concourse
@@ -3181,7 +3179,7 @@ softwarePackages:
     flatpak: com.seafile.Client
   gulp:
     _bin: gulp
-    _desc: [Gulp](https://gulpjs.com/) is a toolkit to automate & enhance your workflow
+    _desc: '[Gulp](https://gulpjs.com/) is a toolkit to automate & enhance your workflow'
     _docs: https://gulpjs.com/docs/en/getting-started/quick-start
     _github: https://github.com/gulpjs/gulp
     _home: https://gulpjs.com/
@@ -3524,7 +3522,7 @@ softwarePackages:
     go: github.com/josharian/impl@latest
   infracost:
     _bin: infracost
-    _desc: [infracost](https://www.infracost.io/) provides cloud cost estimates for Terraform in pull requests
+    _desc: '[infracost](https://www.infracost.io/) provides cloud cost estimates for Terraform in pull requests'
     _docs: https://www.infracost.io/docs
     _github: https://github.com/infracost/infracost
     _home: https://www.infracost.io/
@@ -3576,7 +3574,7 @@ softwarePackages:
     snap: intellij-idea-community
   ionic:
     _bin: ionic
-    _desc: [Ionic Framework](https://ionicframework.com/) The Ionic command line interface (CLI) is your go-to tool for developing Ionic apps
+    _desc: '[Ionic Framework](https://ionicframework.com/) The Ionic command line interface (CLI) is your go-to tool for developing Ionic apps'
     _docs: https://ionicframework.com/docs
     _github: https://github.com/ionic-team/ionic-cli
     _home: https://ionicframework.com/
@@ -4715,7 +4713,7 @@ softwarePackages:
     npm: nectarjs
   neovim:
     _bin: nvim
-    _desc: [neovim](https://neovim.io/) is Vim-fork focused on extensibility and usability
+    _desc: '[neovim](https://neovim.io/) is Vim-fork focused on extensibility and usability'
     _docs: https://neovim.io/doc/general/
     _github: https://github.com/neovim/neovim
     _home: https://neovim.io/
@@ -4982,7 +4980,7 @@ softwarePackages:
     yay: nuclear-player-bin
   oclif:
     _bin: oclif
-    _desc: [oclif]() is a framework for building CLIs in Node.js. This framework was built out of the Heroku CLI but generalized to build any custom CLI. It's designed both for single-file CLIs with a few flag options, or for very complex CLIs that have subcommands (like git or heroku)
+    _desc: "[oclif](https://oclif.io/) is a framework for building CLIs in Node.js. This framework was built out of the Heroku CLI but generalized to build any custom CLI. It's designed both for single-file CLIs with a few flag options, or for very complex CLIs that have subcommands (like git or heroku)"
     _docs: https://oclif.io/docs/
     _github: https://github.com/oclif/oclif
     _home: https://oclif.io/
@@ -5363,7 +5361,7 @@ softwarePackages:
     ansible: professormanhattan.pip
   pipx:
     _bin: pipx
-    _desc: [pipx](https://pypi.org/project/pipx/) is a tool to help you install and run end-user applications written in Python. It's roughly similar to macOS's brew, JavaScript's npx, and Linux's apt
+    _desc: "[pipx](https://pypi.org/project/pipx/) is a tool to help you install and run end-user applications written in Python. It's roughly similar to macOS's brew, JavaScript's npx, and Linux's apt"
     _docs: https://pypa.github.io/pipx/
     _github: https://github.com/pypa/pipx
     _home: https://pypi.org/project/pipx/
@@ -5383,7 +5381,7 @@ softwarePackages:
     npm: pkg
   playwright:
     _bin: playwright
-    _desc: [Playwright](https://playwright.dev) enables reliable end-to-end testing for modern web apps. It allows testing Chromium, Firefox and WebKit with a single API
+    _desc: '[Playwright](https://playwright.dev) enables reliable end-to-end testing for modern web apps. It allows testing Chromium, Firefox and WebKit with a single API'
     _docs: https://playwright.dev/docs/intro
     _github: https://github.com/Microsoft/playwright
     _home: https://playwright.dev
@@ -5533,7 +5531,7 @@ softwarePackages:
     ansible: professormanhattan.prepare
   prettier:
     _bin: prettier
-    _desc: [Prettier](https://prettier.io/docs/en/index.html) is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary
+    _desc: '[Prettier](https://prettier.io/docs/en/index.html) is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary'
     _docs: https://prettier.io/docs/en/index.html
     _github: https://github.com/prettier/prettier
     _home: https://prettier.io/
@@ -5639,7 +5637,6 @@ softwarePackages:
     _post:brew: |
       python3 -m pip install --upgrade setuptools
       python3 -m pip install --upgrade pip
-    _service: null
     apt: python3-pip
     brew: python
     dnf: python3-pip
@@ -6248,7 +6245,7 @@ softwarePackages:
     ansible: professormanhattan.security
   semantic-release:
     _bin: semantic-release
-    _desc: semantic-release automates the whole package release workflow including: determining the next version number, generating the release notes, and publishing the package
+    _desc: '[semantic-release](https://semantic-release.gitbook.io) automates the whole package release workflow including: determining the next version number, generating the release notes, and publishing the package'
     _docs: https://semantic-release.gitbook.io
     _github: https://github.com/semantic-release/semantic-release
     _home: https://semantic-release.gitbook.io
@@ -7055,9 +7052,6 @@ softwarePackages:
     _type: application
     _post:binary:windows: |
       # TODO
-    _service:
-      null
-      # TODO
     ansible: professormanhattan.termius
     binary:windows: https://autoupdate.termius.com/windows/Termius.exe
     brew: termius
@@ -7380,6 +7374,7 @@ softwarePackages:
     _home: https://www.vagrantup.com/
     _name: Vagrant
     _service: false
+    _type: cli
     _snapClassic: true
     ansible: professormanhattan.vagrant
     choco: vagrant
@@ -7390,11 +7385,11 @@ softwarePackages:
   vault:
     _bin: vault
     _desc: '[HashiCorp Vault](https://www.vaultproject.io/) secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets. Basically, it is a tool for managing any data that you want to tightly control access to. It also has some advanced integrations with systems like AWS.'
-    _docs: null
-    _github: null
+    _docs: https://developer.hashicorp.com/vault/docs
+    _github: https://github.com/hashicorp/vault
     _home: https://vaultproject.io/
     _name: HashiCorp Vault
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.vault
     brew: hashicorp/tap/vault
@@ -7402,33 +7397,34 @@ softwarePackages:
   vector:
     _bin: vector
     _desc: Vector is a lightweight, ultra-fast tool for building observability pipelines that lets you collect, transform, and route all your logs and metrics with one simple tool.
-    _docs: null
+    _docs: https://vector.dev/docs
     _github: https://github.com/vectordotdev/vector
     _home: https://vector.dev/
     _name: Vector
-    _service: null
+    _service: false
     _type: cli
     brew: vectordotdev/brew/vector
   velero:
     _bin: velero
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: '[Velero](https://velero.io/) gives you tools to back up and restore your Kubernetes cluster resources and persistent volumes'
+    _docs: https://velero.io/docs/
+    _github: https://github.com/vmware-tanzu/velero
+    _home: https://velero.io/
+    _name: velero
+    _service: false
     brew: velero
     choco: velero
     github: github.com/vmware-tanzu/velero
     yay: velero-bin
   vim:
     _bin: vim
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
+    _desc: '[Vim](https://www.vim.org/) is a greatly improved version of the good old UNIX editor Vi'
+    _docs: https://www.vim.org/docs.php
+    _github: https://github.com/vim/vim
+    _home: https://www.vim.org/
     _name: VIM
     _service: false
+    _type: cli
     ansible: professormanhattan.vim
     apt: vim
     brew: vim
@@ -7444,6 +7440,8 @@ softwarePackages:
     _github: https://github.com/mirror/vbox
     _home: https://www.virtualbox.org/
     _name: VirtualBox
+    _service: false
+    _type: cli
     _post:choco: |
       # TODO
       # TODO
@@ -7466,7 +7464,6 @@ softwarePackages:
       EOF
       sudo dnf -y install @development-tools
       sudo dnf -y install kernel-headers kernel-devel dkms elfutils-libelf-devel qt5-qtx11extras
-    _service: false
     _when:cask: '! test -d /Applications/VirtualBox.app'
     ansible: professormanhattan.virtualbox
     apt: virtualbox
@@ -7476,12 +7473,13 @@ softwarePackages:
     pacman: virtualbox
   virtualenv:
     _bin: virtualenv
-    _desc: null
-    _docs: null
-    _github: null
+    _desc: Tool for creating isolated virtual python environments
+    _docs: https://virtualenv.pypa.io/en/latest/
+    _github: https://github.com/pypa/virtualenv
     _home: null
-    _name: null
-    _service: null
+    _name: virtualenv
+    _service: false
+    _type: cli
     brew: virtualenv
     pipx: virtualenv
   visual-studio:
@@ -7492,7 +7490,8 @@ softwarePackages:
     _home: https://visualstudio.microsoft.com/
     _name: Visual Studio
     _post:cask: 'APP_LINK="$(find /usr/local/Caskroom/visual-studio -mindepth 2 -maxdepth 2 -name "*.app*" | head -n1)" && open "$APP_LINK"'
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d "/Applications/Visual Studio.app"'
     ansible:windows: professormanhattan.visualstudio
     cask: visual-studio
@@ -7515,7 +7514,8 @@ softwarePackages:
     _github: https://github.com/videolan/vlc
     _home: https://www.videolan.org/vlc/
     _name: VLC Media Player
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/VLC.app'
     ansible: professormanhattan.vlc
     apt: vlc
@@ -7527,10 +7527,11 @@ softwarePackages:
     _bin: null
     _desc: '[VMWare Workstation](https://www.vmware.com/products/workstation-pro.html) (or [VMWare Fusion](https://www.vmware.com/products/fusion.html) in the case of macOS) is a hosted hypervisor that runs on x64 versions of Windows and Linux operating systems. It enables users to set up virtual machines on a single physical machine and use them simultaneously along with the host machine. It is similar to [VirtualBox](https://gitlab.com/megabyte-labs/ansible-roles/virtualbox).'
     _docs: https://docs.vmware.com/
-    _github: Not open-source
+    _github: null
     _home: https://www.vmware.com/
     _name: VMWare
-    _service: null
+    _service: false
+    _type: application
     _when:darwin: '! test -d "/Applications/VMware Fusion.app"'
     ansible: professormanhattan.vmware
     cask: vmware-fusion
@@ -7546,7 +7547,8 @@ softwarePackages:
     _post: |
       volta setup
       volta install node@latest
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.volta
     brew: volta
     scoop: volta
@@ -7557,7 +7559,7 @@ softwarePackages:
     _github: null
     _home: null
     _name: System VPN
-    _service: null
+    _service: true
     ansible: professormanhattan.vpn
   vscode:
     _bin: null
@@ -7568,7 +7570,8 @@ softwarePackages:
     _github: https://github.com/microsoft/vscode
     _home: https://code.visualstudio.com/
     _name: Visual Studio Code
-    _service: null
+    _service: false
+    _type: application
     _snapClassic: true
     _when:cask: '! test -d "/Applications/Visual Studio Code.app"'
     ansible: professormanhattan.vscode
@@ -7585,6 +7588,7 @@ softwarePackages:
     _home: https://tracker.debian.org/pkg/w3m
     _name: w3m
     _service: false
+    _type: cli
     apt: w3m
     brew: w3m
     dnf: w3m
@@ -7598,7 +7602,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: Wails
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.wails
     go: github.com/wailsapp/wails/cmd/wails@latest
   warp:
@@ -7606,9 +7611,10 @@ softwarePackages:
     _desc: '[Cloudflare WARP Client](https://cloudflarewarp.com/) is a free app that makes your Internet safer'
     _docs: null
     _github: null
-    _home: null
+    _home: https://cloudflarewarp.com/
     _name: Cloudflare WARP Client
-    _service: null
+    _service: false
+    _type: application
     _when:darwin: '! test -d "/Applications/Cloudflare WARP.app"'
     ansible: professormanhattan.warp
     cask: cloudflare-warp
@@ -7637,10 +7643,11 @@ softwarePackages:
     _bin: watchman
     _desc: '[Watchman](https://github.com/facebook/watchman), an open-source Facebook product, can be used to watch files and record when they change. It can also trigger actions when matching files change.'
     _docs: null
-    _github: null
+    _github: https://github.com/facebook/watchman
     _home: null
     _name: Watchman
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.watchman
     brew: watchman
     choco: watchman
@@ -7649,11 +7656,11 @@ softwarePackages:
   waypoint:
     _bin: waypoint
     _desc: '[HashiCorp Waypoint](https://www.waypointproject.io/) allows developers to deploy, manage, and observe their applications through a consistent abstraction of underlying infrastructure. Waypoint works with Kubernetes, ECS and many other platforms.'
-    _docs: null
+    _docs: https://developer.hashicorp.com/waypoint/docs
     _github: https://github.com/hashicorp/waypoint
-    _home: null
+    _home: https://www.waypointproject.io/
     _name: HashiCorp Waypoint
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.waypoint
     brew: hashicorp/tap/waypoint
@@ -7679,7 +7686,7 @@ softwarePackages:
     _github: https://github.com/vi/websocat
     _home: null
     _name: websocat
-    _service: null
+    _service: false
     _type: cli
     brew: websocat
     cargo: websocat
@@ -7691,9 +7698,9 @@ softwarePackages:
     _desc: Streaming torrent app for Mac, Windows, and Linux
     _docs: null
     _github: https://github.com/webtorrent/webtorrent-desktop
-    _home: null
+    _home: webtorrent.io/desktop
     _name: WebTorrent Desktop
-    _service: null
+    _service: false
     _type: application
     _when:cask: '! test -d /Applications/WebTorrent.app'
     cask: webtorrent
@@ -7706,9 +7713,10 @@ softwarePackages:
     _desc: The [wget](https://www.gnu.org/software/wget/) command is a command line utility for downloading files from the Internet. It supports downloading multiple files, downloading in the background, resuming downloads, limiting the bandwidth used for downloads and viewing headers.
     _docs: null
     _github: null
-    _home: null
+    _home: https://www.gnu.org/software/wget/
     _name: wget
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.wget
     apk: wget
     apt: wget
@@ -7723,6 +7731,7 @@ softwarePackages:
     _home: https://github.com/whalebrew/whalebrew
     _name: Whalebrew
     _service: false
+    _type: cli
     brew: whalebrew
     script:darwin: curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.4.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
     script:linux: curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.4.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
@@ -7733,17 +7742,18 @@ softwarePackages:
     _github: https://github.com/P3GLEG/Whaler
     _home: null
     _name: whaler
-    _service: null
+    _service: false
     _type: cli
     github: github.com/P3GLEG/Whaler
   wifi-password:
     _bin: wifi-password
-    _desc: null
+    _desc: Get the password of the wifi you're on
     _docs: null
-    _github: null
+    _github: https://github.com/rauchg/wifi-password
     _home: null
-    _name: null
-    _service: null
+    _name: wifi-password
+    _service: false
+    _type: cli
     bpkg: rauchg/wifi-password
     brew:darwin: wifi-password
     npm: wifi-password-cli
@@ -7756,7 +7766,8 @@ softwarePackages:
     _github: false
     _home: https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
     _name: Windows ADK
-    _service: null
+    _service: false
+    _type: application
     ansible:windows: professormanhattan.windowsadk
     choco: windows-adk
   windows-admin-center:
@@ -7768,7 +7779,8 @@ softwarePackages:
     _github: false
     _home: https://www.microsoft.com/en-us/windows-server/windows-admin-center
     _name: Windows Admin Center
-    _service: null
+    _service: false
+    _type: application
     ansible:windows: professormanhattan.windowsadmincenter
     choco: windows-admin-center
   windows-power-toys:
@@ -7778,7 +7790,8 @@ softwarePackages:
     _github: https://github.com/microsoft/PowerToys
     _home: https://learn.microsoft.com/en-us/windows/powertoys/
     _name: Microsoft PowerToys
-    _service: null
+    _service: false
+    _type: application
     ansible:windows: professormanhattan.windowspowertoys
     choco: powertoys
     scoop: powertoys
@@ -7789,7 +7802,7 @@ softwarePackages:
     _github: https://github.com/masterzen/winrm-cli
     _home: null
     _name: winrm-cli
-    _service: null
+    _service: false
     _type: cli
     yay: winrm-cli-git
   wireshark-cli:
@@ -7799,7 +7812,8 @@ softwarePackages:
     _github: null
     _home: https://tshark.dev/
     _name: Wireshark
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.wireshark
     # Install hangs even with sudo apt-get -o DPkg::Options::=--force-confdef install -y tshark
     # Need to figure out how to completely automate this
@@ -7814,7 +7828,8 @@ softwarePackages:
     _github: https://github.com/wireshark/wireshark
     _home: https://www.wireshark.org/
     _name: Wireshark
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/Wireshark.app'
     apt: wireshark
     cask: wireshark
@@ -7829,7 +7844,7 @@ softwarePackages:
     _github: https://github.com/wkhtmltopdf/wkhtmltopdf
     _home: null
     _name: wkhtmltopdf
-    _service: null
+    _service: false
     _type: cli
     _when:cask: '! test -d /usr/local/Caskroom/wkhtmltopdf'
     ansible: professormanhattan.wkhtmltopdf
@@ -7840,32 +7855,35 @@ softwarePackages:
     pacman: wkhtmltopdf
   wordpressify:
     _bin: wordpressify
-    _desc: null
-    _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _desc: A build system designed to automate your WordPress development workflow
+    _docs: https://www.wordpressify.co/docs
+    _github: https://github.com/luangjokaj/wordpressify
+    _home: https://www.wordpressify.co/
+    _name: wordpressify
+    _service: false
+    _type: cli
     npm: wordpressify
   wp-cli:
     _bin: wp
     _desc: '[WP-CLI](https://wp-cli.org/) is the command-line interface for [WordPress](https://wordpress.org/). You can update plugins, configure multisite installations and much more. You can do all this without using a web browser.'
     _docs: null
-    _github: null
-    _home: null
+    _github: https://github.com/wp-cli/wp-cli
+    _home: https://wp-cli.org/
     _name: WP-CLI
-    _service: null
+    _service: false
+    _type: cli
     ansible:darwin: professormanhattan.wpcli
     ansible:linux: professormanhattan.wpcli
     brew: wp-cli
   wrangler:
     _bin: wrangler
-    _desc: null
+    _desc: wrangler is a CLI tool designed for folks who are interested in using Cloudflare Workers. Deploy serverless code instantly across the globe to give it exceptional performance, reliability, and scale.
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/cloudflare/wrangler
+    _home: https://workers.cloudflare.com/
+    _name: wrangler
+    _service: false
+    _type: cli
     npm: '@cloudflare/wrangler'
   wrk:
     _bin: wrk
@@ -7884,12 +7902,12 @@ softwarePackages:
     xbps: wrk
   wsl:
     _bin: null
-    _desc: For example, this role sets the timezone, sets the hostname, sets up the swap space, ensures auto-login is either disabled or enabled, and customizes GRUB (on Linux). It also ensures that specified groups are present on the system. On Windows, the role ensures all the available updates are installed, ensures [Scoop](https://scoop.sh/) is installed, and ensures common dependencies like [Bandizip](https://en.bandisoft.com/bandizip/) (a compressed-file manager) are installed.
+    _desc: Sets up Windows Subsystem For Linux
     _docs: null
     _github: null
     _home: null
-    _name: Common
-    _service: null
+    _name: wsl
+    _service: false
     ansible: professormanhattan.wsl
   xcode:
     _bin: xcodebuild
@@ -7907,17 +7925,17 @@ softwarePackages:
     _github: https://github.com/mvdan/xurls
     _home: null
     _name: xurls
-    _service: null
+    _service: false
     _type: cli
     github: github.com/mvdan/xurls
     go: mvdan.cc/xurls/v2/cmd/xurls@latest
   yamllint:
     _bin: yamllint
-    _desc: null
+    _desc: A linter for YAML files. yamllint does not only check for syntax validity, but also for weirdnesses like key repetition and cosmetic problems such as lines length, trailing spaces, indentation, etc.
     _docs: null
-    _github: null
+    _github: https://github.com/adrienverge/yamllint
     _home: null
-    _name: null
+    _name: yamllint
     _service: null
     brew: yamllint
     pipx: yamllint
@@ -7925,10 +7943,11 @@ softwarePackages:
     _bin: yank
     _desc: '[yank](https://github.com/mptre/yank) is a terminal agnostic solution which allows copying output from Termial easily, without the need to use Terminal multiplexers.'
     _docs: null
-    _github: null
+    _github: https://github.com/mptre/yank
     _home: null
     _name: yank
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.yank
     apt: yank
     brew: yank
@@ -7949,6 +7968,7 @@ softwarePackages:
     _home: https://yarnpkg.com/
     _name: Yarn
     _service: false
+    _type: cli
     ansible: professormanhattan.yarn
     brew: yarn
     choco: yarn
@@ -7959,12 +7979,13 @@ softwarePackages:
     script: curl -o- -L https://yarnpkg.com/install.sh | bash
   yarnhook:
     _bin: yarnhook
-    _desc: null
+    _desc: yarnhook keeps your node_modules up-to-date when your yarn.lock, package-lock.json or shrinkwrap.yaml changes due to git operations like checkout, merge, rebase, pull etc.
     _docs: null
-    _github: null
+    _github: https://github.com/frontsideair/yarnhook
     _home: null
     _name: Yarnhook
     _service: false
+    _type: cli
     npm: yarnhook
   yj:
     _bin: yj
@@ -7987,7 +8008,7 @@ softwarePackages:
     _github: https://github.com/ytdl-org/youtube-dl
     _home: https://youtube-dl.org/
     _name: youtube-dl
-    _service: null
+    _service: false
     ansible: professormanhattan.youtubedl
     brew: youtube-dl
     pipx: youtube-dl
@@ -7999,7 +8020,7 @@ softwarePackages:
     _github: https://github.com/mikefarah/yq
     _home: https://mikefarah.gitbook.io/yq/
     _name: yq
-    _service: null
+    _service: false
     _type: cli
     ansible: professormanhattan.yq
     apk: yq
@@ -8010,7 +8031,7 @@ softwarePackages:
     snap: yq
   yubikey:
     _bin: null
-    _desc: null
+    _desc: Installs Yubico Authenticator and YubiKey Manager
     _docs: null
     _github: null
     _home: null
@@ -8020,35 +8041,38 @@ softwarePackages:
   yubikey-authenticator:
     _bin: null
     _desc: null
-    _docs: null
+    _docs: The Yubico Authenticator app works across Windows, macOS, Linux, iOS and Android. Get the same set of codes across all Yubico Authenticator apps for desktops as well as for all leading mobile platforms. Portable credentials across devices.
     _github: null
-    _home: null
-    _name: null
-    _service: null
+    _home: https://www.yubico.com/products/yubico-authenticator/
+    _name: Yubico Authenticator
+    _service: false
+    _type: application
     _when:darwin: '! test -d "/Applications/Yubico Authenticator.app"'
     ansible:darwin: professormanhattan.yubikey
     choco: yubico-authenticator
     flatpak: com.yubico.yubioath
   yubikey-manager:
     _bin: ykman
-    _desc: null
+    _desc: Use the YubiKey Manager to configure FIDO2, OTP and PIV functionality on your YubiKey on Windows, macOS, and Linux operating systems.
     _docs: null
     _github: null
-    _home: null
-    _name: null
-    _service: null
+    _home: https://www.yubico.com/support/download/yubikey-manager/
+    _name: Yubikey Manager
+    _service: false
+    _type: cli
     brew: ykman
     dnf: yubikey-manager
     pacman: yubikey-manager
     pipx: yubikey-manager
   yubikey-manager-qt:
     _bin: null
-    _desc: null
+    _desc: Cross-platform application for configuring any YubiKey over all USB interfaces.
     _docs: null
-    _github: null
-    _home: null
-    _name: null
-    _service: null
+    _github: https://github.com/Yubico/yubikey-manager-qt
+    _home: https://developers.yubico.com/yubikey-manager-qt/
+    _name: YubiKey Manager
+    _service: false
+    _type: application
     _when:darwin: '! test -d "/Applications/YubiKey Manager.app"'
     ansible:darwin: professormanhattan.yubikey
     appimage: https://developers.yubico.com/yubikey-manager-qt/Releases/yubikey-manager-qt-1.2.4b-linux.AppImage
@@ -8064,6 +8088,7 @@ softwarePackages:
     _home: https://zap.srev.in/
     _name: Zap
     _service: false
+    _type: cli
     ansible:linux: professormanhattan.zap
     binary:linux: https://github.com/srevinsaju/zap/releases/download/continuous/zap-amd64
     script:linux: curl https://raw.githubusercontent.com/srevinsaju/zap/main/install.sh | sudo bash -s
@@ -8074,7 +8099,8 @@ softwarePackages:
     _github: Not open-source
     _home: https://zoom.us/
     _name: Zoom
-    _service: null
+    _service: false
+    _type: application
     _when:cask: '! test -d /Applications/zoom.us.app'
     ansible: professormanhattan.zoom
     cask: zoom
@@ -8089,7 +8115,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: zoxide
-    _service: null
+    _service: false
+    _type: cli
     ansible: professormanhattan.zoxide
     brew: zoxide
   zsh:
@@ -8099,7 +8126,8 @@ softwarePackages:
     _github: null
     _home: null
     _name: Zsh
-    _service: null
+    _service: false
+    _type: cli
     ansible:darwin: professormanhattan.zsh
     ansible:linux: professormanhattan.zsh
     apt: zsh
@@ -8109,12 +8137,13 @@ softwarePackages:
     port: zsh
   zx:
     _bin: zx
-    _desc: null
+    _desc: Bash is great, but when it comes to writing more complex scripts, many people prefer a more convenient programming language. JavaScript is a perfect choice, but the Node.js standard library requires additional hassle before using. The zx package provides useful wrappers around child_process, escapes arguments and gives sensible defaults.
     _docs: null
-    _github: null
+    _github: https://github.com/google/zx
     _home: null
-    _name: null
-    _service: null
+    _name: zx
+    _service: false
+    _type: cli
     brew: zx
     npm: zx
 
